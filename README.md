@@ -1,5 +1,8 @@
 # beertournament
 
+Hier entsteht die Bier-Tasting-Challenge 2022. Das HTML and CSS sind von [Joe Beason
+](https://codepen.io/jbeason/pen/Wbaedb). 
+
 ## Project setup
 ```
 npm install
