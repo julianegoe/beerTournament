@@ -1,0 +1,90 @@
+<template>
+    <div class="header">
+        <div class="header__left">
+        <a v-if="isLoggedIn" @click="$router.push({name: 'Overview'})">
+            Alle Turnierbäume
+        </a>
+        <a v-if="isLoggedIn">
+            Mein Turnierbaum
+        </a>
+        </div>
+        <div class="header__right">
+            <a v-if="isLoggedIn" @click.prevent="signOut">
+                Log Out
+            </a>
+        </div>
+    </div>
+</template>
+
+<script>
+import { signOut, onAuthStateChanged } from 'firebase/auth';
+import {auth} from '@/firebase';
+
+    export default {
+        name: 'Header',
+        data() {
+            return {
+                isLoggedIn: false,
+            }
+        },
+        methods: {
+            async signOut() {
+                try {
+                    await signOut(auth);
+                } catch (error) {
+                    console.log(error);
+                } 
+            }
+        },
+        mounted() {
+            onAuthStateChanged(auth, (user) => {
+                if (user) {
+                    this.isLoggedIn = true;
+                } else {
+                    this.isLoggedIn = false;
+                    this.$router.replace({name: 'Login'})
+                }
+            }); 
+        }
+    }
+</script>
+
+<style scoped>
+.header {
+    z-index: 1;
+    width: 100%;
+    background-image: linear-gradient(90deg, #7400b8, #80ffdb);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.header__left {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 0.5rem;
+}
+
+.header__left > a {
+        padding-right: 1rem;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+
+}
+.header__right {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 0.5rem;
+}
+.header__right > a {
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        padding-right: 1rem;
+}
+</style>

@@ -1,11 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import Overview from '../views/Overview.vue';
 
 const routes = [
-    {
-        path: '/',
-        name: 'Home',
-        component: () => import(/* webpackChunkName: "output" */ '../views/Overview.vue'),
-      },
+  {
+    path: '/',
+    name: 'Overview',
+    component: Overview
+  },
   {
     path: '/login',
     name: 'Login',
@@ -20,7 +21,6 @@ const routes = [
     path: '/tree/:id',
     name: 'Tree',
     component: () => import(/* webpackChunkName: "output" */ '../components/Tree.vue'),
-    props: true,
   },
  
 ]
