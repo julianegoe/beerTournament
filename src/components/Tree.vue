@@ -157,8 +157,8 @@
     <!-- END ROUND ONE -->
    </div>
   </div>
-  <button type="button" @click="addDatatoDatabase">Speichern</button>
-  <button type="button" @click="resetDatabase">Zurücksetzen</button>
+  <button class="base-btn" type="button" @click="addDatatoDatabase">Speichern</button>
+  <button class="base-btn" type="button" @click="resetDatabase">Zurücksetzen</button>
  </section>
 </template>
 
@@ -542,6 +542,22 @@ body {
  letter-spacing: 2px;
  font-family: "Istok Web", sans-serif;
  color: #3f915f;
+}
+.base-btn {
+  color: white;
+  padding: 1rem;
+  margin: 0.5rem;
+  border: none;
+  background: #3f915f;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.base-btn:hover {
+  background: #225535;
+}
+.base-btn:active {
+  background: #225535;
+  
 }
 
 @media screen and (min-width: 981px) and (max-width: 1099px) {
