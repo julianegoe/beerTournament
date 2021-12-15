@@ -10,8 +10,9 @@
             <button type="submit">Log In</button>
 
         </form>
-        <a href="/register">Hier rgistrieren</a>
-
+        <div class="register-link">
+            <RouterLink :to="{name: 'Register'}">Hier registrieren</RouterLink>
+        </div>
     </div>
 </template>
 
@@ -42,4 +43,9 @@ import { auth } from '@/firebase'
 </script>
 
 <style scoped>
+
+.register-link {
+    padding-top: 1rem;
+    cursor: pointer;
+}
 </style>
