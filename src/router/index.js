@@ -19,8 +19,8 @@ const routes = [
   },
   {
     path: '/tree/:id',
-    name: 'Tree',
-    component: () => import(/* webpackChunkName: "output" */ '../components/Tree.vue'),
+    name: 'Home',
+    component: () => import(/* webpackChunkName: "output" */ '../views/Home.vue'),
   },
  
 ]

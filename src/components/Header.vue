@@ -4,8 +4,9 @@
         <a v-if="isLoggedIn" @click="$router.push({name: 'Overview'})">
             Alle Turnierbäume
         </a>
-        <a v-if="isLoggedIn">
-            Mein Turnierbaum
+        <a v-if="isLoggedIn"
+        @click="$router.push({ name: 'Home', params: { id: userID || 'no_ID' } })">
+        Mein Turnierbaum
         </a>
         </div>
         <div class="header__right">
@@ -25,6 +26,7 @@ import {auth} from '@/firebase';
         data() {
             return {
                 isLoggedIn: false,
+                userID: '',
             }
         },
         methods: {
@@ -39,6 +41,7 @@ import {auth} from '@/firebase';
         mounted() {
             onAuthStateChanged(auth, (user) => {
                 if (user) {
+                    this.userID = user.uid;
                     this.isLoggedIn = true;
                 } else {
                     this.isLoggedIn = false;
