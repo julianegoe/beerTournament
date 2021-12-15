@@ -9,6 +9,9 @@
             </div>
             <button type="submit">Registrieren</button>
         </form>
+        <div class="register-link">
+            <RouterLink :to="{name: 'Login'}">Zum Login</RouterLink>
+        </div>
 
     </div>
 </template>
@@ -23,14 +26,12 @@ import { auth } from '@/firebase'
                 email: '',
                 password: '',
                 auth: {},
-                user: null,
             }
         },
         methods: {
             async registerUser() {
                 try {
                     this.user = await createUserWithEmailAndPassword(auth, this.email, this.password);
-                    console.log(this.user);
                     this.$router.replace({name: 'Login'});
                 } catch (error) {
                     console.log(error);
@@ -41,4 +42,8 @@ import { auth } from '@/firebase'
 </script>
 
 <style scoped>
+
+.register-link {
+    padding-top: 1rem;
+}
 </style>

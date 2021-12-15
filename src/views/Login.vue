@@ -31,9 +31,9 @@ import { auth } from '@/firebase'
         methods: {
             async loginUser() {
                 try {
-                    await signInWithEmailAndPassword(auth, this.email, this.password);
+                    const data = await signInWithEmailAndPassword(auth, this.email, this.password);
                     this.isLoggedIn = true;
-                    this.$router.replace({name: 'Overview'});
+                    this.$router.replace({ name: 'Home', params: { id: data.user.uid || 'no_ID' } });
                 } catch (error) {
                     console.log(error);
                 }
@@ -46,6 +46,5 @@ import { auth } from '@/firebase'
 
 .register-link {
     padding-top: 1rem;
-    cursor: pointer;
 }
 </style>
