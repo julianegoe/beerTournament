@@ -157,15 +157,6 @@
     <!-- END ROUND ONE -->
    </div>
   </div>
- </section>
- <section class="share">
-  <div class="share-wrap">
-   <a class="share-icon" href="https://twitter.com/_joebeason"
-    ><i class="fa fa-twitter"></i
-   ></a>
-   <a class="share-icon" href="#"><i class="fa fa-facebook"></i></a>
-   <a class="share-icon" href="#"><i class="fa fa-envelope"></i></a>
-  </div>
   <button type="button" @click="addDatatoDatabase">Speichern</button>
   <button type="button" @click="resetDatabase">Zurücksetzen</button>
  </section>
@@ -443,23 +434,12 @@ body {
 .container {
  max-width: 1100px;
  margin: 0 auto;
- display: block;
- display: -webkit-box;
- display: -moz-box;
- display: -ms-flexbox;
- display: -webkit-flex;
- display: -webkit-flex;
  display: flex;
  -webkit-flex-direction: row;
  flex-direction: row;
 }
 .split {
- display: block;
  float: left;
- display: -webkit-box;
- display: -moz-box;
- display: -ms-flexbox;
- display: -webkit-flex;
  display: flex;
  width: 42%;
  -webkit-flex-direction: row;
@@ -470,9 +450,7 @@ body {
  float: left;
  display: block;
  width: 16%;
- -webkit-flex-direction: row;
  flex-direction: row;
- -webkit-align-self: center;
  align-self: center;
  margin-top: -15px;
  text-align: center;
@@ -484,12 +462,7 @@ body {
  padding: 10px 0;
 }
 .round {
- display: block;
  float: left;
- display: -webkit-box;
- display: -moz-box;
- display: -ms-flexbox;
- display: -webkit-flex;
  display: flex;
  -webkit-flex-direction: column;
  flex-direction: column;
@@ -507,7 +480,6 @@ body {
  width: 100%;
  padding: 10px 0;
  height: 60px;
- -webkit-transition: all 0.2s;
  transition: all 0.2s;
 }
 .score {
@@ -562,73 +534,8 @@ body {
  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
  opacity: 1;
 }
-.vote-options {
- display: block;
- height: 52px;
-}
-.share .container {
- margin: 0 auto;
- text-align: center;
-}
-.share-icon {
- font-size: 24px;
- color: #fff;
- padding: 25px;
-}
-.share-wrap {
- max-width: 1100px;
- text-align: center;
- margin: 60px auto;
-}
 .final {
  margin: 4.5em 0;
-}
-
-@-webkit-keyframes pulse {
- 0% {
-  -webkit-transform: scale(1);
-  transform: scale(1);
- }
-
- 50% {
-  -webkit-transform: scale(1.3);
-  transform: scale(1.3);
- }
-
- 100% {
-  -webkit-transform: scale(1);
-  transform: scale(1);
- }
-}
-
-@keyframes pulse {
- 0% {
-  -webkit-transform: scale(1);
-  -ms-transform: scale(1);
-  transform: scale(1);
- }
-
- 50% {
-  -webkit-transform: scale(1.3);
-  -ms-transform: scale(1.3);
-  transform: scale(1.3);
- }
-
- 100% {
-  -webkit-transform: scale(1);
-  -ms-transform: scale(1);
-  transform: scale(1);
- }
-}
-
-.share-icon {
- color: #fff;
- opacity: 0.35;
-}
-.share-icon:hover {
- opacity: 1;
- -webkit-animation: pulse 0.5s;
- animation: pulse 0.5s;
 }
 .date {
  font-size: 10px;
@@ -660,8 +567,6 @@ body {
 
 @media screen and (max-width: 980px) {
  .container {
-  -webkit-flex-direction: column;
-  -moz-flex-direction: column;
   flex-direction: column;
  }
  .split,
@@ -670,10 +575,6 @@ body {
   margin: 35px 5%;
  }
  .champion {
-  -webkit-box-ordinal-group: 3;
-  -moz-box-ordinal-group: 3;
-  -ms-flex-order: 3;
-  -webkit-order: 3;
   order: 3;
  }
  .split {
@@ -701,28 +602,7 @@ body {
   width: 21%;
  }
  .current {
-  -webkit-flex-grow: 1;
-  -moz-flex-grow: 1;
   flex-grow: 1;
- }
- .hero h1 {
-  font-size: 2.15em;
-  letter-spacing: 0;
-  margin: 0;
- }
- .hero p.intro {
-  font-size: 1.15em;
-  margin-bottom: -10px;
- }
- .round-details {
-  font-size: 90%;
- }
- .hero-wrap {
-  padding: 2.5em;
- }
- .hero p.year {
-  margin: 5px 0 10px;
-  font-size: 18px;
  }
 }
 </style>
