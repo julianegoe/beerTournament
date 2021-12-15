@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "firebase": "^9.6.1",
     "vue": "^3.0.0",
     "vue-tournament-bracket": "^2.1.3"
   },

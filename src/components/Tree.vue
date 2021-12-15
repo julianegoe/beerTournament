@@ -8,20 +8,20 @@
      </div>
      <ul
       class="matchup"
-      v-for="(beer, index) in evenNumbersWest"
+      v-for="(n, index) in 8"
       :key="index"
      >
       <li
-       @click="declareWinnerRoundOneWest(oddNumbersWest[index], index)"
+       @click="declareWinnerRoundOneWest(selectionTopWest[index], index)"
        class="team team-top"
       >
-       {{ oddNumbersWest[index].name }}
+       {{ selectionTopWest[index].name }}
       </li>
       <li
-       @click="declareWinnerRoundOneWest(evenNumbersWest[index], index)"
+       @click="declareWinnerRoundOneWest(selectionBottomWest[index], index)"
        class="team team-bottom"
       >
-       {{ evenNumbersWest[index].name }}
+       {{ selectionBottomWest[index].name }}
       </li>
      </ul>
     </div>
@@ -72,11 +72,11 @@
       1. Halbfinale <br /><span class="date"></span>
      </div>
      <ul class="matchup championship">
-      <li @click="declareFinalists(semiFinalsWestTop, 0)" class="team team-top">
-       {{semiFinalsWestTop}}
+      <li @click="declareFinalists(semiFinalsWestTop[0], 0)" class="team team-top">
+       {{semiFinalsWestTop[0]}}
       </li>
-      <li @click="declareFinalists(semiFinalsWestBottom, 0)" class="team team-bottom">
-       {{semiFinalsWestBottom}}
+      <li @click="declareFinalists(semiFinalsWestBottom[1], 0)" class="team team-bottom">
+       {{semiFinalsWestBottom[1]}}
       </li>
      </ul>
     </div>
@@ -86,11 +86,11 @@
       Finale <br /><span class="date"></span>
      </div>
      <ul class="matchup championship">
-      <li @click="declareChampion(finalistTop)" class="team team-top">
-       {{finalistTop}}
+      <li @click="declareChampion(finalistTop[0], 0)" class="team team-top">
+       {{finalistTop[0]}}
       </li>
-      <li @click="declareChampion(finalistBottom)" class="team team-bottom">
-      {{finalistBottom}}
+      <li @click="declareChampion(finalistBottom[1], 1)" class="team team-bottom">
+      {{finalistBottom[1]}}
       </li>
      </ul>
     </div>
@@ -99,9 +99,9 @@
       2. Halbfinale <br /><span class="date"></span>
      </div>
      <ul class="matchup championship">
-      <li @click="declareFinalists(semiFinalsEastTop, 1)" class="team team-top">{{semiFinalsEastTop}}
+      <li @click="declareFinalists(semiFinalsEastTop[2], 1)" class="team team-top">{{semiFinalsEastTop[2]}}
       </li>
-      <li @click="declareFinalists(semiFinalsEastBottom, 1)" class="team team-bottom">{{semiFinalsEastBottom}}
+      <li @click="declareFinalists(semiFinalsEastBottom[3], 1)" class="team team-bottom">{{semiFinalsEastBottom[3]}}
       </li>
      </ul>
     </div>
@@ -149,9 +149,9 @@
      <div class="round-details">
       Runde 1<br /><span class="date"></span>
      </div>
-     <ul class="matchup" v-for="beer, index in evenNumbersEast" :key="index">
-      <li  @click="declareWinnerRoundOneEast(evenNumbersEast[index], index)" class="team team-top">{{ evenNumbersEast[index].name }}</li>
-      <li  @click="declareWinnerRoundOneEast(oddNumbersEast[index], index)" class="team team-bottom">{{ oddNumbersEast[index].name }}</li>
+     <ul class="matchup" v-for="(n, index) in 8" :key="index">
+      <li  @click="declareWinnerRoundOneEast(selectionBottomEast[index], index)" class="team team-top">{{ selectionBottomEast[index].name }}</li>
+      <li  @click="declareWinnerRoundOneEast(selectionTopEast[index], index)" class="team team-bottom">{{ selectionTopEast[index].name }}</li>
      </ul>
     </div>
     <!-- END ROUND ONE -->
@@ -166,14 +166,18 @@
    <a class="share-icon" href="#"><i class="fa fa-facebook"></i></a>
    <a class="share-icon" href="#"><i class="fa fa-envelope"></i></a>
   </div>
+  <button type="button" @click="addDatatoDatabase">Speichern</button>
+  <button type="button" @click="resetDatabase">Zurücksetzen</button>
  </section>
 </template>
 
 <script>
 import beers from "../assets/beers.json";
+import { setDoc, doc, getDocs, collection } from "firebase/firestore";
+import { db } from '@/firebase';
 
 export default {
- name: "HelloWorld",
+ name: "Tree",
  data() {
   return {
     roundOneWinnersTopWest: {},
@@ -186,42 +190,140 @@ export default {
     roundTwoWinnersTopEast: {},
     roundTwoWinnersBottomEast: {},
 
-    semiFinalsWestTop: '',
-    semiFinalsWestBottom: '',
+    semiFinalsWestTop: {},
+    semiFinalsWestBottom: {},
 
-    semiFinalsEastTop: '',
-    semiFinalsEastBottom: '',
+    semiFinalsEastTop: {},
+    semiFinalsEastBottom: {},
 
-    finalistTop: '',
-    finalistBottom: '',
+    finalistTop: {},
+    finalistBottom: {},
   };
  },
+ async beforeMount() {
+    let querySnapshot = await getDocs(collection(db, "roundOneWinnersTopWest"));
+    querySnapshot.forEach((doc) => {
+      this.roundOneWinnersTopWest = doc.data();
+    });
+    querySnapshot = await getDocs(collection(db, "roundOneWinnersBottomWest"));
+    querySnapshot.forEach((doc) => {
+      this.roundOneWinnersBottomWest = doc.data();
+    });
+    querySnapshot = await getDocs(collection(db, "roundOneWinnersTopEast"));
+    querySnapshot.forEach((doc) => {
+      this.roundOneWinnersTopEast = doc.data();
+    });
+    querySnapshot = await getDocs(collection(db, "roundOneWinnersBottomEast"));
+    querySnapshot.forEach((doc) => {
+      this.roundOneWinnersBottomEast = doc.data();
+    });
+    querySnapshot = await getDocs(collection(db, "roundTwoWinnersTopWest"));
+    querySnapshot.forEach((doc) => {
+      this.roundTwoWinnersTopWest = doc.data();
+    });
+    querySnapshot = await getDocs(collection(db, "roundTwoWinnersBottomWest"));
+    querySnapshot.forEach((doc) => {
+      this.roundTwoWinnersBottomWest = doc.data();
+    });
+    querySnapshot = await getDocs(collection(db, "roundTwoWinnersTopEast"));
+    querySnapshot.forEach((doc) => {
+      this.roundTwoWinnersTopEast = doc.data();
+    });
+    querySnapshot = await getDocs(collection(db, "roundTwoWinnersBottomEast"));
+    querySnapshot.forEach((doc) => {
+      this.roundTwoWinnersBottomEast = doc.data();
+    });
+    querySnapshot = await getDocs(collection(db, "semiFinalsWestTop"));
+    querySnapshot.forEach((doc) => {
+      this.semiFinalsWestTop = doc.data();
+    });
+    querySnapshot = await getDocs(collection(db, "semiFinalsWestBottom"));
+    querySnapshot.forEach((doc) => {
+      this.semiFinalsWestBottom = doc.data();
+    });
+    querySnapshot = await getDocs(collection(db, "semiFinalsEastTop"));
+    querySnapshot.forEach((doc) => {
+      this.semiFinalsEastTop = doc.data();
+    });
+    querySnapshot = await getDocs(collection(db, "semiFinalsEastBottom"));
+    querySnapshot.forEach((doc) => {
+      this.semiFinalsEastBottom = doc.data();
+    });
+    querySnapshot = await getDocs(collection(db, "finalistTop"));
+    querySnapshot.forEach((doc) => {
+      this.finalistTop = doc.data();
+    });
+    querySnapshot = await getDocs(collection(db, "finalistBottom"));
+    querySnapshot.forEach((doc) => {
+      this.finalistBottom = doc.data();
+    });
+  },
  computed: {
+   // All available beer brands
   competitors() {
    return JSON.parse(JSON.stringify(beers));
   },
-  oddNumbersWest() {
+  // a filtered list of all beer brands that are displayed in the top tier of the west bracket
+  selectionTopWest() {
    return this.competitors.filter(
     (beer, index) => index % 2 !== 0 && index < 16
    );
   },
-  evenNumbersWest() {
+  // a filtered list of all beer brands that are displayed in the bottom tier of the west bracket
+  selectionBottomWest() {
    return this.competitors.filter(
     (beer, index) => index % 2 === 0 && index < 16
    );
   },
-  oddNumbersEast() {
+  // a filtered list of all beer brands that are displayed in the top tier of the east bracket
+  selectionTopEast() {
    return this.competitors.filter(
     (beer, index) => index % 2 !== 0 && index > 16
    );
   },
-  evenNumbersEast() {
+  // a filtered list of all beer brands that are displayed in the top tier of the east bracket
+  selectionBottomEast() {
    return this.competitors.filter(
     (beer, index) => index % 2 === 0 && index >= 16
    );
   },
  },
  methods: {
+   async addDatatoDatabase() {
+   console.log('saving...')
+   await setDoc(doc(db, "roundOneWinnersTopWest", "0"), this.roundOneWinnersTopWest);
+   await setDoc(doc(db, "roundOneWinnersBottomWest", "0"), this.roundOneWinnersBottomWest);
+   await setDoc(doc(db, "roundOneWinnersTopEast", "0"), this.roundOneWinnersTopEast);
+   await setDoc(doc(db, "roundOneWinnersBottomEast", "0"), this.roundOneWinnersBottomEast);
+   await setDoc(doc(db, "roundTwoWinnersTopWest", "0"), this.roundTwoWinnersTopWest);
+   await setDoc(doc(db, "roundTwoWinnersBottomWest", "0"), this.roundTwoWinnersBottomWest);
+   await setDoc(doc(db, "roundTwoWinnersTopEast", "0"), this.roundTwoWinnersTopEast);
+   await setDoc(doc(db, "roundTwoWinnersBottomEast", "0"), this.roundTwoWinnersBottomEast);
+   await setDoc(doc(db, "semiFinalsWestTop", "0"), this.semiFinalsWestTop);
+   await setDoc(doc(db, "semiFinalsWestBottom", "0"), this.semiFinalsWestBottom);
+   await setDoc(doc(db, "semiFinalsEastTop", "0"), this.semiFinalsEastTop);
+   await setDoc(doc(db, "semiFinalsEastBottom", "0"), this.semiFinalsEastBottom);
+   await setDoc(doc(db, "finalistTop", "0"), this.finalistTop);
+   await setDoc(doc(db, "finalistBottom", "0"), this.finalistBottom);
+ },
+ async resetDatabase() {
+   console.log('resetting...')
+   await setDoc(doc(db, "roundOneWinnersTopWest", "0"), {});
+   await setDoc(doc(db, "roundOneWinnersBottomWest", "0"), {});
+   await setDoc(doc(db, "roundOneWinnersTopEast", "0"),{} );
+   await setDoc(doc(db, "roundOneWinnersBottomEast", "0"), {});
+   await setDoc(doc(db, "roundTwoWinnersTopWest", "0"), {});
+   await setDoc(doc(db, "roundTwoWinnersBottomWest", "0"), {});
+   await setDoc(doc(db, "roundTwoWinnersTopEast", "0"), {});
+   await setDoc(doc(db, "roundTwoWinnersBottomEast", "0"), {});
+   await setDoc(doc(db, "semiFinalsWestTop", "0"), {});
+   await setDoc(doc(db, "semiFinalsWestBottom", "0"), {});
+   await setDoc(doc(db, "semiFinalsEastTop", "0"), {});
+   await setDoc(doc(db, "semiFinalsEastBottom", "0"), {});
+   await setDoc(doc(db, "finalistTop", "0"), {});
+   await setDoc(doc(db, "finalistBottom", "0"),{});
+   location.reload()
+ },
   declareWinnerRoundOneWest(beer, index) {
     if (index % 2 === 0) {
     this.roundOneWinnersTopWest = {...this.roundOneWinnersTopWest, [index]: beer.name}
@@ -229,7 +331,7 @@ export default {
     this.roundOneWinnersBottomWest = {...this.roundOneWinnersBottomWest, [index]: beer.name}
     }
   },
-  declareWinnerRoundOneEast(beer, index) {
+  async declareWinnerRoundOneEast(beer, index) {
     if (index % 2 === 0) {
     this.roundOneWinnersTopEast = {...this.roundOneWinnersTopEast, [index]: beer.name}
     } else {
@@ -252,23 +354,23 @@ export default {
   },
   declareSemiFinalsWest(beer, index) {
     if (index % 2 === 0) {
-    this.semiFinalsWestTop = beer
+    this.semiFinalsWestTop = {...this.semiFinalsWestTop, [index]: beer}
     } else {
-    this.semiFinalsWestBottom = beer
+    this.semiFinalsWestBottom = {...this.semiFinalsWestBottom, [index]: beer}
     }
   },
   declareSemiFinalsEast(beer, index) {
     if (index % 2 === 0) {
-    this.semiFinalsEastTop = beer
+    this.semiFinalsEastTop = {...this.semiFinalsEastTop, [index]: beer}
     } else {
-    this.semiFinalsEastBottom = beer
+    this.semiFinalsEastBottom = {...this.semiFinalsEastBottom, [index]: beer}
     }
   },
   declareFinalists(beer, index) {
     if (index % 2 === 0) {
-    this.finalistTop = beer
+    this.finalistTop = {...this.finalistTop, [index]: beer}
     } else {
-    this.finalistBottom = beer
+    this.finalistBottom = {...this.finalistBottom, [index]: beer}
     }
   },
   declareChampion(beer) {
@@ -393,8 +495,6 @@ body {
  flex-direction: column;
  width: 95%;
  width: 30.8333%\9;
-}
-.split-two {
 }
 .split-one .round {
  margin: 0 2.5% 0 0;

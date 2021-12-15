@@ -1,14 +1,14 @@
 <template>
-  <HelloWorld/>
+  <Tree/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Tree from './components/Tree.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Tree
   }
 }
 </script>
