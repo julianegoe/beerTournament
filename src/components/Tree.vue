@@ -3,14 +3,8 @@
   <div class="container">
    <div class="split split-one">
     <div class="round round-one current">
-     <div class="round-details">
-      Runde 1<br /><span class="date"></span>
-     </div>
-     <ul
-      class="matchup"
-      v-for="(n, index) in 8"
-      :key="index"
-     >
+     <div class="round-details">Runde 1<br /><span class="date"></span></div>
+     <ul class="matchup" v-for="(n, index) in 8" :key="index">
       <li
        @click="declareWinnerRoundOneWest(selectionTopWest[index], index)"
        class="team team-top"
@@ -28,39 +22,99 @@
     <!-- END ROUND ONE -->
 
     <div class="round round-two">
-     <div class="round-details">
-      Runde 2<br /><span class="date"></span>
-     </div>
+     <div class="round-details">Runde 2<br /><span class="date"></span></div>
      <ul class="matchup">
-      <li @click="declareWinnerRoundTwoWest(roundOneWinnersTopWest[0], 0)" class="team team-top">{{roundOneWinnersTopWest[0]}}</li>
-      <li @click="declareWinnerRoundTwoWest(roundOneWinnersBottomWest[1], 0)" class="team team-bottom">{{roundOneWinnersBottomWest[1]}}</li>
+      <li
+       @click="declareWinnerRoundTwoWest(roundOneWinnersTopWest[0], 0)"
+       class="team team-top"
+      >
+       {{ roundOneWinnersTopWest[0] }}
+      </li>
+      <li
+       @click="declareWinnerRoundTwoWest(roundOneWinnersBottomWest[1], 0)"
+       class="team team-bottom"
+      >
+       {{ roundOneWinnersBottomWest[1] }}
+      </li>
      </ul>
      <ul class="matchup">
-      <li @click="declareWinnerRoundTwoWest(roundOneWinnersTopWest[2], 1)" class="team team-top">{{roundOneWinnersTopWest[2]}}</li>
-      <li @click="declareWinnerRoundTwoWest(roundOneWinnersBottomWest[3], 1)" class="team team-bottom">{{roundOneWinnersBottomWest[3]}}</li>
+      <li
+       @click="declareWinnerRoundTwoWest(roundOneWinnersTopWest[2], 1)"
+       class="team team-top"
+      >
+       {{ roundOneWinnersTopWest[2] }}
+      </li>
+      <li
+       @click="declareWinnerRoundTwoWest(roundOneWinnersBottomWest[3], 1)"
+       class="team team-bottom"
+      >
+       {{ roundOneWinnersBottomWest[3] }}
+      </li>
      </ul>
      <ul class="matchup">
-      <li @click="declareWinnerRoundTwoWest(roundOneWinnersTopWest[4], 2)" class="team team-top">{{roundOneWinnersTopWest[4]}}</li>
-      <li @click="declareWinnerRoundTwoWest(roundOneWinnersBottomWest[5], 2)" class="team team-bottom">{{roundOneWinnersBottomWest[5]}}</li>
+      <li
+       @click="declareWinnerRoundTwoWest(roundOneWinnersTopWest[4], 2)"
+       class="team team-top"
+      >
+       {{ roundOneWinnersTopWest[4] }}
+      </li>
+      <li
+       @click="declareWinnerRoundTwoWest(roundOneWinnersBottomWest[5], 2)"
+       class="team team-bottom"
+      >
+       {{ roundOneWinnersBottomWest[5] }}
+      </li>
      </ul>
      <ul class="matchup">
-      <li @click="declareWinnerRoundTwoWest(roundOneWinnersTopWest[6], 3)" class="team team-top">{{roundOneWinnersTopWest[6]}}</li>
-      <li @click="declareWinnerRoundTwoWest(roundOneWinnersBottomWest[7], 3)" class="team team-bottom">{{roundOneWinnersBottomWest[7]}}</li>
+      <li
+       @click="declareWinnerRoundTwoWest(roundOneWinnersTopWest[6], 3)"
+       class="team team-top"
+      >
+       {{ roundOneWinnersTopWest[6] }}
+      </li>
+      <li
+       @click="declareWinnerRoundTwoWest(roundOneWinnersBottomWest[7], 3)"
+       class="team team-bottom"
+      >
+       {{ roundOneWinnersBottomWest[7] }}
+      </li>
      </ul>
     </div>
     <!-- END ROUND TWO -->
 
     <div class="round round-three">
-     <div class="round-details">
-      Runde 3<br /><span class="date"></span>
-     </div>
+     <div class="round-details">Runde 3<br /><span class="date"></span></div>
      <ul class="matchup">
-      <li @click="declareSemiFinalsWest(roundTwoWinnersTopWest[0], 0)"  class="team team-top">{{roundTwoWinnersTopWest[0]}}</li> <!-- west semifinals top -->
-      <li @click="declareSemiFinalsWest(roundTwoWinnersBottomWest[1], 0)" class="team team-bottom">{{roundTwoWinnersBottomWest[1]}}</li> <!-- west semifinals top -->
+      <li
+       @click="declareSemiFinalsWest(roundTwoWinnersTopWest[0], 0)"
+       class="team team-top"
+      >
+       {{ roundTwoWinnersTopWest[0] }}
+      </li>
+      <!-- west semifinals top -->
+      <li
+       @click="declareSemiFinalsWest(roundTwoWinnersBottomWest[1], 0)"
+       class="team team-bottom"
+      >
+       {{ roundTwoWinnersBottomWest[1] }}
+      </li>
+      <!-- west semifinals top -->
      </ul>
      <ul class="matchup">
-      <li @click="declareSemiFinalsEast(roundTwoWinnersTopWest[2], 2)"  class="team team-top">{{roundTwoWinnersTopWest[2]}}</li> <!-- east semifinals top -->
-      <li @click="declareSemiFinalsEast(roundTwoWinnersBottomWest[3], 2)" class="team team-bottom">{{roundTwoWinnersBottomWest[3]}}</li> <!-- east semifinals top -->
+      <li
+       @click="declareSemiFinalsEast(roundTwoWinnersTopWest[2], 2)"
+       class="team team-top"
+      >
+       {{ roundTwoWinnersTopWest[2] }}
+      </li>
+      <!-- east semifinals top -->
+      <li
+       @click="declareSemiFinalsEast(roundTwoWinnersBottomWest[3], 2)"
+       class="team team-bottom"
+      >
+       {{ roundTwoWinnersBottomWest[3] }}
+      </li>
+      <!-- east semifinals top -->
      </ul>
     </div>
     <!-- END ROUND THREE -->
@@ -72,25 +126,32 @@
       1. Halbfinale <br /><span class="date"></span>
      </div>
      <ul class="matchup championship">
-      <li @click="declareFinalists(semiFinalsWestTop[0], 0)" class="team team-top">
-       {{semiFinalsWestTop[0]}}
+      <li
+       @click="declareFinalists(semiFinalsWestTop[0], 0)"
+       class="team team-top"
+      >
+       {{ semiFinalsWestTop[0] }}
       </li>
-      <li @click="declareFinalists(semiFinalsWestBottom[1], 0)" class="team team-bottom">
-       {{semiFinalsWestBottom[1]}}
+      <li
+       @click="declareFinalists(semiFinalsWestBottom[1], 0)"
+       class="team team-bottom"
+      >
+       {{ semiFinalsWestBottom[1] }}
       </li>
      </ul>
     </div>
     <div class="final">
      <i class="fa fa-trophy"></i>
-     <div class="round-details">
-      Finale <br /><span class="date"></span>
-     </div>
+     <div class="round-details">Finale <br /><span class="date"></span></div>
      <ul class="matchup championship">
       <li @click="declareChampion(finalistTop[0], 0)" class="team team-top">
-       {{finalistTop[0]}}
+       {{ finalistTop[0] }}
       </li>
-      <li @click="declareChampion(finalistBottom[1], 1)" class="team team-bottom">
-      {{finalistBottom[1]}}
+      <li
+       @click="declareChampion(finalistBottom[1], 1)"
+       class="team team-bottom"
+      >
+       {{ finalistBottom[1] }}
       </li>
      </ul>
     </div>
@@ -99,9 +160,17 @@
       2. Halbfinale <br /><span class="date"></span>
      </div>
      <ul class="matchup championship">
-      <li @click="declareFinalists(semiFinalsEastTop[2], 1)" class="team team-top">{{semiFinalsEastTop[2]}}
+      <li
+       @click="declareFinalists(semiFinalsEastTop[2], 1)"
+       class="team team-top"
+      >
+       {{ semiFinalsEastTop[2] }}
       </li>
-      <li @click="declareFinalists(semiFinalsEastBottom[3], 1)" class="team team-bottom">{{semiFinalsEastBottom[3]}}
+      <li
+       @click="declareFinalists(semiFinalsEastBottom[3], 1)"
+       class="team team-bottom"
+      >
+       {{ semiFinalsEastBottom[3] }}
       </li>
      </ul>
     </div>
@@ -109,147 +178,217 @@
 
    <div class="split split-two">
     <div class="round round-three">
-     <div class="round-details">
-      Runde 3<br /><span class="date"></span>
-     </div>
+     <div class="round-details">Runde 3<br /><span class="date"></span></div>
      <ul class="matchup">
-      <li @click="declareSemiFinalsWest(roundTwoWinnersTopEast[0], 1)" class="team team-top">{{roundTwoWinnersTopEast[0]}}</li> <!-- west semifinals bottom -->
-      <li @click="declareSemiFinalsWest(roundTwoWinnersBottomEast[1], 1)" class="team team-bottom">{{roundTwoWinnersBottomEast[1]}}</li> <!-- west semifinals bottom -->
+      <li
+       @click="declareSemiFinalsWest(roundTwoWinnersTopEast[0], 1)"
+       class="team team-top"
+      >
+       {{ roundTwoWinnersTopEast[0] }}
+      </li>
+      <!-- west semifinals bottom -->
+      <li
+       @click="declareSemiFinalsWest(roundTwoWinnersBottomEast[1], 1)"
+       class="team team-bottom"
+      >
+       {{ roundTwoWinnersBottomEast[1] }}
+      </li>
+      <!-- west semifinals bottom -->
      </ul>
      <ul class="matchup">
-      <li @click="declareSemiFinalsEast(roundTwoWinnersTopEast[2], 3)" class="team team-top">{{roundTwoWinnersTopEast[2]}}</li> <!-- east semifinals bottom -->
-      <li @click="declareSemiFinalsEast(roundTwoWinnersBottomEast[3], 3)" class="team team-bottom">{{roundTwoWinnersBottomEast[3]}}</li> <!-- east semifinals bottom -->
+      <li
+       @click="declareSemiFinalsEast(roundTwoWinnersTopEast[2], 3)"
+       class="team team-top"
+      >
+       {{ roundTwoWinnersTopEast[2] }}
+      </li>
+      <!-- east semifinals bottom -->
+      <li
+       @click="declareSemiFinalsEast(roundTwoWinnersBottomEast[3], 3)"
+       class="team team-bottom"
+      >
+       {{ roundTwoWinnersBottomEast[3] }}
+      </li>
+      <!-- east semifinals bottom -->
      </ul>
     </div>
     <!-- END ROUND THREE -->
 
     <div class="round round-two">
-     <div class="round-details">
-      Runde 2<br /><span class="date"></span>
-     </div>
+     <div class="round-details">Runde 2<br /><span class="date"></span></div>
      <ul class="matchup">
-      <li @click="declareWinnerRoundTwoEast(roundOneWinnersTopEast[0], 0)" class="team team-top">{{roundOneWinnersTopEast[0]}}</li>
-      <li @click="declareWinnerRoundTwoEast(roundOneWinnersBottomEast[1], 0)" class="team team-bottom">{{roundOneWinnersBottomEast[1]}}</li>
+      <li
+       @click="declareWinnerRoundTwoEast(roundOneWinnersTopEast[0], 0)"
+       class="team team-top"
+      >
+       {{ roundOneWinnersTopEast[0] }}
+      </li>
+      <li
+       @click="declareWinnerRoundTwoEast(roundOneWinnersBottomEast[1], 0)"
+       class="team team-bottom"
+      >
+       {{ roundOneWinnersBottomEast[1] }}
+      </li>
      </ul>
      <ul class="matchup">
-      <li @click="declareWinnerRoundTwoEast(roundOneWinnersTopEast[2], 1)" class="team team-top">{{roundOneWinnersTopEast[2]}}</li>
-      <li @click="declareWinnerRoundTwoEast(roundOneWinnersBottomEast[3], 1)" class="team team-bottom">{{roundOneWinnersBottomEast[3]}}</li>
+      <li
+       @click="declareWinnerRoundTwoEast(roundOneWinnersTopEast[2], 1)"
+       class="team team-top"
+      >
+       {{ roundOneWinnersTopEast[2] }}
+      </li>
+      <li
+       @click="declareWinnerRoundTwoEast(roundOneWinnersBottomEast[3], 1)"
+       class="team team-bottom"
+      >
+       {{ roundOneWinnersBottomEast[3] }}
+      </li>
      </ul>
      <ul class="matchup">
-      <li @click="declareWinnerRoundTwoEast(roundOneWinnersTopEast[4], 2)" class="team team-top">{{roundOneWinnersTopEast[4]}}</li>
-      <li @click="declareWinnerRoundTwoEast(roundOneWinnersBottomEast[5], 2)" class="team team-bottom">{{roundOneWinnersBottomEast[5]}}</li>
+      <li
+       @click="declareWinnerRoundTwoEast(roundOneWinnersTopEast[4], 2)"
+       class="team team-top"
+      >
+       {{ roundOneWinnersTopEast[4] }}
+      </li>
+      <li
+       @click="declareWinnerRoundTwoEast(roundOneWinnersBottomEast[5], 2)"
+       class="team team-bottom"
+      >
+       {{ roundOneWinnersBottomEast[5] }}
+      </li>
      </ul>
      <ul class="matchup">
-      <li @click="declareWinnerRoundTwoEast(roundOneWinnersTopEast[6], 3)" class="team team-top">{{roundOneWinnersTopEast[6]}}</li>
-      <li @click="declareWinnerRoundTwoEast(roundOneWinnersBottomEast[7], 3)" class="team team-bottom">{{roundOneWinnersBottomEast[7]}}</li>
+      <li
+       @click="declareWinnerRoundTwoEast(roundOneWinnersTopEast[6], 3)"
+       class="team team-top"
+      >
+       {{ roundOneWinnersTopEast[6] }}
+      </li>
+      <li
+       @click="declareWinnerRoundTwoEast(roundOneWinnersBottomEast[7], 3)"
+       class="team team-bottom"
+      >
+       {{ roundOneWinnersBottomEast[7] }}
+      </li>
      </ul>
     </div>
     <!-- END ROUND TWO -->
     <div class="round round-one current">
-     <div class="round-details">
-      Runde 1<br /><span class="date"></span>
-     </div>
+     <div class="round-details">Runde 1<br /><span class="date"></span></div>
      <ul class="matchup" v-for="(n, index) in 8" :key="index">
-      <li  @click="declareWinnerRoundOneEast(selectionBottomEast[index], index)" class="team team-top">{{ selectionBottomEast[index].name }}</li>
-      <li  @click="declareWinnerRoundOneEast(selectionTopEast[index], index)" class="team team-bottom">{{ selectionTopEast[index].name }}</li>
+      <li
+       @click="declareWinnerRoundOneEast(selectionBottomEast[index], index)"
+       class="team team-top"
+      >
+       {{ selectionBottomEast[index].name }}
+      </li>
+      <li
+       @click="declareWinnerRoundOneEast(selectionTopEast[index], index)"
+       class="team team-bottom"
+      >
+       {{ selectionTopEast[index].name }}
+      </li>
      </ul>
     </div>
     <!-- END ROUND ONE -->
    </div>
   </div>
-  <button class="base-btn" type="button" @click="resetDatabase">Zurücksetzen</button>
+  <button class="base-btn" type="button" @click="resetDatabase">
+   Zurücksetzen
+  </button>
  </section>
 </template>
 
 <script>
 import beers from "../assets/beers.json";
 import { setDoc, doc, getDocs, collection } from "firebase/firestore";
-import { db } from '@/firebase';
+import { db } from "@/firebase";
 
 export default {
  name: "Tree",
  data() {
   return {
-    roundOneWinnersTopWest: {},
-    roundOneWinnersBottomWest: {},
-    roundOneWinnersTopEast: {},
-    roundOneWinnersBottomEast: {},
+   roundOneWinnersTopWest: {},
+   roundOneWinnersBottomWest: {},
+   roundOneWinnersTopEast: {},
+   roundOneWinnersBottomEast: {},
 
-    roundTwoWinnersTopWest: {},
-    roundTwoWinnersBottomWest: {},
-    roundTwoWinnersTopEast: {},
-    roundTwoWinnersBottomEast: {},
+   roundTwoWinnersTopWest: {},
+   roundTwoWinnersBottomWest: {},
+   roundTwoWinnersTopEast: {},
+   roundTwoWinnersBottomEast: {},
 
-    semiFinalsWestTop: {},
-    semiFinalsWestBottom: {},
+   semiFinalsWestTop: {},
+   semiFinalsWestBottom: {},
 
-    semiFinalsEastTop: {},
-    semiFinalsEastBottom: {},
+   semiFinalsEastTop: {},
+   semiFinalsEastBottom: {},
 
-    finalistTop: {},
-    finalistBottom: {},
+   finalistTop: {},
+   finalistBottom: {},
   };
  },
  async beforeMount() {
-    let querySnapshot = await getDocs(collection(db, "roundOneWinnersTopWest"));
-    querySnapshot.forEach((doc) => {
-      this.roundOneWinnersTopWest = doc.data();
-    });
-    querySnapshot = await getDocs(collection(db, "roundOneWinnersBottomWest"));
-    querySnapshot.forEach((doc) => {
-      this.roundOneWinnersBottomWest = doc.data();
-    });
-    querySnapshot = await getDocs(collection(db, "roundOneWinnersTopEast"));
-    querySnapshot.forEach((doc) => {
-      this.roundOneWinnersTopEast = doc.data();
-    });
-    querySnapshot = await getDocs(collection(db, "roundOneWinnersBottomEast"));
-    querySnapshot.forEach((doc) => {
-      this.roundOneWinnersBottomEast = doc.data();
-    });
-    querySnapshot = await getDocs(collection(db, "roundTwoWinnersTopWest"));
-    querySnapshot.forEach((doc) => {
-      this.roundTwoWinnersTopWest = doc.data();
-    });
-    querySnapshot = await getDocs(collection(db, "roundTwoWinnersBottomWest"));
-    querySnapshot.forEach((doc) => {
-      this.roundTwoWinnersBottomWest = doc.data();
-    });
-    querySnapshot = await getDocs(collection(db, "roundTwoWinnersTopEast"));
-    querySnapshot.forEach((doc) => {
-      this.roundTwoWinnersTopEast = doc.data();
-    });
-    querySnapshot = await getDocs(collection(db, "roundTwoWinnersBottomEast"));
-    querySnapshot.forEach((doc) => {
-      this.roundTwoWinnersBottomEast = doc.data();
-    });
-    querySnapshot = await getDocs(collection(db, "semiFinalsWestTop"));
-    querySnapshot.forEach((doc) => {
-      this.semiFinalsWestTop = doc.data();
-    });
-    querySnapshot = await getDocs(collection(db, "semiFinalsWestBottom"));
-    querySnapshot.forEach((doc) => {
-      this.semiFinalsWestBottom = doc.data();
-    });
-    querySnapshot = await getDocs(collection(db, "semiFinalsEastTop"));
-    querySnapshot.forEach((doc) => {
-      this.semiFinalsEastTop = doc.data();
-    });
-    querySnapshot = await getDocs(collection(db, "semiFinalsEastBottom"));
-    querySnapshot.forEach((doc) => {
-      this.semiFinalsEastBottom = doc.data();
-    });
-    querySnapshot = await getDocs(collection(db, "finalistTop"));
-    querySnapshot.forEach((doc) => {
-      this.finalistTop = doc.data();
-    });
-    querySnapshot = await getDocs(collection(db, "finalistBottom"));
-    querySnapshot.forEach((doc) => {
-      this.finalistBottom = doc.data();
-    });
-  },
+  let querySnapshot = await getDocs(collection(db, "roundOneWinnersTopWest"));
+  querySnapshot.forEach((doc) => {
+   this.roundOneWinnersTopWest = doc.data();
+  });
+  querySnapshot = await getDocs(collection(db, "roundOneWinnersBottomWest"));
+  querySnapshot.forEach((doc) => {
+   this.roundOneWinnersBottomWest = doc.data();
+  });
+  querySnapshot = await getDocs(collection(db, "roundOneWinnersTopEast"));
+  querySnapshot.forEach((doc) => {
+   this.roundOneWinnersTopEast = doc.data();
+  });
+  querySnapshot = await getDocs(collection(db, "roundOneWinnersBottomEast"));
+  querySnapshot.forEach((doc) => {
+   this.roundOneWinnersBottomEast = doc.data();
+  });
+  querySnapshot = await getDocs(collection(db, "roundTwoWinnersTopWest"));
+  querySnapshot.forEach((doc) => {
+   this.roundTwoWinnersTopWest = doc.data();
+  });
+  querySnapshot = await getDocs(collection(db, "roundTwoWinnersBottomWest"));
+  querySnapshot.forEach((doc) => {
+   this.roundTwoWinnersBottomWest = doc.data();
+  });
+  querySnapshot = await getDocs(collection(db, "roundTwoWinnersTopEast"));
+  querySnapshot.forEach((doc) => {
+   this.roundTwoWinnersTopEast = doc.data();
+  });
+  querySnapshot = await getDocs(collection(db, "roundTwoWinnersBottomEast"));
+  querySnapshot.forEach((doc) => {
+   this.roundTwoWinnersBottomEast = doc.data();
+  });
+  querySnapshot = await getDocs(collection(db, "semiFinalsWestTop"));
+  querySnapshot.forEach((doc) => {
+   this.semiFinalsWestTop = doc.data();
+  });
+  querySnapshot = await getDocs(collection(db, "semiFinalsWestBottom"));
+  querySnapshot.forEach((doc) => {
+   this.semiFinalsWestBottom = doc.data();
+  });
+  querySnapshot = await getDocs(collection(db, "semiFinalsEastTop"));
+  querySnapshot.forEach((doc) => {
+   this.semiFinalsEastTop = doc.data();
+  });
+  querySnapshot = await getDocs(collection(db, "semiFinalsEastBottom"));
+  querySnapshot.forEach((doc) => {
+   this.semiFinalsEastBottom = doc.data();
+  });
+  querySnapshot = await getDocs(collection(db, "finalistTop"));
+  querySnapshot.forEach((doc) => {
+   this.finalistTop = doc.data();
+  });
+  querySnapshot = await getDocs(collection(db, "finalistBottom"));
+  querySnapshot.forEach((doc) => {
+   this.finalistBottom = doc.data();
+  });
+ },
  computed: {
-   // All available beer brands
+  // All available beer brands
   competitors() {
    return JSON.parse(JSON.stringify(beers));
   },
@@ -279,11 +418,11 @@ export default {
   },
  },
  methods: {
- async resetDatabase() {
-   console.log('resetting...')
+  async resetDatabase() {
+   console.log("resetting...");
    await setDoc(doc(db, "roundOneWinnersTopWest", "0"), {});
    await setDoc(doc(db, "roundOneWinnersBottomWest", "0"), {});
-   await setDoc(doc(db, "roundOneWinnersTopEast", "0"),{} );
+   await setDoc(doc(db, "roundOneWinnersTopEast", "0"), {});
    await setDoc(doc(db, "roundOneWinnersBottomEast", "0"), {});
    await setDoc(doc(db, "roundTwoWinnersTopWest", "0"), {});
    await setDoc(doc(db, "roundTwoWinnersBottomWest", "0"), {});
@@ -294,77 +433,129 @@ export default {
    await setDoc(doc(db, "semiFinalsEastTop", "0"), {});
    await setDoc(doc(db, "semiFinalsEastBottom", "0"), {});
    await setDoc(doc(db, "finalistTop", "0"), {});
-   await setDoc(doc(db, "finalistBottom", "0"),{});
-   location.reload()
- },
+   await setDoc(doc(db, "finalistBottom", "0"), {});
+   location.reload();
+  },
   async declareWinnerRoundOneWest(beer, index) {
-    if (index % 2 === 0) {
-    this.roundOneWinnersTopWest = {...this.roundOneWinnersTopWest, [index]: beer.name}
-    await setDoc(doc(db, "roundOneWinnersTopWest", "0"), this.roundOneWinnersTopWest);
-    } else {
-    this.roundOneWinnersBottomWest = {...this.roundOneWinnersBottomWest, [index]: beer.name}
-    await setDoc(doc(db, "roundOneWinnersBottomWest", "0"), this.roundOneWinnersBottomWest);
-    }
+   if (index % 2 === 0) {
+    this.roundOneWinnersTopWest = {
+     ...this.roundOneWinnersTopWest,
+     [index]: beer.name,
+    };
+    await setDoc(
+     doc(db, "roundOneWinnersTopWest", "0"),
+     this.roundOneWinnersTopWest
+    );
+   } else {
+    this.roundOneWinnersBottomWest = {
+     ...this.roundOneWinnersBottomWest,
+     [index]: beer.name,
+    };
+    await setDoc(
+     doc(db, "roundOneWinnersBottomWest", "0"),
+     this.roundOneWinnersBottomWest
+    );
+   }
   },
   async declareWinnerRoundOneEast(beer, index) {
-    if (index % 2 === 0) {
-    this.roundOneWinnersTopEast = {...this.roundOneWinnersTopEast, [index]: beer.name}
-    await setDoc(doc(db, "roundOneWinnersTopEast", "0"), this.roundOneWinnersTopEast);
-    } else {
-    this.roundOneWinnersBottomEast = {...this.roundOneWinnersBottomEast, [index]: beer.name}
-    await setDoc(doc(db, "roundOneWinnersBottomEast", "0"), this.roundOneWinnersBottomEast);
-    }
+   if (index % 2 === 0) {
+    this.roundOneWinnersTopEast = {
+     ...this.roundOneWinnersTopEast,
+     [index]: beer.name,
+    };
+    await setDoc(
+     doc(db, "roundOneWinnersTopEast", "0"),
+     this.roundOneWinnersTopEast
+    );
+   } else {
+    this.roundOneWinnersBottomEast = {
+     ...this.roundOneWinnersBottomEast,
+     [index]: beer.name,
+    };
+    await setDoc(
+     doc(db, "roundOneWinnersBottomEast", "0"),
+     this.roundOneWinnersBottomEast
+    );
+   }
   },
   async declareWinnerRoundTwoEast(beer, index) {
-    if (index % 2 === 0) {
-    this.roundTwoWinnersTopEast = {...this.roundTwoWinnersTopEast, [index]: beer}
-    await setDoc(doc(db, "roundTwoWinnersTopEast", "0"), this.roundTwoWinnersTopEast);
-    } else {
-    this.roundTwoWinnersBottomEast = {...this.roundTwoWinnersBottomEast, [index]: beer}
-    await setDoc(doc(db, "roundTwoWinnersBottomEast", "0"), this.roundTwoWinnersBottomEast);
-    }
+   if (index % 2 === 0) {
+    this.roundTwoWinnersTopEast = {
+     ...this.roundTwoWinnersTopEast,
+     [index]: beer,
+    };
+    await setDoc(
+     doc(db, "roundTwoWinnersTopEast", "0"),
+     this.roundTwoWinnersTopEast
+    );
+   } else {
+    this.roundTwoWinnersBottomEast = {
+     ...this.roundTwoWinnersBottomEast,
+     [index]: beer,
+    };
+    await setDoc(
+     doc(db, "roundTwoWinnersBottomEast", "0"),
+     this.roundTwoWinnersBottomEast
+    );
+   }
   },
   async declareWinnerRoundTwoWest(beer, index) {
-    if (index % 2 === 0) {
-    this.roundTwoWinnersTopWest = {...this.roundTwoWinnersTopWest, [index]: beer}
-    await setDoc(doc(db, "roundTwoWinnersTopWest", "0"), this.roundTwoWinnersTopWest);
-    } else {
-    this.roundTwoWinnersBottomWest = {...this.roundTwoWinnersBottomWest, [index]: beer}
-    await setDoc(doc(db, "roundTwoWinnersBottomWest", "0"), this.roundTwoWinnersBottomWest);
-
-    }
+   if (index % 2 === 0) {
+    this.roundTwoWinnersTopWest = {
+     ...this.roundTwoWinnersTopWest,
+     [index]: beer,
+    };
+    await setDoc(
+     doc(db, "roundTwoWinnersTopWest", "0"),
+     this.roundTwoWinnersTopWest
+    );
+   } else {
+    this.roundTwoWinnersBottomWest = {
+     ...this.roundTwoWinnersBottomWest,
+     [index]: beer,
+    };
+    await setDoc(
+     doc(db, "roundTwoWinnersBottomWest", "0"),
+     this.roundTwoWinnersBottomWest
+    );
+   }
   },
   async declareSemiFinalsWest(beer, index) {
-    if (index % 2 === 0) {
-    this.semiFinalsWestTop = {...this.semiFinalsWestTop, [index]: beer}
-    await setDoc(doc(db, "semiFinalsWestTop", "0"), this.semiFinalsWestTop);
-
-    } else {
-    this.semiFinalsWestBottom = {...this.semiFinalsWestBottom, [index]: beer}
-    await setDoc(doc(db, "semiFinalsWestBottom", "0"), this.semiFinalsWestBottom);
-    }
+   if (index % 2 === 0) {
+    this.semiFinalsWestTop = { ...this.semiFinalsWestTop, [index]: beer };
+    await setDoc(doc(db, "semiFinalsWestTop", "0"), {...this.semiFinalsWestTop, userId: this.$params.id});
+   } else {
+    this.semiFinalsWestBottom = { ...this.semiFinalsWestBottom, [index]: beer };
+    await setDoc(
+     doc(db, "semiFinalsWestBottom", "0"),
+     this.semiFinalsWestBottom
+    );
+   }
   },
   async declareSemiFinalsEast(beer, index) {
-    if (index % 2 === 0) {
-    this.semiFinalsEastTop = {...this.semiFinalsEastTop, [index]: beer}
+   if (index % 2 === 0) {
+    this.semiFinalsEastTop = { ...this.semiFinalsEastTop, [index]: beer };
     await setDoc(doc(db, "semiFinalsEastTop", "0"), this.semiFinalsEastTop);
-    } else {
-    this.semiFinalsEastBottom = {...this.semiFinalsEastBottom, [index]: beer}
-    await setDoc(doc(db, "semiFinalsEastBottom", "0"), this.semiFinalsEastBottom);
-    }
+   } else {
+    this.semiFinalsEastBottom = { ...this.semiFinalsEastBottom, [index]: beer };
+    await setDoc(
+     doc(db, "semiFinalsEastBottom", "0"),
+     this.semiFinalsEastBottom
+    );
+   }
   },
   async declareFinalists(beer, index) {
-    if (index % 2 === 0) {
-    this.finalistTop = {...this.finalistTop, [index]: beer}
+   if (index % 2 === 0) {
+    this.finalistTop = { ...this.finalistTop, [index]: beer };
     await setDoc(doc(db, "finalistTop", "0"), this.finalistTop);
-    } else {
-    this.finalistBottom = {...this.finalistBottom, [index]: beer}
+   } else {
+    this.finalistBottom = { ...this.finalistBottom, [index]: beer };
     await setDoc(doc(db, "finalistBottom", "0"), this.finalistBottom);
-    }
+   }
   },
   declareChampion(beer) {
-    window.alert(beer + ' hat gewonnen!');
-  }
+   window.alert(beer + " hat gewonnen!");
+  },
  },
 };
 </script>
@@ -542,20 +733,19 @@ body {
  color: #3f915f;
 }
 .base-btn {
-  color: white;
-  padding: 1rem;
-  margin: 0.5rem;
-  border: none;
-  background: #3f915f;
-  font-size: 1.5rem;
-  cursor: pointer;
+ color: white;
+ padding: 1rem;
+ margin: 0.5rem;
+ border: none;
+ background: #3f915f;
+ font-size: 1.5rem;
+ cursor: pointer;
 }
 .base-btn:hover {
-  background: #225535;
+ background: #225535;
 }
 .base-btn:active {
-  background: #225535;
-  
+ background: #225535;
 }
 
 @media screen and (min-width: 981px) and (max-width: 1099px) {

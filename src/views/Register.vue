@@ -1,6 +1,9 @@
 <template>
     <div>
         <form @submit.prevent="registerUser">
+            <div class="name">
+                <input v-model="displayName" type="text" placeholder="Username" />
+            </div>
             <div class="email">
                 <input v-model="email" type="email" placeholder="Email" />
             </div>
@@ -17,7 +20,7 @@
 </template>
 
 <script>
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from '@/firebase'
     export default {
         name: 'Register',
@@ -25,6 +28,7 @@ import { auth } from '@/firebase'
             return {
                 email: '',
                 password: '',
+                displayName: '',
                 auth: {},
             }
         },
@@ -32,6 +36,9 @@ import { auth } from '@/firebase'
             async registerUser() {
                 try {
                     this.user = await createUserWithEmailAndPassword(auth, this.email, this.password);
+                    await updateProfile(auth.currentUser, {
+                    displayName: this.displayName,
+                    })
                     this.$router.replace({name: 'Login'});
                 } catch (error) {
                     console.log(error);
