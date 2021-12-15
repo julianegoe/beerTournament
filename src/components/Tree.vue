@@ -157,7 +157,6 @@
     <!-- END ROUND ONE -->
    </div>
   </div>
-  <button class="base-btn" type="button" @click="addDatatoDatabase">Speichern</button>
   <button class="base-btn" type="button" @click="resetDatabase">Zurücksetzen</button>
  </section>
 </template>
@@ -280,23 +279,6 @@ export default {
   },
  },
  methods: {
-   async addDatatoDatabase() {
-   console.log('saving...')
-   await setDoc(doc(db, "roundOneWinnersTopWest", "0"), this.roundOneWinnersTopWest);
-   await setDoc(doc(db, "roundOneWinnersBottomWest", "0"), this.roundOneWinnersBottomWest);
-   await setDoc(doc(db, "roundOneWinnersTopEast", "0"), this.roundOneWinnersTopEast);
-   await setDoc(doc(db, "roundOneWinnersBottomEast", "0"), this.roundOneWinnersBottomEast);
-   await setDoc(doc(db, "roundTwoWinnersTopWest", "0"), this.roundTwoWinnersTopWest);
-   await setDoc(doc(db, "roundTwoWinnersBottomWest", "0"), this.roundTwoWinnersBottomWest);
-   await setDoc(doc(db, "roundTwoWinnersTopEast", "0"), this.roundTwoWinnersTopEast);
-   await setDoc(doc(db, "roundTwoWinnersBottomEast", "0"), this.roundTwoWinnersBottomEast);
-   await setDoc(doc(db, "semiFinalsWestTop", "0"), this.semiFinalsWestTop);
-   await setDoc(doc(db, "semiFinalsWestBottom", "0"), this.semiFinalsWestBottom);
-   await setDoc(doc(db, "semiFinalsEastTop", "0"), this.semiFinalsEastTop);
-   await setDoc(doc(db, "semiFinalsEastBottom", "0"), this.semiFinalsEastBottom);
-   await setDoc(doc(db, "finalistTop", "0"), this.finalistTop);
-   await setDoc(doc(db, "finalistBottom", "0"), this.finalistBottom);
- },
  async resetDatabase() {
    console.log('resetting...')
    await setDoc(doc(db, "roundOneWinnersTopWest", "0"), {});
@@ -315,53 +297,69 @@ export default {
    await setDoc(doc(db, "finalistBottom", "0"),{});
    location.reload()
  },
-  declareWinnerRoundOneWest(beer, index) {
+  async declareWinnerRoundOneWest(beer, index) {
     if (index % 2 === 0) {
     this.roundOneWinnersTopWest = {...this.roundOneWinnersTopWest, [index]: beer.name}
+    await setDoc(doc(db, "roundOneWinnersTopWest", "0"), this.roundOneWinnersTopWest);
     } else {
     this.roundOneWinnersBottomWest = {...this.roundOneWinnersBottomWest, [index]: beer.name}
+    await setDoc(doc(db, "roundOneWinnersBottomWest", "0"), this.roundOneWinnersBottomWest);
     }
   },
   async declareWinnerRoundOneEast(beer, index) {
     if (index % 2 === 0) {
     this.roundOneWinnersTopEast = {...this.roundOneWinnersTopEast, [index]: beer.name}
+    await setDoc(doc(db, "roundOneWinnersTopEast", "0"), this.roundOneWinnersTopEast);
     } else {
     this.roundOneWinnersBottomEast = {...this.roundOneWinnersBottomEast, [index]: beer.name}
+    await setDoc(doc(db, "roundOneWinnersBottomEast", "0"), this.roundOneWinnersBottomEast);
     }
   },
-  declareWinnerRoundTwoEast(beer, index) {
+  async declareWinnerRoundTwoEast(beer, index) {
     if (index % 2 === 0) {
     this.roundTwoWinnersTopEast = {...this.roundTwoWinnersTopEast, [index]: beer}
+    await setDoc(doc(db, "roundTwoWinnersTopEast", "0"), this.roundTwoWinnersTopEast);
     } else {
     this.roundTwoWinnersBottomEast = {...this.roundTwoWinnersBottomEast, [index]: beer}
+    await setDoc(doc(db, "roundTwoWinnersBottomEast", "0"), this.roundTwoWinnersBottomEast);
     }
   },
-  declareWinnerRoundTwoWest(beer, index) {
+  async declareWinnerRoundTwoWest(beer, index) {
     if (index % 2 === 0) {
     this.roundTwoWinnersTopWest = {...this.roundTwoWinnersTopWest, [index]: beer}
+    await setDoc(doc(db, "roundTwoWinnersTopWest", "0"), this.roundTwoWinnersTopWest);
     } else {
     this.roundTwoWinnersBottomWest = {...this.roundTwoWinnersBottomWest, [index]: beer}
+    await setDoc(doc(db, "roundTwoWinnersBottomWest", "0"), this.roundTwoWinnersBottomWest);
+
     }
   },
-  declareSemiFinalsWest(beer, index) {
+  async declareSemiFinalsWest(beer, index) {
     if (index % 2 === 0) {
     this.semiFinalsWestTop = {...this.semiFinalsWestTop, [index]: beer}
+    await setDoc(doc(db, "semiFinalsWestTop", "0"), this.semiFinalsWestTop);
+
     } else {
     this.semiFinalsWestBottom = {...this.semiFinalsWestBottom, [index]: beer}
+    await setDoc(doc(db, "semiFinalsWestBottom", "0"), this.semiFinalsWestBottom);
     }
   },
-  declareSemiFinalsEast(beer, index) {
+  async declareSemiFinalsEast(beer, index) {
     if (index % 2 === 0) {
     this.semiFinalsEastTop = {...this.semiFinalsEastTop, [index]: beer}
+    await setDoc(doc(db, "semiFinalsEastTop", "0"), this.semiFinalsEastTop);
     } else {
     this.semiFinalsEastBottom = {...this.semiFinalsEastBottom, [index]: beer}
+    await setDoc(doc(db, "semiFinalsEastBottom", "0"), this.semiFinalsEastBottom);
     }
   },
-  declareFinalists(beer, index) {
+  async declareFinalists(beer, index) {
     if (index % 2 === 0) {
     this.finalistTop = {...this.finalistTop, [index]: beer}
+    await setDoc(doc(db, "finalistTop", "0"), this.finalistTop);
     } else {
     this.finalistBottom = {...this.finalistBottom, [index]: beer}
+    await setDoc(doc(db, "finalistBottom", "0"), this.finalistBottom);
     }
   },
   declareChampion(beer) {
