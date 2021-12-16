@@ -41,7 +41,7 @@ import {auth} from '@/firebase';
         mounted() {
             onAuthStateChanged(auth, (user) => {
                 if (user) {
-                    this.userID = user.uid;
+                    this.userID = user.displayName;
                     this.isLoggedIn = true;
                 } else {
                     this.isLoggedIn = false;

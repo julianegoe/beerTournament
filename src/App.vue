@@ -1,5 +1,5 @@
 <template>
-  <Header v-if="isLoggedIn" />
+  <Header :owned="false" owner="Franz" v-if="isLoggedIn" />
   <router-view/>
 </template>
 <script>

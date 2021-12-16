@@ -22,6 +22,11 @@ const routes = [
     name: 'Home',
     component: () => import(/* webpackChunkName: "output" */ '../views/Home.vue'),
   },
+  {
+    path: '/tree/:id',
+    name: 'UserTree',
+    component: () => import(/* webpackChunkName: "output" */ '../views/UserTree.vue'),
+  },
  
 ]
 

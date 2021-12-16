@@ -1,6 +1,7 @@
 <template>
   <div class="home">
-    <Tree :owned="true" />
+      Das ist nicht mein Baum
+    <Tree :owned="false" />
   </div>
 </template>
 
@@ -8,7 +9,7 @@
 import Tree from '@/components/Tree.vue';
 
 export default {
-  name: 'Home',
+  name: 'UserTree',
   components: { Tree }
 }
 </script>
