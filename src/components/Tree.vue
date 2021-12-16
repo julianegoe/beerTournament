@@ -302,13 +302,7 @@
 
 <script>
 import beers from "../assets/beers.json";
-import {
- setDoc,
- doc,
- getDocs,
- collection,
- deleteDoc,
-} from "firebase/firestore";
+import { updateDoc, doc, getDoc, deleteDoc, setDoc } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
 import { db, auth } from "@/firebase";
 
@@ -350,10 +344,11 @@ export default {
    onAuthStateChanged(auth, async (user) => {
     if (user) {
      this.displayName = user.displayName;
-     let querySnapshot = await getDocs(collection(db, this.displayName));
-     querySnapshot.forEach((doc) => {
-      this[doc.id] = doc.data();
-     });
+     let docSnap = await getDoc(doc(db, "Users", this.displayName));
+     const keys = Object.keys(docSnap.data());
+     for (let key of keys) {
+      this[key] = docSnap.data()[key];
+     }
     } else {
      this.$router.replace({ name: "Login" });
     }
@@ -394,8 +389,17 @@ export default {
  },
  methods: {
   async setDocument(username, documentId, document) {
-   const data = await setDoc(doc(db, username, documentId), document);
-   console.log(data);
+   const docRef = doc(db, "Users", username);
+   const docSnap = await getDoc(docRef);
+   if (docSnap.exists()) {
+    try {
+     await updateDoc(docRef, { [documentId]: document });
+    } catch (error) {
+     console.log(error);
+    }
+   } else {
+    await setDoc(docRef, { [documentId]: document });
+   }
   },
   async resetDatabase() {
    console.log("resetting...");
@@ -416,58 +420,58 @@ export default {
    location.reload();
   },
   async declareWinnerRoundOneWest(beer, index) {
-    if(this.owned) {
-      if (index % 2 === 0) {
-    this.roundOneWinnersTopWest = {
-     ...this.roundOneWinnersTopWest,
-     [index]: beer.name,
-    };
-    this.setDocument(
-     this.displayName,
-     "roundOneWinnersTopWest",
-     this.roundOneWinnersTopWest
-    );
-   } else {
-    this.roundOneWinnersBottomWest = {
-     ...this.roundOneWinnersBottomWest,
-     [index]: beer.name,
-    };
-    this.setDocument(
-     this.displayName,
-     "roundOneWinnersBottomWest",
-     this.roundOneWinnersBottomWest
-    );
-   }
+   if (this.owned) {
+    if (index % 2 === 0) {
+     this.roundOneWinnersTopWest = {
+      ...this.roundOneWinnersTopWest,
+      [index]: beer.name,
+     };
+     this.setDocument(
+      this.displayName,
+      "roundOneWinnersTopWest",
+      this.roundOneWinnersTopWest
+     );
     } else {
-      window.alert("you're not allowed to edit this")
+     this.roundOneWinnersBottomWest = {
+      ...this.roundOneWinnersBottomWest,
+      [index]: beer.name,
+     };
+     this.setDocument(
+      this.displayName,
+      "roundOneWinnersBottomWest",
+      this.roundOneWinnersBottomWest
+     );
     }
+   } else {
+    window.alert("you're not allowed to edit this");
+   }
   },
   async declareWinnerRoundOneEast(beer, index) {
-    if (this.owned) {
-      if (index % 2 === 0) {
-    this.roundOneWinnersTopEast = {
-     ...this.roundOneWinnersTopEast,
-     [index]: beer.name,
-    };
-    this.setDocument(
-     this.displayName,
-     "roundOneWinnersTopEast",
-     this.roundOneWinnersTopEast
-    );
-   } else {
-    this.roundOneWinnersBottomEast = {
-     ...this.roundOneWinnersBottomEast,
-     [index]: beer.name,
-    };
-    this.setDocument(
-     this.displayName,
-     "roundOneWinnersBottomEast",
-     this.roundOneWinnersBottomEast
-    );
-   }
+   if (this.owned) {
+    if (index % 2 === 0) {
+     this.roundOneWinnersTopEast = {
+      ...this.roundOneWinnersTopEast,
+      [index]: beer.name,
+     };
+     this.setDocument(
+      this.displayName,
+      "roundOneWinnersTopEast",
+      this.roundOneWinnersTopEast
+     );
     } else {
-      window.alert("you're not allowed to edit this")
+     this.roundOneWinnersBottomEast = {
+      ...this.roundOneWinnersBottomEast,
+      [index]: beer.name,
+     };
+     this.setDocument(
+      this.displayName,
+      "roundOneWinnersBottomEast",
+      this.roundOneWinnersBottomEast
+     );
     }
+   } else {
+    window.alert("you're not allowed to edit this");
+   }
   },
   async declareWinnerRoundTwoEast(beer, index) {
    if (index % 2 === 0) {
