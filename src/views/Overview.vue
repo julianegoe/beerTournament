@@ -9,8 +9,7 @@
 </template>
 
 <script>
-import { onAuthStateChanged } from 'firebase/auth';
-import { db, auth} from '@/firebase';
+import { db, auth } from '@/firebase';
 import { collection, getDocs } from "firebase/firestore";
 
     export default {
@@ -21,20 +20,10 @@ import { collection, getDocs } from "firebase/firestore";
             return {
                 isLoggedIn: false,
                 users: [],
-                currentUser: '',
             }
         },
         mounted() {
-            onAuthStateChanged(auth, (user) => {
-                if (user) {
-                    this.isLoggedIn = true;
-                    this.currentUser = user.displayName;
-                    this.getListOfDocs()
-                } else {
-                    this.isLoggedIn = false;
-                    this.$router.replace({name: 'Login'})
-                }
-            }); 
+            this.getListOfDocs()
         },
         methods: {
             async getListOfDocs() {
@@ -43,6 +32,11 @@ import { collection, getDocs } from "firebase/firestore";
                     this.users.push(doc.id)
                 });
                 console.log(this.users)
+            }
+        },
+        computed: {
+            currentUser() {
+                return auth.currentUser.displayName
             }
         },
     }

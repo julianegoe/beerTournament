@@ -303,19 +303,10 @@
 <script>
 import beers from "../assets/beers.json";
 import { updateDoc, doc, getDoc, deleteDoc, setDoc } from "firebase/firestore";
-import { onAuthStateChanged } from "firebase/auth";
 import { db, auth } from "@/firebase";
 
 export default {
  name: "Tree",
- props: {
-  owned: {
-   default: true,
-  },
-  owner: {
-   required: false,
-  },
- },
  data() {
   return {
    roundOneWinnersTopWest: {},
@@ -339,22 +330,11 @@ export default {
    displayName: "",
   };
  },
- beforeMount() {
-  if (this.owned) {
-   onAuthStateChanged(auth, async (user) => {
-    if (user) {
-     this.displayName = user.displayName;
-     let docSnap = await getDoc(doc(db, "Users", this.displayName));
-     const keys = Object.keys(docSnap.data());
-     for (let key of keys) {
-      this[key] = docSnap.data()[key];
-     }
-    } else {
-     this.$router.replace({ name: "Login" });
-    }
-   });
-  } else {
-   this.displayName = this.owner;
+ async beforeMount() {
+  let docSnap = await getDoc(doc(db, "Users", this.$route.params.id));
+  const keys = Object.keys(docSnap.data());
+  for (let key of keys) {
+   this[key] = docSnap.data()[key];
   }
  },
  computed: {
@@ -386,6 +366,10 @@ export default {
     (beer, index) => index % 2 === 0 && index >= 16
    );
   },
+  isOwned() {
+   console.log(auth.currentUser.displayName);
+   return auth.currentUser.displayName === this.$route.params.id;
+  },
  },
  methods: {
   async setDocument(username, documentId, document) {
@@ -403,31 +387,31 @@ export default {
   },
   async resetDatabase() {
    console.log("resetting...");
-   await deleteDoc(doc(db, this.displayName, "roundOneWinnersTopWest"));
-   await deleteDoc(doc(db, this.displayName, "roundOneWinnersBottomWest"));
-   await deleteDoc(doc(db, this.displayName, "roundOneWinnersTopEast"));
-   await deleteDoc(doc(db, this.displayName, "roundOneWinnersBottomEast"));
-   await deleteDoc(doc(db, this.displayName, "roundTwoWinnersTopWest"));
-   await deleteDoc(doc(db, this.displayName, "roundTwoWinnersBottomWest"));
-   await deleteDoc(doc(db, this.displayName, "roundTwoWinnersTopEast"));
-   await deleteDoc(doc(db, this.displayName, "roundTwoWinnersBottomEast"));
-   await deleteDoc(doc(db, this.displayName, "semiFinalsWestTop"));
-   await deleteDoc(doc(db, this.displayName, "semiFinalsWestBottom"));
-   await deleteDoc(doc(db, this.displayName, "semiFinalsEastTop"));
-   await deleteDoc(doc(db, this.displayName, "semiFinalsEastBottom"));
-   await deleteDoc(doc(db, this.displayName, "finalistTop"));
-   await deleteDoc(doc(db, this.displayName, "finalistBottom"));
+   await deleteDoc(doc(db, this.$route.params.id, "roundOneWinnersTopWest"));
+   await deleteDoc(doc(db, this.$route.params.id, "roundOneWinnersBottomWest"));
+   await deleteDoc(doc(db, this.$route.params.id, "roundOneWinnersTopEast"));
+   await deleteDoc(doc(db, this.$route.params.id, "roundOneWinnersBottomEast"));
+   await deleteDoc(doc(db, this.$route.params.id, "roundTwoWinnersTopWest"));
+   await deleteDoc(doc(db, this.$route.params.id, "roundTwoWinnersBottomWest"));
+   await deleteDoc(doc(db, this.$route.params.id, "roundTwoWinnersTopEast"));
+   await deleteDoc(doc(db, this.$route.params.id, "roundTwoWinnersBottomEast"));
+   await deleteDoc(doc(db, this.$route.params.id, "semiFinalsWestTop"));
+   await deleteDoc(doc(db, this.$route.params.id, "semiFinalsWestBottom"));
+   await deleteDoc(doc(db, this.$route.params.id, "semiFinalsEastTop"));
+   await deleteDoc(doc(db, this.$route.params.id, "semiFinalsEastBottom"));
+   await deleteDoc(doc(db, this.$route.params.id, "finalistTop"));
+   await deleteDoc(doc(db, this.$route.params.id, "finalistBottom"));
    location.reload();
   },
   async declareWinnerRoundOneWest(beer, index) {
-   if (this.owned) {
+   if (this.isOwned) {
     if (index % 2 === 0) {
      this.roundOneWinnersTopWest = {
       ...this.roundOneWinnersTopWest,
       [index]: beer.name,
      };
      this.setDocument(
-      this.displayName,
+      this.$route.params.id,
       "roundOneWinnersTopWest",
       this.roundOneWinnersTopWest
      );
@@ -437,7 +421,7 @@ export default {
       [index]: beer.name,
      };
      this.setDocument(
-      this.displayName,
+      this.$route.params.id,
       "roundOneWinnersBottomWest",
       this.roundOneWinnersBottomWest
      );
@@ -447,14 +431,14 @@ export default {
    }
   },
   async declareWinnerRoundOneEast(beer, index) {
-   if (this.owned) {
+   if (this.isOwned) {
     if (index % 2 === 0) {
      this.roundOneWinnersTopEast = {
       ...this.roundOneWinnersTopEast,
       [index]: beer.name,
      };
      this.setDocument(
-      this.displayName,
+      this.$route.params.id,
       "roundOneWinnersTopEast",
       this.roundOneWinnersTopEast
      );
@@ -464,7 +448,7 @@ export default {
       [index]: beer.name,
      };
      this.setDocument(
-      this.displayName,
+      this.$route.params.id,
       "roundOneWinnersBottomEast",
       this.roundOneWinnersBottomEast
      );
@@ -474,96 +458,130 @@ export default {
    }
   },
   async declareWinnerRoundTwoEast(beer, index) {
-   if (index % 2 === 0) {
-    this.roundTwoWinnersTopEast = {
-     ...this.roundTwoWinnersTopEast,
-     [index]: beer,
-    };
-    this.setDocument(
-     this.displayName,
-     "roundTwoWinnersTopEast",
-     this.roundTwoWinnersTopEast
-    );
+   if (this.isOwned) {
+    if (index % 2 === 0) {
+     this.roundTwoWinnersTopEast = {
+      ...this.roundTwoWinnersTopEast,
+      [index]: beer,
+     };
+     this.setDocument(
+      this.$route.params.id,
+      "roundTwoWinnersTopEast",
+      this.roundTwoWinnersTopEast
+     );
+    } else {
+     this.roundTwoWinnersBottomEast = {
+      ...this.roundTwoWinnersBottomEast,
+      [index]: beer,
+     };
+     this.setDocument(
+      this.$route.params.id,
+      "roundTwoWinnersBottomEast",
+      this.roundTwoWinnersBottomEast
+     );
+    }
    } else {
-    this.roundTwoWinnersBottomEast = {
-     ...this.roundTwoWinnersBottomEast,
-     [index]: beer,
-    };
-    this.setDocument(
-     this.displayName,
-     "roundTwoWinnersBottomEast",
-     this.roundTwoWinnersBottomEast
-    );
+    window.alert("you're not allowed to edit this");
    }
   },
   async declareWinnerRoundTwoWest(beer, index) {
-   if (index % 2 === 0) {
-    this.roundTwoWinnersTopWest = {
-     ...this.roundTwoWinnersTopWest,
-     [index]: beer,
-    };
-    this.setDocument(
-     this.displayName,
-     "roundTwoWinnersTopWest",
-     this.roundTwoWinnersTopWest
-    );
+   if (this.isOwned) {
+    if (index % 2 === 0) {
+     this.roundTwoWinnersTopWest = {
+      ...this.roundTwoWinnersTopWest,
+      [index]: beer,
+     };
+     this.setDocument(
+      this.$route.params.id,
+      "roundTwoWinnersTopWest",
+      this.roundTwoWinnersTopWest
+     );
+    } else {
+     this.roundTwoWinnersBottomWest = {
+      ...this.roundTwoWinnersBottomWest,
+      [index]: beer,
+     };
+     this.setDocument(
+      this.$route.params.id,
+      "roundTwoWinnersBottomWest",
+      this.roundTwoWinnersBottomWest
+     );
+    }
    } else {
-    this.roundTwoWinnersBottomWest = {
-     ...this.roundTwoWinnersBottomWest,
-     [index]: beer,
-    };
-    this.setDocument(
-     this.displayName,
-     "roundTwoWinnersBottomWest",
-     this.roundTwoWinnersBottomWest
-    );
+    window.alert("you're not allowed to edit this");
    }
   },
   async declareSemiFinalsWest(beer, index) {
-   if (index % 2 === 0) {
-    this.semiFinalsWestTop = { ...this.semiFinalsWestTop, [index]: beer };
-    this.setDocument(
-     this.displayName,
-     "semiFinalsWestTop",
-     this.semiFinalsWestTop
-    );
+   if (this.isOwned) {
+    if (index % 2 === 0) {
+     this.semiFinalsWestTop = { ...this.semiFinalsWestTop, [index]: beer };
+     this.setDocument(
+      this.$route.params.id,
+      "semiFinalsWestTop",
+      this.semiFinalsWestTop
+     );
+    } else {
+     this.semiFinalsWestBottom = {
+      ...this.semiFinalsWestBottom,
+      [index]: beer,
+     };
+     this.setDocument(
+      this.$route.params.id,
+      "semiFinalsWestBottom",
+      this.semiFinalsWestBottom
+     );
+    }
    } else {
-    this.semiFinalsWestBottom = { ...this.semiFinalsWestBottom, [index]: beer };
-    this.setDocument(
-     this.displayName,
-     "semiFinalsWestBottom",
-     this.semiFinalsWestBottom
-    );
+    window.alert("you're not allowed to edit this");
    }
   },
   async declareSemiFinalsEast(beer, index) {
-   if (index % 2 === 0) {
-    this.semiFinalsEastTop = { ...this.semiFinalsEastTop, [index]: beer };
-    this.setDocument(
-     this.displayName,
-     "semiFinalsEastTop",
-     this.semiFinalsEastTop
-    );
+   if (this.isOwned) {
+    if (index % 2 === 0) {
+     this.semiFinalsEastTop = { ...this.semiFinalsEastTop, [index]: beer };
+     this.setDocument(
+      this.$route.params.id,
+      "semiFinalsEastTop",
+      this.semiFinalsEastTop
+     );
+    } else {
+     this.semiFinalsEastBottom = {
+      ...this.semiFinalsEastBottom,
+      [index]: beer,
+     };
+     this.setDocument(
+      this.$route.params.id,
+      "semiFinalsEastBottom",
+      this.semiFinalsEastBottom
+     );
+    }
    } else {
-    this.semiFinalsEastBottom = { ...this.semiFinalsEastBottom, [index]: beer };
-    this.setDocument(
-     this.displayName,
-     "semiFinalsEastBottom",
-     this.semiFinalsEastBottom
-    );
+    window.alert("you're not allowed to edit this");
    }
   },
   async declareFinalists(beer, index) {
-   if (index % 2 === 0) {
-    this.finalistTop = { ...this.finalistTop, [index]: beer };
-    this.setDocument(this.displayName, "finalistTop", this.finalistTop);
+   if (this.isOwned) {
+    if (index % 2 === 0) {
+     this.finalistTop = { ...this.finalistTop, [index]: beer };
+     this.setDocument(this.$route.params.id, "finalistTop", this.finalistTop);
+    } else {
+     this.finalistBottom = { ...this.finalistBottom, [index]: beer };
+     this.setDocument(
+      this.$route.params.id,
+      "finalistBottom",
+      this.finalistBottom
+     );
+    }
    } else {
-    this.finalistBottom = { ...this.finalistBottom, [index]: beer };
-    this.setDocument(this.displayName, "finalistBottom", this.finalistBottom);
+    window.alert("you're not allowed to edit this");
    }
   },
   declareChampion(beer) {
-   window.alert(beer + " hat gewonnen!");
+   if (this.isOwned) {
+    window.alert(beer + " hat gewonnen!");
+   } else {
+    window.alert("you're not allowed to edit this");
+   }
   },
  },
 };
@@ -746,17 +764,13 @@ body {
  padding: 1rem;
  margin: 0.5rem;
  border: none;
- background: #3f915f;
+ background: #7400b8;
  font-size: 1.5rem;
  cursor: pointer;
 }
 .base-btn:hover {
- background: #225535;
+ background: #32004e;
 }
-.base-btn:active {
- background: #225535;
-}
-
 @media screen and (min-width: 981px) and (max-width: 1099px) {
  .container {
   margin: 0 1%;

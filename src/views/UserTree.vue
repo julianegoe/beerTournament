@@ -1,7 +1,6 @@
 <template>
   <div class="home">
-      Das ist nicht mein Baum
-    <Tree :owned="false" />
+    <Tree />
   </div>
 </template>
 

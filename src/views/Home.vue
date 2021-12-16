@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <Tree :owned="true" />
+    <Tree />
   </div>
 </template>
 
