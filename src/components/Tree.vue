@@ -294,7 +294,12 @@
     <!-- END ROUND ONE -->
    </div>
   </div>
-  <button v-if="isOwned" class="base-btn" type="button" @click="resetDatabase">
+  <button
+   v-if="isOwned"
+   class="base-btn"
+   type="button"
+   @click="resetDatabase($route.params.id)"
+  >
    Zurücksetzen
   </button>
  </section>
@@ -302,7 +307,8 @@
 
 <script>
 import beers from "../assets/beers.json";
-import { updateDoc, doc, getDoc, deleteDoc, setDoc } from "firebase/firestore";
+import { updateDoc, doc, getDoc, setDoc, onSnapshot } from "firebase/firestore";
+/* import { onAuthStateChanged } from "firebase/auth"; */
 import { db, auth } from "@/firebase";
 
 export default {
@@ -327,15 +333,22 @@ export default {
 
    finalistTop: {},
    finalistBottom: {},
-   displayName: "",
+   unsubscribe: null,
   };
  },
- async beforeMount() {
-  let docSnap = await getDoc(doc(db, "Users", this.$route.params.id));
-  const keys = Object.keys(docSnap.data());
-  for (let key of keys) {
-   this[key] = docSnap.data()[key];
-  }
+ mounted() {
+  const ref = doc(db, "Users", this.$route.params.id);
+  this.unsubscribe = onSnapshot(ref, (doc) => {
+   if (doc.exists()) {
+    const keys = Object.keys(doc.data());
+    for (let key of keys) {
+     this[key] = doc.data()[key];
+    }
+   }
+  });
+ },
+ beforeUnmount() {
+  this.unsubscribe();
  },
  computed: {
   // All available beer brands
@@ -367,8 +380,10 @@ export default {
    );
   },
   isOwned() {
-   console.log(auth.currentUser.displayName);
-   return auth.currentUser.displayName === this.$route.params.id;
+   if (auth.currentUser) {
+    return auth.currentUser.displayName === this.$route.params.id;
+   }
+   return false;
   },
  },
  methods: {
@@ -385,23 +400,13 @@ export default {
     await setDoc(docRef, { [documentId]: document });
    }
   },
-  async resetDatabase() {
+  async resetDatabase(username) {
    console.log("resetting...");
-   await deleteDoc(doc(db, this.$route.params.id, "roundOneWinnersTopWest"));
-   await deleteDoc(doc(db, this.$route.params.id, "roundOneWinnersBottomWest"));
-   await deleteDoc(doc(db, this.$route.params.id, "roundOneWinnersTopEast"));
-   await deleteDoc(doc(db, this.$route.params.id, "roundOneWinnersBottomEast"));
-   await deleteDoc(doc(db, this.$route.params.id, "roundTwoWinnersTopWest"));
-   await deleteDoc(doc(db, this.$route.params.id, "roundTwoWinnersBottomWest"));
-   await deleteDoc(doc(db, this.$route.params.id, "roundTwoWinnersTopEast"));
-   await deleteDoc(doc(db, this.$route.params.id, "roundTwoWinnersBottomEast"));
-   await deleteDoc(doc(db, this.$route.params.id, "semiFinalsWestTop"));
-   await deleteDoc(doc(db, this.$route.params.id, "semiFinalsWestBottom"));
-   await deleteDoc(doc(db, this.$route.params.id, "semiFinalsEastTop"));
-   await deleteDoc(doc(db, this.$route.params.id, "semiFinalsEastBottom"));
-   await deleteDoc(doc(db, this.$route.params.id, "finalistTop"));
-   await deleteDoc(doc(db, this.$route.params.id, "finalistBottom"));
-   location.reload();
+   const data = await getDoc(doc(db, "Users", username));
+   const keys = Object.keys(data.data());
+   for (let key of keys) {
+     await updateDoc(doc(db, "Users", username), {[key]: {}});
+    }
   },
   async declareWinnerRoundOneWest(beer, index) {
    if (this.isOwned) {
