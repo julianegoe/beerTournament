@@ -1,130 +1,98 @@
 [
     {
-        "name": "Astra",
-        "id": "1"
+        "name": "Astra"
     },
     {
-        "name": "Sternburg",
-        "id": "2"
+        "name": "Sternburg"
     },
     {
-        "name": "Schöfferhofer",
-        "id": "3"
+        "name": "Schöfferhofer"
     },
     {
-        "name": "Radeberger",
-        "id": "4"
+        "name": "Radeberger"
     },
     {
-        "name": "Radler",
-        "id": "5"
+        "name": "Radler"
     },
     {
-        "name": "Diesel",
-        "id": "6"
+        "name": "Diesel"
     },
     {
-        "name": "Berliner Pilsner",
-        "id": "7"
+        "name": "Berliner Pilsner"
     },
     {
-        "name": "Berliner Kindl",
-        "id": "8"
+        "name": "Berliner Kindl"
     },
     {
-        "name": "Jever",
-        "id": "9"
+        "name": "Jever"
     },
     {
-        "name": "Becks",
-        "id": "10"
+        "name": "Becks"
     },
     {
-        "name": "Flensburger",
-        "id": "11"
+        "name": "Flensburger"
     },
     {
-        "name": "Bitburger",
-        "id": "12"
+        "name": "Bitburger"
     },
     {
-        "name": "Bayreuther",
-        "id": "13"
+        "name": "Bayreuther"
     },
     {
-        "name": "Tannzäpfle",
-        "id": "14"
+        "name": "Tannzäpfle"
     },
     {
-        "name": "Mönchshof",
-        "id": "15"
+        "name": "Mönchshof"
     },
     {
-        "name": "Warsteiner",
-        "id": "16"
+        "name": "Warsteiner"
     },
     {
-        "name": "Radeberger",
-        "id": "17"
+        "name": "Radeberger"
     },
     {
-        "name": "Löwenbräu",
-        "id": "18"
+        "name": "Löwenbräu"
     },
     {
-        "name": "Kölsch",
-        "id": "19"
+        "name": "Kölsch"
     },
     {
-        "name": "Wernesgrüner",
-        "id": "20"
+        "name": "Wernesgrüner"
     },
     {
-        "name": "Freiberger",
-        "id": "21"
+        "name": "Freiberger"
     },
     {
-        "name": "Veltins",
-        "id": "22"
+        "name": "Veltins"
     },
     {
-        "name": "Paulaner",
-        "id": "23"
+        "name": "Paulaner"
     },
     {
-        "name": "Krombacher",
-        "id": "24"
+        "name": "Krombacher"
     },
     {
-        "name": "Erdinger",
-        "id": "25"
+        "name": "Erdinger"
     },
     {
-        "name": "Ur-Krostitzer",
-        "id": "26"
+        "name": "Ur-Krostitzer"
     },
     {
-        "name": "Lübzer",
-        "id": "27"
+        "name": "Lübzer"
     },
     {
-        "name": "Hasseröder",
-        "id": "28"
+        "name": "Hasseröder"
     },
     {
-        "name": "Karamalz",
-        "id": "29"
+        "name": "Karamalz"
     },
     {
-        "name": "Vitamalz",
-        "id": "30"
+        "name": "Vitamalz"
     },
     {
-        "name": "Licher",
-        "id": "31"
+        "name": "Licher"
     },
     {
-        "name": "5,0",
-        "id": "32"
+        "name": "5,0"
     }
 ]
