@@ -25,7 +25,7 @@
         <div class="user-container">
             <h2>Teilnehmerinnen und Teilnehmer</h2>
             <template v-for="user, index in users" :key="index">
-                <div @click="$router.push({ name: 'UserTree', params: { id: user || 'no_ID' } })" class="user-box" v-if="user != currentUser" >
+                <div @click="$router.push({ name: 'UserTree', params: { id: user || 'no_ID' } })" class="user-box" :class="[user === currentUser ? 'user-box__owner' : '']">
                     {{user}}
                 </div>
             </template>
@@ -114,7 +114,10 @@ h2 {
     background: white;
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     cursor: pointer;
+}
 
+.user-box__owner {
+    background: #56bbd4;
 }
 
 </style>
