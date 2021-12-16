@@ -1,7 +1,6 @@
 <template>
   <div class="home">
-    Dieser Turnierbaum ist noch in der Entwicklung und noch nicht personalisiert...
-    <Tree />
+    <Tree :owned="true" />
   </div>
 </template>
 

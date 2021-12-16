@@ -302,11 +302,26 @@
 
 <script>
 import beers from "../assets/beers.json";
-import { setDoc, doc, getDocs, collection } from "firebase/firestore";
-import { db } from "@/firebase";
+import {
+ setDoc,
+ doc,
+ getDocs,
+ collection,
+ deleteDoc,
+} from "firebase/firestore";
+import { onAuthStateChanged } from "firebase/auth";
+import { db, auth } from "@/firebase";
 
 export default {
  name: "Tree",
+ props: {
+  owned: {
+   default: true,
+  },
+  owner: {
+   required: false,
+  },
+ },
  data() {
   return {
    roundOneWinnersTopWest: {},
@@ -327,65 +342,25 @@ export default {
 
    finalistTop: {},
    finalistBottom: {},
+   displayName: "",
   };
  },
- async beforeMount() {
-  let querySnapshot = await getDocs(collection(db, "roundOneWinnersTopWest"));
-  querySnapshot.forEach((doc) => {
-   this.roundOneWinnersTopWest = doc.data();
-  });
-  querySnapshot = await getDocs(collection(db, "roundOneWinnersBottomWest"));
-  querySnapshot.forEach((doc) => {
-   this.roundOneWinnersBottomWest = doc.data();
-  });
-  querySnapshot = await getDocs(collection(db, "roundOneWinnersTopEast"));
-  querySnapshot.forEach((doc) => {
-   this.roundOneWinnersTopEast = doc.data();
-  });
-  querySnapshot = await getDocs(collection(db, "roundOneWinnersBottomEast"));
-  querySnapshot.forEach((doc) => {
-   this.roundOneWinnersBottomEast = doc.data();
-  });
-  querySnapshot = await getDocs(collection(db, "roundTwoWinnersTopWest"));
-  querySnapshot.forEach((doc) => {
-   this.roundTwoWinnersTopWest = doc.data();
-  });
-  querySnapshot = await getDocs(collection(db, "roundTwoWinnersBottomWest"));
-  querySnapshot.forEach((doc) => {
-   this.roundTwoWinnersBottomWest = doc.data();
-  });
-  querySnapshot = await getDocs(collection(db, "roundTwoWinnersTopEast"));
-  querySnapshot.forEach((doc) => {
-   this.roundTwoWinnersTopEast = doc.data();
-  });
-  querySnapshot = await getDocs(collection(db, "roundTwoWinnersBottomEast"));
-  querySnapshot.forEach((doc) => {
-   this.roundTwoWinnersBottomEast = doc.data();
-  });
-  querySnapshot = await getDocs(collection(db, "semiFinalsWestTop"));
-  querySnapshot.forEach((doc) => {
-   this.semiFinalsWestTop = doc.data();
-  });
-  querySnapshot = await getDocs(collection(db, "semiFinalsWestBottom"));
-  querySnapshot.forEach((doc) => {
-   this.semiFinalsWestBottom = doc.data();
-  });
-  querySnapshot = await getDocs(collection(db, "semiFinalsEastTop"));
-  querySnapshot.forEach((doc) => {
-   this.semiFinalsEastTop = doc.data();
-  });
-  querySnapshot = await getDocs(collection(db, "semiFinalsEastBottom"));
-  querySnapshot.forEach((doc) => {
-   this.semiFinalsEastBottom = doc.data();
-  });
-  querySnapshot = await getDocs(collection(db, "finalistTop"));
-  querySnapshot.forEach((doc) => {
-   this.finalistTop = doc.data();
-  });
-  querySnapshot = await getDocs(collection(db, "finalistBottom"));
-  querySnapshot.forEach((doc) => {
-   this.finalistBottom = doc.data();
-  });
+ beforeMount() {
+  if (this.owned) {
+   onAuthStateChanged(auth, async (user) => {
+    if (user) {
+     this.displayName = user.displayName;
+     let querySnapshot = await getDocs(collection(db, this.displayName));
+     querySnapshot.forEach((doc) => {
+      this[doc.id] = doc.data();
+     });
+    } else {
+     this.$router.replace({ name: "Login" });
+    }
+   });
+  } else {
+   this.displayName = this.owner;
+  }
  },
  computed: {
   // All available beer brands
@@ -418,32 +393,38 @@ export default {
   },
  },
  methods: {
+  async setDocument(username, documentId, document) {
+   const data = await setDoc(doc(db, username, documentId), document);
+   console.log(data);
+  },
   async resetDatabase() {
    console.log("resetting...");
-   await setDoc(doc(db, "roundOneWinnersTopWest", "0"), {});
-   await setDoc(doc(db, "roundOneWinnersBottomWest", "0"), {});
-   await setDoc(doc(db, "roundOneWinnersTopEast", "0"), {});
-   await setDoc(doc(db, "roundOneWinnersBottomEast", "0"), {});
-   await setDoc(doc(db, "roundTwoWinnersTopWest", "0"), {});
-   await setDoc(doc(db, "roundTwoWinnersBottomWest", "0"), {});
-   await setDoc(doc(db, "roundTwoWinnersTopEast", "0"), {});
-   await setDoc(doc(db, "roundTwoWinnersBottomEast", "0"), {});
-   await setDoc(doc(db, "semiFinalsWestTop", "0"), {});
-   await setDoc(doc(db, "semiFinalsWestBottom", "0"), {});
-   await setDoc(doc(db, "semiFinalsEastTop", "0"), {});
-   await setDoc(doc(db, "semiFinalsEastBottom", "0"), {});
-   await setDoc(doc(db, "finalistTop", "0"), {});
-   await setDoc(doc(db, "finalistBottom", "0"), {});
+   await deleteDoc(doc(db, this.displayName, "roundOneWinnersTopWest"));
+   await deleteDoc(doc(db, this.displayName, "roundOneWinnersBottomWest"));
+   await deleteDoc(doc(db, this.displayName, "roundOneWinnersTopEast"));
+   await deleteDoc(doc(db, this.displayName, "roundOneWinnersBottomEast"));
+   await deleteDoc(doc(db, this.displayName, "roundTwoWinnersTopWest"));
+   await deleteDoc(doc(db, this.displayName, "roundTwoWinnersBottomWest"));
+   await deleteDoc(doc(db, this.displayName, "roundTwoWinnersTopEast"));
+   await deleteDoc(doc(db, this.displayName, "roundTwoWinnersBottomEast"));
+   await deleteDoc(doc(db, this.displayName, "semiFinalsWestTop"));
+   await deleteDoc(doc(db, this.displayName, "semiFinalsWestBottom"));
+   await deleteDoc(doc(db, this.displayName, "semiFinalsEastTop"));
+   await deleteDoc(doc(db, this.displayName, "semiFinalsEastBottom"));
+   await deleteDoc(doc(db, this.displayName, "finalistTop"));
+   await deleteDoc(doc(db, this.displayName, "finalistBottom"));
    location.reload();
   },
   async declareWinnerRoundOneWest(beer, index) {
-   if (index % 2 === 0) {
+    if(this.owned) {
+      if (index % 2 === 0) {
     this.roundOneWinnersTopWest = {
      ...this.roundOneWinnersTopWest,
      [index]: beer.name,
     };
-    await setDoc(
-     doc(db, "roundOneWinnersTopWest", "0"),
+    this.setDocument(
+     this.displayName,
+     "roundOneWinnersTopWest",
      this.roundOneWinnersTopWest
     );
    } else {
@@ -451,20 +432,26 @@ export default {
      ...this.roundOneWinnersBottomWest,
      [index]: beer.name,
     };
-    await setDoc(
-     doc(db, "roundOneWinnersBottomWest", "0"),
+    this.setDocument(
+     this.displayName,
+     "roundOneWinnersBottomWest",
      this.roundOneWinnersBottomWest
     );
    }
+    } else {
+      window.alert("you're not allowed to edit this")
+    }
   },
   async declareWinnerRoundOneEast(beer, index) {
-   if (index % 2 === 0) {
+    if (this.owned) {
+      if (index % 2 === 0) {
     this.roundOneWinnersTopEast = {
      ...this.roundOneWinnersTopEast,
      [index]: beer.name,
     };
-    await setDoc(
-     doc(db, "roundOneWinnersTopEast", "0"),
+    this.setDocument(
+     this.displayName,
+     "roundOneWinnersTopEast",
      this.roundOneWinnersTopEast
     );
    } else {
@@ -472,11 +459,15 @@ export default {
      ...this.roundOneWinnersBottomEast,
      [index]: beer.name,
     };
-    await setDoc(
-     doc(db, "roundOneWinnersBottomEast", "0"),
+    this.setDocument(
+     this.displayName,
+     "roundOneWinnersBottomEast",
      this.roundOneWinnersBottomEast
     );
    }
+    } else {
+      window.alert("you're not allowed to edit this")
+    }
   },
   async declareWinnerRoundTwoEast(beer, index) {
    if (index % 2 === 0) {
@@ -484,8 +475,9 @@ export default {
      ...this.roundTwoWinnersTopEast,
      [index]: beer,
     };
-    await setDoc(
-     doc(db, "roundTwoWinnersTopEast", "0"),
+    this.setDocument(
+     this.displayName,
+     "roundTwoWinnersTopEast",
      this.roundTwoWinnersTopEast
     );
    } else {
@@ -493,8 +485,9 @@ export default {
      ...this.roundTwoWinnersBottomEast,
      [index]: beer,
     };
-    await setDoc(
-     doc(db, "roundTwoWinnersBottomEast", "0"),
+    this.setDocument(
+     this.displayName,
+     "roundTwoWinnersBottomEast",
      this.roundTwoWinnersBottomEast
     );
    }
@@ -505,8 +498,9 @@ export default {
      ...this.roundTwoWinnersTopWest,
      [index]: beer,
     };
-    await setDoc(
-     doc(db, "roundTwoWinnersTopWest", "0"),
+    this.setDocument(
+     this.displayName,
+     "roundTwoWinnersTopWest",
      this.roundTwoWinnersTopWest
     );
    } else {
@@ -514,8 +508,9 @@ export default {
      ...this.roundTwoWinnersBottomWest,
      [index]: beer,
     };
-    await setDoc(
-     doc(db, "roundTwoWinnersBottomWest", "0"),
+    this.setDocument(
+     this.displayName,
+     "roundTwoWinnersBottomWest",
      this.roundTwoWinnersBottomWest
     );
    }
@@ -523,11 +518,16 @@ export default {
   async declareSemiFinalsWest(beer, index) {
    if (index % 2 === 0) {
     this.semiFinalsWestTop = { ...this.semiFinalsWestTop, [index]: beer };
-    await setDoc(doc(db, "semiFinalsWestTop", "0"), {...this.semiFinalsWestTop, userId: this.$params.id});
+    this.setDocument(
+     this.displayName,
+     "semiFinalsWestTop",
+     this.semiFinalsWestTop
+    );
    } else {
     this.semiFinalsWestBottom = { ...this.semiFinalsWestBottom, [index]: beer };
-    await setDoc(
-     doc(db, "semiFinalsWestBottom", "0"),
+    this.setDocument(
+     this.displayName,
+     "semiFinalsWestBottom",
      this.semiFinalsWestBottom
     );
    }
@@ -535,11 +535,16 @@ export default {
   async declareSemiFinalsEast(beer, index) {
    if (index % 2 === 0) {
     this.semiFinalsEastTop = { ...this.semiFinalsEastTop, [index]: beer };
-    await setDoc(doc(db, "semiFinalsEastTop", "0"), this.semiFinalsEastTop);
+    this.setDocument(
+     this.displayName,
+     "semiFinalsEastTop",
+     this.semiFinalsEastTop
+    );
    } else {
     this.semiFinalsEastBottom = { ...this.semiFinalsEastBottom, [index]: beer };
-    await setDoc(
-     doc(db, "semiFinalsEastBottom", "0"),
+    this.setDocument(
+     this.displayName,
+     "semiFinalsEastBottom",
      this.semiFinalsEastBottom
     );
    }
@@ -547,10 +552,10 @@ export default {
   async declareFinalists(beer, index) {
    if (index % 2 === 0) {
     this.finalistTop = { ...this.finalistTop, [index]: beer };
-    await setDoc(doc(db, "finalistTop", "0"), this.finalistTop);
+    this.setDocument(this.displayName, "finalistTop", this.finalistTop);
    } else {
     this.finalistBottom = { ...this.finalistBottom, [index]: beer };
-    await setDoc(doc(db, "finalistBottom", "0"), this.finalistBottom);
+    this.setDocument(this.displayName, "finalistBottom", this.finalistBottom);
    }
   },
   declareChampion(beer) {

@@ -1,16 +1,14 @@
 <template>
-    <Tree />
+    <div>Hier entsteht ein Überblick über alle persönlichen Turnierbäume</div>
 </template>
 
 <script>
-import Tree from '@/components/Tree.vue';
 import { onAuthStateChanged } from 'firebase/auth';
 import {auth} from '@/firebase';
 
     export default {
         name: 'Overview',
         components: {
-            Tree,
         },
         data() {
             return {
