@@ -1,162 +1,130 @@
 [
     {
         "name": "Astra",
-        "eliminated": false,
-        "  id": "1"
+        "id": "1"
     },
     {
         "name": "Sternburg",
-        "eliminated": false,
-        "  id": "2"
+        "id": "2"
     },
     {
         "name": "Schöfferhofer",
-        "eliminated": false,
-        "  id": "3"
+        "id": "3"
     },
     {
         "name": "Radeberger",
-        "eliminated": false,
-        "  id": "4"
+        "id": "4"
     },
     {
         "name": "Radler",
-        "eliminated": false,
-        "  id": "5"
+        "id": "5"
     },
     {
         "name": "Diesel",
-        "eliminated": false,
-        "  id": "6"
+        "id": "6"
     },
     {
         "name": "Berliner Pilsner",
-        "eliminated": false,
-        "  id": "7"
+        "id": "7"
     },
     {
         "name": "Berliner Kindl",
-        "eliminated": false,
-        "  id": "8"
+        "id": "8"
     },
     {
         "name": "Jever",
-        "eliminated": false,
-        "  id": "9"
+        "id": "9"
     },
     {
         "name": "Becks",
-        "eliminated": false,
-        "  id": "10"
+        "id": "10"
     },
     {
         "name": "Flensburger",
-        "eliminated": false,
-        "  id": "11"
+        "id": "11"
     },
     {
         "name": "Bitburger",
-        "eliminated": false,
-        "  id": "12"
+        "id": "12"
     },
     {
         "name": "Bayreuther",
-        "eliminated": false,
-        "  id": "13"
+        "id": "13"
     },
     {
         "name": "Tannzäpfle",
-        "eliminated": false,
-        "  id": "14"
+        "id": "14"
     },
     {
         "name": "Mönchshof",
-        "eliminated": false,
-        "  id": "15"
+        "id": "15"
     },
     {
         "name": "Warsteiner",
-        "eliminated": false,
-        "  id": "16"
+        "id": "16"
     },
     {
         "name": "Radeberger",
-        "eliminated": false,
-        "  id": "17"
+        "id": "17"
     },
     {
         "name": "Löwenbräu",
-        "eliminated": false,
-        "  id": "18"
+        "id": "18"
     },
     {
         "name": "Kölsch",
-        "eliminated": false,
-        "  id": "19"
+        "id": "19"
     },
     {
         "name": "Wernesgrüner",
-        "eliminated": false,
-        "  id": "20"
+        "id": "20"
     },
     {
         "name": "Freiberger",
-        "eliminated": false,
-        "  id": "21"
+        "id": "21"
     },
     {
         "name": "Veltins",
-        "eliminated": false,
-        "  id": "22"
+        "id": "22"
     },
     {
         "name": "Paulaner",
-        "eliminated": false,
-        "  id": "23"
+        "id": "23"
     },
     {
         "name": "Krombacher",
-        "eliminated": false,
-        "  id": "24"
+        "id": "24"
     },
     {
         "name": "Erdinger",
-        "eliminated": false,
-        "  id": "25"
+        "id": "25"
     },
     {
         "name": "Ur-Krostitzer",
-        "eliminated": false,
-        "  id": "26"
+        "id": "26"
     },
     {
         "name": "Lübzer",
-        "eliminated": false,
-        "  id": "27"
+        "id": "27"
     },
     {
         "name": "Hasseröder",
-        "eliminated": false,
-        "  id": "28"
+        "id": "28"
     },
     {
         "name": "Karamalz",
-        "eliminated": false,
-        "  id": "29"
+        "id": "29"
     },
     {
         "name": "Vitamalz",
-        "eliminated": false,
-        "  id": "30"
+        "id": "30"
     },
     {
         "name": "Licher",
-        "eliminated": false,
-        "  id": "31"
+        "id": "31"
     },
     {
         "name": "5,0",
-        "eliminated": false,
-        "  id": "32"
+        "id": "32"
     }
 ]

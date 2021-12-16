@@ -427,7 +427,7 @@ export default {
      );
     }
    } else {
-    window.alert("you're not allowed to edit this");
+    window.alert("Du hast keine Berechtigung, das zu ändern");
    }
   },
   async declareWinnerRoundOneEast(beer, index) {
@@ -454,7 +454,7 @@ export default {
      );
     }
    } else {
-    window.alert("you're not allowed to edit this");
+    window.alert("Du hast keine Berechtigung, das zu ändern");
    }
   },
   async declareWinnerRoundTwoEast(beer, index) {
@@ -481,7 +481,7 @@ export default {
      );
     }
    } else {
-    window.alert("you're not allowed to edit this");
+    window.alert("Du hast keine Berechtigung, das zu ändern");
    }
   },
   async declareWinnerRoundTwoWest(beer, index) {
@@ -508,7 +508,7 @@ export default {
      );
     }
    } else {
-    window.alert("you're not allowed to edit this");
+    window.alert("Du hast keine Berechtigung, das zu ändern");
    }
   },
   async declareSemiFinalsWest(beer, index) {
@@ -532,7 +532,7 @@ export default {
      );
     }
    } else {
-    window.alert("you're not allowed to edit this");
+    window.alert("Du hast keine Berechtigung, das zu ändern");
    }
   },
   async declareSemiFinalsEast(beer, index) {
@@ -556,7 +556,7 @@ export default {
      );
     }
    } else {
-    window.alert("you're not allowed to edit this");
+    window.alert("Du hast keine Berechtigung, das zu ändern");
    }
   },
   async declareFinalists(beer, index) {
@@ -573,14 +573,14 @@ export default {
      );
     }
    } else {
-    window.alert("you're not allowed to edit this");
+    window.alert("Du hast keine Berechtigung, das zu ändern");
    }
   },
   declareChampion(beer) {
    if (this.isOwned) {
     window.alert(beer + " hat gewonnen!");
    } else {
-    window.alert("you're not allowed to edit this");
+    window.alert("Du hast keine Berechtigung, das zu ändern");
    }
   },
  },
