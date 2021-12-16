@@ -294,7 +294,7 @@
     <!-- END ROUND ONE -->
    </div>
   </div>
-  <button class="base-btn" type="button" @click="resetDatabase">
+  <button v-if="isOwned" class="base-btn" type="button" @click="resetDatabase">
    Zurücksetzen
   </button>
  </section>
