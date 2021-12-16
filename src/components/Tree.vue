@@ -308,7 +308,7 @@
 <script>
 import beers from "../assets/beers.json";
 import { updateDoc, doc, getDoc, setDoc, onSnapshot } from "firebase/firestore";
-/* import { onAuthStateChanged } from "firebase/auth"; */
+import { onAuthStateChanged } from "firebase/auth";
 import { db, auth } from "@/firebase";
 
 export default {
@@ -334,7 +334,17 @@ export default {
    finalistTop: {},
    finalistBottom: {},
    unsubscribe: null,
+   userID: "",
   };
+ },
+ beforeMount() {
+  onAuthStateChanged(auth, (user) => {
+   if (user) {
+    this.userID = user.displayName;
+   } else {
+    this.$router.replace({ name: "Login" });
+   }
+  });
  },
  mounted() {
   const ref = doc(db, "Users", this.$route.params.id);
@@ -380,10 +390,7 @@ export default {
    );
   },
   isOwned() {
-   if (auth.currentUser) {
-    return auth.currentUser.displayName === this.$route.params.id;
-   }
-   return false;
+    return (this.userID === this.$route.params.id)
   },
  },
  methods: {
@@ -405,8 +412,8 @@ export default {
    const data = await getDoc(doc(db, "Users", username));
    const keys = Object.keys(data.data());
    for (let key of keys) {
-     await updateDoc(doc(db, "Users", username), {[key]: {}});
-    }
+    await updateDoc(doc(db, "Users", username), { [key]: {} });
+   }
   },
   async declareWinnerRoundOneWest(beer, index) {
    if (this.isOwned) {
