@@ -1,7 +1,7 @@
 <template>
   <Header v-if="isLoggedIn" />
   <router-view/>
-  <Footer v-if="isLoggedIn" />
+  <Footer />
 </template>
 <script>
 import Header from '@/components/Header.vue';
