@@ -31,9 +31,9 @@ import { auth } from '@/firebase'
         methods: {
             async loginUser() {
                 try {
-                    const data = await signInWithEmailAndPassword(auth, this.email, this.password);
+                    await signInWithEmailAndPassword(auth, this.email, this.password);
                     this.isLoggedIn = true;
-                    this.$router.replace({ name: 'Home', params: { id: data.user.displayName || 'no_ID' } });
+                    this.$router.replace({ name: 'Overview'});
                 } catch (error) {
                     console.log(error);
                 }
