@@ -33,9 +33,8 @@ import info from '@/infotext/infotext.json';
 <style scoped>
 
 footer {
-    position: fixed;
+    position: absolute;
     bottom: 0;
-    left: 0;
     display: flex;
     justify-content: flex-end;
     width: 100%;

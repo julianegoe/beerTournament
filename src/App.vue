@@ -1,7 +1,7 @@
 <template>
   <Header v-if="isLoggedIn" />
   <router-view/>
-  <Footer />
+  <Footer v-if="isLoggedIn" />
 </template>
 <script>
 import Header from '@/components/Header.vue';
@@ -41,6 +41,8 @@ body {
 }
 
 #app {
+  min-height: 100vh;
+  position: relative;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

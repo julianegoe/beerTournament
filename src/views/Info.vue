@@ -1,7 +1,7 @@
 <template>
     <div class="info-container">
         <h1>{{headline}}</h1>
-        <p>{{paragraph}}</p>
+        <div>{{paragraph}}</div>
     </div>
 </template>
 
