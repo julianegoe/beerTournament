@@ -22,7 +22,7 @@
 <style scoped>
 
 .info-container {
-    padding-top: 2rem;
+    padding: 2rem;
 }
 
 </style>
