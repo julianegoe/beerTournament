@@ -9,7 +9,7 @@
        @click="declareWinnerRoundOneWest(selectionTopWest[index], index)"
        class="team team-top"
       >
-      <img class="beer-logo" src="../assets/200px-Astra_Logo.png" alt="beer logo" />
+      <img class="beer-logo" :src="selectionTopWest[index].url" alt="beer logo" />
        {{ selectionTopWest[index].name }}
       </li>
       <li
@@ -311,6 +311,7 @@ import beers from "../assets/beers.json";
 import { updateDoc, doc, getDoc, setDoc, onSnapshot } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
 import { db, auth } from "@/firebase";
+import beer from '../assets/200px-Astra_Logo.png';
 
 export default {
  name: "Tree",
@@ -336,6 +337,7 @@ export default {
    finalistBottom: {},
    unsubscribe: null,
    userID: "",
+   beer: beer,
   };
  },
  beforeMount() {
@@ -393,6 +395,10 @@ export default {
   isOwned() {
     return (this.userID === this.$route.params.id)
   },
+    /* loadImage(imageUrl) {
+      const image = require(imageUrl);
+      return image
+  }, */
  },
  methods: {
   async setDocument(username, documentId, document) {
@@ -724,12 +730,12 @@ export default {
  padding: 1rem;
  margin: 0.5rem;
  border: none;
- background: #7400b8;
+ background: #fbba00;
  font-size: 1.5rem;
  cursor: pointer;
 }
 .base-btn:hover {
- background: #32004e;
+ background: #daa000;
 }
 
 .beer-logo {

@@ -117,7 +117,7 @@ h2 {
 }
 
 .user-box__owner {
-    background: #56bbd4;
+    background: #fbba00;
 }
 
 @media screen and (max-width: 980px) {
