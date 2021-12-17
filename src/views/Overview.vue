@@ -1,5 +1,4 @@
 <template>
-<OverviewLayout>
     <div class="overview-container"> 
         <div class="rules-container">
             <div class="rules-box">
@@ -35,17 +34,15 @@
         </div>
         </div>
     </div>
- </OverviewLayout>
 </template>
 
 <script>
 import { db, auth } from '@/firebase';
 import { collection, getDocs } from "firebase/firestore";
-import OverviewLayout from '@/layouts/OverviewLayout.vue';
 
     export default {
         name: 'Overview',
-        components: { OverviewLayout,
+        components: {
         },
         data() {
             return {

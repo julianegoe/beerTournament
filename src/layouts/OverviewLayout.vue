@@ -19,7 +19,6 @@ export default {
   right: 0;
   bottom: 0;
   box-sizing: border-box;
-  background: #f1f1f1;
 
 }
 

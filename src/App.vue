@@ -1,9 +1,11 @@
 <template>
   <Header v-if="isLoggedIn" />
   <router-view/>
+  <Footer />
 </template>
 <script>
 import Header from '@/components/Header.vue';
+import Footer from '@/components/Footer.vue';
 import { onAuthStateChanged } from 'firebase/auth';
 import {auth} from '@/firebase';
 
@@ -11,6 +13,7 @@ export default {
   name: 'App',
   components: {
     Header,
+    Footer,
   },
   data() {
     return {
