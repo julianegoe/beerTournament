@@ -28,7 +28,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "output" */ '../views/UserTree.vue'),
   },
   {
-    path: '/:infotype',
+    path: '/:type',
     name: 'Info',
     component: () => import(/* webpackChunkName: "output" */ '../views/Info.vue'),
     props: true,

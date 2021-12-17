@@ -2,16 +2,14 @@
     <footer>
         <div class="footer-content">
             <RouterLink :to="{name: 'Info', params: {
-                infotype: 'datenschutz',
+                type: 'datenschutz',
                 headline: 'Datenschutzerklärung',
-                paragraph: info.datenschutz,
             }}">Datenschutz</RouterLink>
         </div>
         <div class="footer-content">
             <RouterLink :to="{name: 'Info', params: {
-                infotype: 'impressum',
+                type: 'impressum',
                 headline: 'Impressum',
-                paragraph: info.impressum,
             }}">Impressum</RouterLink>
         </div>
     </footer>
@@ -24,7 +22,7 @@ import info from '@/infotext/infotext.json';
         name: 'Footer',
         data() {
             return {
-                info: JSON.parse(JSON.stringify(info))
+                info: JSON.parse(JSON.stringify(info)),
             }
         },
     }

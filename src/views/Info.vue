@@ -1,28 +1,42 @@
 <template>
     <div class="info-container">
         <h1>{{headline}}</h1>
-        <div>{{paragraph}}</div>
+        <Impressum v-if="type === 'impressum'" />
+        <Datenschutz v-if="type === 'datenschutz'" />
     </div>
 </template>
 
 <script>
+import Impressum from '@/components/Impresum.vue';
+import Datenschutz from '@/components/Datenschutz.vue';
+
     export default {
         name: 'Info',
-    props: {
-        paragraph: {
-            required: false,
+        components: {
+            Impressum,
+            Datenschutz,
         },
-        headline: {
-            required: false,
+        props: {
+            type: {
+                required: false,
+            },
+            headline: {
+                required: false,
+            }
         }
-    }
 }
 </script>
 
 <style scoped>
 
 .info-container {
-    padding: 2rem;
+    padding: 2rem 6rem 2rem 6rem;
+}
+
+@media screen and (max-width: 980px) {
+    .info-container {
+    padding: 4rem 1rem;
+}
 }
 
 </style>
