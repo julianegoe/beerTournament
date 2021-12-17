@@ -45,8 +45,8 @@ import { auth } from '@/firebase'
 <style scoped>
 
 .bierturnier-logo {
-    width: 500px;
-    height: 500px;
+    aspect-ratio: 1;
+    width: 40%;
     object-fit: contain;
 }
 
