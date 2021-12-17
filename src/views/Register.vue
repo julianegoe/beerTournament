@@ -85,4 +85,10 @@ button{
 .register-link {
     padding-top: 1rem;
 }
+
+@media screen and (max-width: 980px) {
+    .bierturnier-logo {
+    width: 70%;
+}
+}
 </style>
