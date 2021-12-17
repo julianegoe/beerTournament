@@ -54,6 +54,9 @@ import {auth} from '@/firebase';
 
 <style scoped>
 .header {
+    position: absolute;
+    top: 0;
+    left: 0;
     z-index: 1000;
     width: 100%;
     background-image: linear-gradient(90deg, #7400b8, #80ffdb);

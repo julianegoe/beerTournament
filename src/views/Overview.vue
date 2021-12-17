@@ -84,7 +84,7 @@ import OverviewLayout from '@/layouts/OverviewLayout.vue';
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding: 2rem;
+    padding: 4rem 2rem 2rem 2rem;
 }
 
 .rules-box {
@@ -101,7 +101,7 @@ h1, p {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 0.5rem;
-    padding: 2rem 2rem 2rem 0;
+    padding: 4rem 2rem 2rem 0;
 }
 
 h2 {
@@ -126,7 +126,7 @@ h2 {
         flex-direction: column;
     }
     .rules-container {
-        padding: 1rem;
+        padding: 5rem 1rem 1rem 1rem;
     }
     .user-container {
         display: grid;

@@ -1,5 +1,5 @@
 <template>
-  <Header :owned="false" owner="Franz" v-if="isLoggedIn" />
+  <Header v-if="isLoggedIn" />
   <router-view/>
 </template>
 <script>
@@ -43,18 +43,5 @@ body {
   text-align: center;
   color: #2c3e50;
   background: #f1f1f1;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
 }
 </style>
