@@ -609,7 +609,6 @@ export default {
 <style scoped>
 #bracket {
  overflow: hidden;
- background-color: #e1e1e1;
  font-size: 12px;
  padding: 4rem 0;
 }
@@ -643,7 +642,6 @@ export default {
 .round {
  float: left;
  display: flex;
- -webkit-flex-direction: column;
  flex-direction: column;
  width: 95%;
  width: 30.8333%\9;
@@ -705,8 +703,8 @@ export default {
 .champion li,
 .round li {
  background-color: #fff;
- box-shadow: none;
- opacity: 0.45;
+ box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+ opacity: 1;
 }
 .current li {
  opacity: 1;
