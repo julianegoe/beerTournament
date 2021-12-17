@@ -44,6 +44,10 @@ import { auth } from '@/firebase'
 
 <style scoped>
 
+.login-container {
+    padding-bottom: 2rem;
+}
+
 .bierturnier-logo {
     aspect-ratio: 1;
     width: 40%;

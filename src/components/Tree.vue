@@ -724,13 +724,14 @@ export default {
  color: #3f915f;
 }
 .base-btn {
- color: white;
- padding: 1rem;
- margin: 0.5rem;
+ padding: 0.5rem 1rem;
+ border-radius: 5px;
  border: none;
  background: #fbba00;
+ color: white;
  font-size: 1.5rem;
  cursor: pointer;
+ box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
 .base-btn:hover {
  background: #daa000;
