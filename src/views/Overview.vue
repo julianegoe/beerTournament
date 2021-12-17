@@ -120,4 +120,20 @@ h2 {
     background: #56bbd4;
 }
 
+@media screen and (max-width: 980px) {
+    .overview-container {
+        display: flex;
+        flex-direction: column;
+    }
+    .rules-container {
+        padding: 1rem;
+    }
+    .user-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 0.5rem;
+        padding: 1rem;
+    }
+}
+
 </style>

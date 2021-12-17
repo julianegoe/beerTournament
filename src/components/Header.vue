@@ -54,7 +54,7 @@ import {auth} from '@/firebase';
 
 <style scoped>
 .header {
-    z-index: 1;
+    z-index: 1000;
     width: 100%;
     background-image: linear-gradient(90deg, #7400b8, #80ffdb);
     display: flex;
@@ -89,5 +89,9 @@ import {auth} from '@/firebase';
         font-weight: bold;
         cursor: pointer;
         padding-right: 1rem;
+}
+
+@media screen and (max-width: 400px) {
+    
 }
 </style>

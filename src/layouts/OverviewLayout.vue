@@ -13,7 +13,7 @@ export default {
 <style scoped>
 
 .overview {
-  position: absolute;
+  position: relative;
   top: 2rem;
   left: 0;
   right: 0;
