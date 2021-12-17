@@ -9,6 +9,7 @@
        @click="declareWinnerRoundOneWest(selectionTopWest[index], index)"
        class="team team-top"
       >
+      <img class="beer-logo" src="../assets/200px-Astra_Logo.png" alt="beer logo" />
        {{ selectionTopWest[index].name }}
       </li>
       <li
@@ -603,24 +604,19 @@ export default {
 #bracket {
  overflow: hidden;
  background-color: #e1e1e1;
- background-color: rgba(225, 225, 225, 0.9);
- padding-top: 20px;
  font-size: 12px;
- padding: 40px 0;
+ padding: 4rem 0;
 }
 .container {
  max-width: 1100px;
  margin: 0 auto;
  display: flex;
- -webkit-flex-direction: row;
  flex-direction: row;
 }
 .split {
  float: left;
  display: flex;
  width: 42%;
- -webkit-flex-direction: row;
- -moz-flex-direction: row;
  flex-direction: row;
 }
 .champion {
@@ -670,6 +666,9 @@ export default {
  right: 5px;
 }
 .team {
+ display: flex;
+ flex-direction: row;
+ align-items: center;
  padding: 0 5px;
  margin: 3px 0;
  height: 25px;
@@ -731,6 +730,13 @@ export default {
 }
 .base-btn:hover {
  background: #32004e;
+}
+
+.beer-logo {
+  width: 25px;
+  height: 25px;
+  object-fit: contain;
+  padding-right: 1rem;
 }
 @media screen and (min-width: 981px) and (max-width: 1099px) {
  .container {

@@ -1,24 +1,31 @@
 [
     {
-        "name": "Astra"
+        "name": "Astra",
+        "url": "src/assets/200px-Astra_Logo.svg"
     },
     {
-        "name": "Sternburg"
+        "name": "Sternburg",
+        "url": "src/assets/200px-Astra_Logo.svg"
     },
     {
-        "name": "Schöfferhofer"
+        "name": "Schöfferhofer",
+        "url": "src/assets/200px-Astra_Logo.svg"
     },
     {
-        "name": "Radeberger"
+        "name": "Radeberger",
+        "url": "src/assets/200px-Astra_Logo.svg"
     },
     {
-        "name": "Radler"
+        "name": "Radler",
+        "url": "src/assets/200px-Astra_Logo.svg"
     },
     {
-        "name": "Diesel"
+        "name": "Diesel",
+        "url": "src/assets/200px-Astra_Logo.svg"
     },
     {
-        "name": "Berliner Pilsner"
+        "name": "Berliner Pilsner",
+        "url": "src/assets/200px-Astra_Logo.svg"
     },
     {
         "name": "Berliner Kindl"
