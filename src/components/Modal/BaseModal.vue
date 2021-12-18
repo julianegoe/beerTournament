@@ -33,4 +33,10 @@ import ModalHeader from '@/components/Modal/ModalHeader.vue';
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
 
+@media screen and (max-width: 980px) {
+    .modal {
+        width: 90%;
+    }
+}
+
 </style>
