@@ -85,6 +85,7 @@ h2 {
 
 @media screen and (max-width: 980px) {
     .overview-container {
+        width: 100%;
         display: flex;
         flex-direction: column;
     }
