@@ -51,8 +51,9 @@ import { collection, getDocs } from "firebase/firestore";
 <style scoped>
 
 .overview-container {
-    display: grid;
-    grid-template-columns: 60% 40%;
+    display: flex;
+    justify-content: center;
+    padding-top: 4rem;
 }
 
 h1, p {
@@ -61,13 +62,12 @@ h1, p {
 
 .user-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 0.5rem;
-    padding: 4rem 2rem 2rem 0;
+    grid-template-columns: repeat(4, minmax(150px, 1fr));
+    grid-gap: 1rem;
 }
 
 h2 {
-    grid-column: 1 / span 2;
+    grid-column: 1 / span 4;
     text-align: left;
 }
 
@@ -87,15 +87,15 @@ h2 {
         display: flex;
         flex-direction: column;
     }
-    .rules-container {
-        padding: 5rem 1rem 1rem 1rem;
-    }
     .user-container {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr);
         grid-gap: 0.5rem;
         padding: 1rem;
     }
+    h2 {
+    grid-column: 1 / span 2;
+}
 }
 
 </style>
