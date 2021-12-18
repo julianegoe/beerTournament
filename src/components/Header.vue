@@ -57,7 +57,7 @@ import {auth} from '@/firebase';
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 1000;
+    z-index: 900;
     width: 100%;
     background: #3dabb6;
     display: flex;

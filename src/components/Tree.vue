@@ -1,5 +1,6 @@
 <template>
  <section id="bracket">
+   <PermissionDeniedModal v-if="isModalOpen" @close-modal="closeModal" />
   <div class="container">
    <div class="split split-one">
     <div class="round round-one current">
@@ -312,11 +313,16 @@ import { updateDoc, doc, getDoc, setDoc, onSnapshot } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
 import { db, auth } from "@/firebase";
 import beer from '../assets/200px-Astra_Logo.png';
+import PermissionDeniedModal from '@/components/Modal/PermissionDeniedModal.vue';
 
 export default {
  name: "Tree",
+ components: {
+   PermissionDeniedModal,
+ },
  data() {
   return {
+   isModalOpen: false,
    roundOneWinnersTopWest: {},
    roundOneWinnersBottomWest: {},
    roundOneWinnersTopEast: {},
@@ -446,7 +452,7 @@ export default {
      );
     }
    } else {
-    window.alert("Du hast keine Berechtigung, das zu ändern");
+    this.isModalOpen = true;
    }
   },
   async declareWinnerRoundOneEast(beer, index) {
@@ -473,7 +479,7 @@ export default {
      );
     }
    } else {
-    window.alert("Du hast keine Berechtigung, das zu ändern");
+    this.isModalOpen = true;
    }
   },
   async declareWinnerRoundTwoEast(beer, index) {
@@ -500,7 +506,7 @@ export default {
      );
     }
    } else {
-    window.alert("Du hast keine Berechtigung, das zu ändern");
+    this.isModalOpen = true;
    }
   },
   async declareWinnerRoundTwoWest(beer, index) {
@@ -527,7 +533,7 @@ export default {
      );
     }
    } else {
-    window.alert("Du hast keine Berechtigung, das zu ändern");
+    this.isModalOpen = true;
    }
   },
   async declareSemiFinalsWest(beer, index) {
@@ -551,7 +557,7 @@ export default {
      );
     }
    } else {
-    window.alert("Du hast keine Berechtigung, das zu ändern");
+    this.isModalOpen = true;
    }
   },
   async declareSemiFinalsEast(beer, index) {
@@ -575,7 +581,7 @@ export default {
      );
     }
    } else {
-    window.alert("Du hast keine Berechtigung, das zu ändern");
+    this.isModalOpen = true;
    }
   },
   async declareFinalists(beer, index) {
@@ -592,16 +598,19 @@ export default {
      );
     }
    } else {
-    window.alert("Du hast keine Berechtigung, das zu ändern");
+    this.isModalOpen = true;
    }
   },
   declareChampion(beer) {
    if (this.isOwned) {
     window.alert(beer + " hat gewonnen!");
    } else {
-    window.alert("Du hast keine Berechtigung, das zu ändern");
+    this.isModalOpen = true;
    }
   },
+  closeModal() {
+    this.isModalOpen = false;
+  }
  },
 };
 </script>
