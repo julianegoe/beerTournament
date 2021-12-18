@@ -7,9 +7,9 @@
                     {{user}}
                 </div>
             </template>
-            <div class="user-box">Ronald</div>
+            <!-- <div class="user-box">Ronald</div>
             <div class="user-box">Daniel</div>
-            <div class="user-box">Janna</div>
+            <div class="user-box">Janna</div> -->
         </div>
         </div>
 </template>
