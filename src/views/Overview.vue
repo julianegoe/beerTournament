@@ -1,26 +1,5 @@
 <template>
     <div class="overview-container"> 
-        <div class="rules-container">
-            <div class="rules-box">
-                <h1>Bier Turnier 2022 - Regeln</h1>
-                <p>
-                    <ol>
-                        <li>In der Beer Challenge 2022 soll jeder Teilnehmer die Möglichkeit haben, das, seiner Meinung nach, am besten schmeckenste Bier zu finden.
-                            Der Zeitraum dafür ist das komplette Jahr 2022.
-                        </li>
-                        <li>Über die Website verfranzt.com/beer kann jeder Teilnehmer seinen eigenen Turnierbaum mit allen ausgewählten Biermarken pflegen. </li>
-                        <li>Die Website wird von einem Login Bereich aus datenschutzrechtlichen Gründen geschützt.</li>
-                        <li>Jeder Teilnehmer kann alle Turnierbäume einsehen. </li>
-                        <li>Bei einer Stimmenabgabe treten immer zwei Biermarken gegeneinander an. </li>
-                        <li>Zugelasene Biersorten sind: Pils, Helles, Kölsch, Schwarzbier, Kellerbier, Bockbier, Export, hefeweizen, Stout</li>
-                        <li>Nicht zugelassene Biersorten sind: Craftbiere aller Art, Biermischgetränke wie Radler, Diesel etc., ALKOHOLFREIE Biere, Malzbiere, Belgische Biersorten, Cider</li>
-                        <li>Die Verkostung sollte nach Möglichkeit "blind" erfolgen. Das heißt, der Teilnehmer nutzt zur Verköstigung zwei Gläser und lässt diese von einer zweiten Person austauschen.</li>
-                        <li>Bis 23.12.2021 entsteht die verbindliche Auswahl aus 32 Biermarken, die für alle Teilnehmer zur Wahl stehen. </li>
-                    </ol>
-                </p>
-            </div>
-        </div>
-        <div>
         <div class="user-container">
             <h2>Teilnehmerinnen und Teilnehmer</h2>
             <template v-for="user, index in users" :key="index">
@@ -28,12 +7,11 @@
                     {{user}}
                 </div>
             </template>
-            <!-- <div class="user-box">Ronald</div>
+            <div class="user-box">Ronald</div>
             <div class="user-box">Daniel</div>
-            <div class="user-box">Janna</div> -->
+            <div class="user-box">Janna</div>
         </div>
         </div>
-    </div>
 </template>
 
 <script>
