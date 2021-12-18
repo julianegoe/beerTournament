@@ -55,19 +55,6 @@ import { collection, getDocs } from "firebase/firestore";
     grid-template-columns: 60% 40%;
 }
 
-.rules-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: 4rem 2rem 2rem 2rem;
-}
-
-.rules-box {
-    padding: 0 1rem 0 1rem ;
-    background: white;
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-}
-
 h1, p {
     text-align: left;
 }
