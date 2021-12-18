@@ -42,7 +42,11 @@ import { auth } from '@/firebase'
                     })
                     this.$router.replace({name: 'Login'});
                 } catch (error) {
-                    console.log(error);
+                    if (error.code === 'auth/email-already-in-use') {
+                        window.alert('Diese E-Mail wird schon verwendet. Registriere dich mit einer anderen.')
+                    } else {
+                        window.alert('Es ist ein Fehler aufgetreten: ', error.code)
+                    }
                 }
             }
         },
