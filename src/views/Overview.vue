@@ -11,7 +11,7 @@
             <div class="user-box">Daniel</div>
             <div class="user-box">Janna</div> -->
         </div>
-        </div>
+    </div>
 </template>
 
 <script>
@@ -51,8 +51,8 @@ import { collection, getDocs } from "firebase/firestore";
 <style scoped>
 
 .overview-container {
-    display: flex;
-    justify-content: center;
+    width: 60%;
+    margin: 0 auto;
     padding-top: 4rem;
 }
 
@@ -62,12 +62,13 @@ h1, p {
 
 .user-container {
     display: grid;
-    grid-template-columns: repeat(4, minmax(150px, 1fr));
+    grid-template-columns: repeat(3, minmax(150px, 1fr));
+    justify-self: center;
     grid-gap: 1rem;
 }
 
 h2 {
-    grid-column: 1 / span 4;
+    grid-column: 1 / span all;
     text-align: left;
 }
 
