@@ -1,6 +1,8 @@
 <template>
+<div class="content">
   <Header v-if="isLoggedIn" />
   <router-view/>
+</div>
   <Footer />
 </template>
 <script>
@@ -41,6 +43,8 @@ body {
 }
 
 #app {
+  display:flex;
+  flex-direction: column;
   min-height: 100vh;
   position: relative;
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -49,5 +53,9 @@ body {
   text-align: center;
   color: #2c3e50;
   background: #f7f7f7
+}
+
+.content {
+  flex: 1 0 auto;
 }
 </style>

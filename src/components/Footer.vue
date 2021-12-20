@@ -31,6 +31,7 @@ import info from '@/infotext/infotext.json';
 <style scoped>
 
 footer {
+    flex-shrink: 0;
     position: absolute;
     bottom: 0;
     display: flex;

@@ -23,16 +23,15 @@
                         <li>In der Beer Challenge 2022 soll jeder Teilnehmer die Möglichkeit haben, das, seiner Meinung nach, am besten schmeckenste Bier zu finden.
                             Der Zeitraum dafür ist das komplette Jahr 2022.
                         </li>
-                        <li>Über die Website verfranzt.com/beer kann jeder Teilnehmer seinen eigenen Turnierbaum mit allen ausgewählten Biermarken pflegen. </li>
-                        <li>Die Website wird von einem Login Bereich aus datenschutzrechtlichen Gründen geschützt.</li>
+                        <li>Die Website wird von einem Login Bereich aus datenschutzrechtlichen Gründen geschützt. </li>
                         <li>Jeder Teilnehmer kann alle Turnierbäume einsehen. </li>
                         <li>Bei einer Stimmenabgabe treten immer zwei Biermarken gegeneinander an. </li>
-                        <li>Zugelasene Biersorten sind: Pils, Helles, Kölsch, Schwarzbier, Kellerbier, Bockbier, Export, hefeweizen, Stout</li>
+                        <li>Zugelasene Biersorten sind: Pils, Helles, Kölsch, Schwarzbier, Kellerbier, Bockbier, Export, Hefeweizen, Stout</li>
                         <li>Nicht zugelassene Biersorten sind: Craftbiere aller Art, Biermischgetränke wie Radler, Diesel etc., ALKOHOLFREIE Biere, Malzbiere, Belgische Biersorten, Cider</li>
                         <li>Die Verkostung sollte nach Möglichkeit "blind" erfolgen. Das heißt, der Teilnehmer nutzt zur Verköstigung zwei Gläser und lässt diese von einer zweiten Person austauschen.</li>
-                        <li>Bis 23.12.2021 entsteht die verbindliche Auswahl aus 32 Biermarken, die für alle Teilnehmer zur Wahl stehen. </li>
                     </ol>
                 </p>
+                <div>Startschuss ist der 01.01.2022</div>
             </div>
 </template>
 
@@ -117,7 +116,7 @@ button{
 
 .rules-box {
     padding: 1rem;
-    margin: 1rem 7rem 0 7rem;
+    margin: 1rem 7rem 4rem 7rem;
     background: white;
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
@@ -138,7 +137,7 @@ ol > li {
     }
 
     .rules-box {
-    margin: 1rem;
+    margin: 1rem 1rem 2rem 1rem;
 }
 }
 </style>
