@@ -1,6 +1,7 @@
 <template>
  <section id="bracket">
-   <PermissionDeniedModal v-if="isModalOpen" @close-modal="closeModal" />
+  <PermissionDeniedModal v-if="isInfoModalOpen" @close-modal="closeInfoModal" />
+  <ConfirmResetModal v-if="isResetModalOpen" @confirm-reset="resetDatabase($route.params.id)" @close-modal="closeResetInfoModal" />
   <div class="container">
    <div class="split split-one">
     <div class="round round-one current">
@@ -10,7 +11,11 @@
        @click="declareWinnerRoundOneWest(selectionTopWest[index], index)"
        class="team team-top"
       >
-      <img class="beer-logo" :src="selectionTopWest[index].url" alt="beer logo" />
+       <img
+        class="beer-logo"
+        :src="selectionTopWest[index].url"
+        alt="beer logo"
+       />
        {{ selectionTopWest[index].name }}
       </li>
       <li
@@ -300,7 +305,7 @@
    v-if="isOwned"
    class="base-btn"
    type="button"
-   @click="resetDatabase($route.params.id)"
+   @click="isResetModalOpen = true"
   >
    Zurücksetzen
   </button>
@@ -314,15 +319,18 @@ import { onAuthStateChanged } from "firebase/auth";
 import { db, auth } from "@/firebase";
 import beer from '../assets/200px-Astra_Logo.png';
 import PermissionDeniedModal from '@/components/Modal/PermissionDeniedModal.vue';
+import ConfirmResetModal from '@/components/Modal/ConfirmResetModal.vue';
 
 export default {
  name: "Tree",
  components: {
    PermissionDeniedModal,
+   ConfirmResetModal,
  },
  data() {
   return {
-   isModalOpen: false,
+   isInfoModalOpen: false,
+   isResetModalOpen: false,
    roundOneWinnersTopWest: {},
    roundOneWinnersBottomWest: {},
    roundOneWinnersTopEast: {},
@@ -421,6 +429,7 @@ export default {
    }
   },
   async resetDatabase(username) {
+   this.isResetModalOpen = false;
    console.log("resetting...");
    const data = await getDoc(doc(db, "Users", username));
    const keys = Object.keys(data.data());
@@ -452,7 +461,7 @@ export default {
      );
     }
    } else {
-    this.isModalOpen = true;
+    this.isInfoModalOpen = true;
    }
   },
   async declareWinnerRoundOneEast(beer, index) {
@@ -479,7 +488,7 @@ export default {
      );
     }
    } else {
-    this.isModalOpen = true;
+    this.isInfoModalOpen = true;
    }
   },
   async declareWinnerRoundTwoEast(beer, index) {
@@ -506,7 +515,7 @@ export default {
      );
     }
    } else {
-    this.isModalOpen = true;
+    this.isInfoModalOpen = true;
    }
   },
   async declareWinnerRoundTwoWest(beer, index) {
@@ -533,7 +542,7 @@ export default {
      );
     }
    } else {
-    this.isModalOpen = true;
+    this.isInfoModalOpen = true;
    }
   },
   async declareSemiFinalsWest(beer, index) {
@@ -557,7 +566,7 @@ export default {
      );
     }
    } else {
-    this.isModalOpen = true;
+    this.isInfoModalOpen = true;
    }
   },
   async declareSemiFinalsEast(beer, index) {
@@ -581,7 +590,7 @@ export default {
      );
     }
    } else {
-    this.isModalOpen = true;
+    this.isInfoModalOpen = true;
    }
   },
   async declareFinalists(beer, index) {
@@ -598,18 +607,21 @@ export default {
      );
     }
    } else {
-    this.isModalOpen = true;
+    this.isInfoModalOpen = true;
    }
   },
   declareChampion(beer) {
    if (this.isOwned) {
     window.alert(beer + " hat gewonnen!");
    } else {
-    this.isModalOpen = true;
+    this.isInfoModalOpen = true;
    }
   },
-  closeModal() {
-    this.isModalOpen = false;
+  closeInfoModal() {
+    this.isInfoModalOpen = false;
+  },
+  closeResetInfoModal() {
+    this.isResetModalOpen = false;
   }
  },
 };
@@ -747,10 +759,10 @@ export default {
 }
 
 .beer-logo {
-  width: 25px;
-  height: 25px;
-  object-fit: contain;
-  padding-right: 1rem;
+ width: 25px;
+ height: 25px;
+ object-fit: contain;
+ padding-right: 1rem;
 }
 @media screen and (min-width: 981px) and (max-width: 1099px) {
  .container {

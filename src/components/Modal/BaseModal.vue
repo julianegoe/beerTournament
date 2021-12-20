@@ -1,7 +1,7 @@
 <template>
     <ModalOverlay>
         <div class="modal">
-            <ModalHeader @close-modal="$emit('close-modal')" header="Info" />
+            <ModalHeader @close-modal="$emit('close-modal')" :header="header" />
             <slot />
         </div>
     </ModalOverlay>
@@ -14,6 +14,11 @@ import ModalHeader from '@/components/Modal/ModalHeader.vue';
     export default {
         name: 'BaseModal',
         emits: ['close-modal'],
+        props: {
+            header: {
+                default: 'Info',
+            },
+        },
         components: {
             ModalOverlay,
             ModalHeader
@@ -26,7 +31,7 @@ import ModalHeader from '@/components/Modal/ModalHeader.vue';
 .modal {
     aspect-ratio: 2 / 1;
     z-index: 2000;
-    width: 30%;
+    width: 40%;
     border-radius: 5px;
     background: white;
     margin: 4rem auto;

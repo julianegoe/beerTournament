@@ -20,6 +20,7 @@ export default {
     props: {
         header: {
             required: false,
+            default: 'Info',
         }
     }
 };
@@ -29,6 +30,7 @@ export default {
 
 h2 {
     margin: 0.5rem 0;
+    text-align: left;
 }
 
 .modal-header {

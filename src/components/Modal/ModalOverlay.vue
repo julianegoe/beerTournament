@@ -1,5 +1,5 @@
 <template>
-    <div :class="classObj" class="modal-overlay">
+    <div class="modal-overlay">
     <slot />
     </div>
 </template>
