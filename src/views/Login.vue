@@ -20,7 +20,7 @@
                 <h1>Was ist das Bier-Turnier 2022?</h1>
                 <p>
                     <ol>
-                        <li>Beim Bierturnier 2022 sollen alle Teilnehmer*innen die Möglichkeit haben, ihr Lieblingsbier zu finden.
+                        <li>Beim Bier-Turnier 2022 sollen alle Teilnehmer*innen die Möglichkeit haben, ihr Lieblingsbier zu finden.
                             Der Zeitraum dafür ist das komplette Jahr 2022.
                         </li>
                         <li>Die Website wird von einem Login Bereich aus datenschutzrechtlichen Gründen geschützt. </li>
