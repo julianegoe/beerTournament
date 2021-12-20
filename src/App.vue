@@ -52,10 +52,31 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  background: #f7f7f7
 }
 
 .content {
   flex: 1 0 auto;
+  /* background: rgb(247,247,247) url("./assets/bierturnier.jpeg");
+  opacity: 0.5;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: 35rem 35rem; */
+}
+
+.content::after {
+  content: "";
+  background: rgb(247,247,247) url("./assets/bierturnier.jpeg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: 35rem 35rem;
+  opacity: 0.1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
 }
 </style>
