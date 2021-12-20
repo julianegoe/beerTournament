@@ -9,6 +9,7 @@
             <div class="password">
                 <input v-model="password" type="password" placeholder="Password" />
             </div>
+            <div class="validation-text">{{validationText}}</div>
             <button class="login-btn" type="submit">Log In</button>
         </form>
         <div class="register-link">
@@ -36,7 +37,7 @@
 </template>
 
 <script>
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
 import { auth } from '@/firebase'
     export default {
         name: 'Login',
@@ -45,19 +46,38 @@ import { auth } from '@/firebase'
                 email: '',
                 password: '',
                 isLoggedIn: false,
+                validationText: '',
+                currentUser: null,
             }
         },
         methods: {
+            async sendEmailVerification() {
+                let actionCodeSettings = {
+                url: 'https://www.bierturnier.de/login',
+                handleCodeInApp: true
+                };
+                try {
+                    await sendEmailVerification(auth.currentUser, actionCodeSettings)
+                } catch (error) {
+                    console.log('error ', error.code)
+                }
+            },
             async loginUser() {
                 try {
                     await signInWithEmailAndPassword(auth, this.email, this.password);
-                    this.isLoggedIn = true;
-                    this.$router.replace({ name: 'Overview'});
+                    if (auth.currentUser.emailVerified) {
+                        this.isLoggedIn = true;
+                        this.$router.replace({ name: 'Overview'});
+                    } else {
+                        console.log('sending email..');
+                        this.sendEmailVerification();
+                        this.validationText = 'Bestätige deine E-Mail-Adresse. Wir haben dir einen Verifizierungslink per Mail geschickt.'
+                    }
                 } catch (error) {
                     if (error.code === 'auth/user-not-found') {
                         window.alert('E-Mail-Adresse oder Passwort falsch. bitte versuche es erneut.');
                     } else {
-                        window.alert('Es ist ein Fehler aufgetreten: ', error.code)
+                        window.alert(error)
                     }
                 }
             }
@@ -97,6 +117,12 @@ input {
 
 .email, .password {
     padding: 0.5rem;
+}
+
+.validation-text {
+    color: red;
+    font-size: 0.75rem;
+    padding: 0 0 0.5rem 0;
 }
 
 .login-btn{

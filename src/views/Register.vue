@@ -40,6 +40,7 @@ import { auth } from '@/firebase'
                     await updateProfile(auth.currentUser, {
                     displayName: this.displayName,
                     })
+                    console.log(this.user);
                     this.$router.replace({name: 'Login'});
                 } catch (error) {
                     if (error.code === 'auth/email-already-in-use') {
