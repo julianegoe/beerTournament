@@ -20,15 +20,15 @@
                 <h1>Was ist das Bier-Turnier 2022?</h1>
                 <p>
                     <ol>
-                        <li>In der Beer Challenge 2022 soll jeder Teilnehmer die Möglichkeit haben, das, seiner Meinung nach, am besten schmeckenste Bier zu finden.
+                        <li>Beim Bierturnier 2022 sollen alle Teilnehmer*innen die Möglichkeit haben, ihr Lieblingsbier zu finden.
                             Der Zeitraum dafür ist das komplette Jahr 2022.
                         </li>
                         <li>Die Website wird von einem Login Bereich aus datenschutzrechtlichen Gründen geschützt. </li>
-                        <li>Jeder Teilnehmer kann alle Turnierbäume einsehen. </li>
-                        <li>Bei einer Stimmenabgabe treten immer zwei Biermarken gegeneinander an. </li>
+                        <li>Jede/r Teilnehmer*in hat einen eigenen Turnierbaum und kann Turnierbäume aller Mitspieler*innen einsehen. </li>
+                        <li>In jeder Runde wird die Hälfte aller Biermarken eliminiert. Dazu treten jeweils zwei Marken gegeneinander an.</li>
                         <li>Zugelasene Biersorten sind: Pils, Helles, Kölsch, Schwarzbier, Kellerbier, Bockbier, Export, Hefeweizen, Stout</li>
                         <li>Nicht zugelassene Biersorten sind: Craftbiere aller Art, Biermischgetränke wie Radler, Diesel etc., ALKOHOLFREIE Biere, Malzbiere, Belgische Biersorten, Cider</li>
-                        <li>Die Verkostung sollte nach Möglichkeit "blind" erfolgen. Das heißt, der Teilnehmer nutzt zur Verköstigung zwei Gläser und lässt diese von einer zweiten Person austauschen.</li>
+                        <li>Die Verkostung sollte nach Möglichkeit "blind" erfolgen. Das heißt, der oder die Teilnehmer*in nutzt zur Verkostung zwei Gläser und lässt diese von einer zweiten Person austauschen.</li>
                     </ol>
                 </p>
                 <div>Startschuss ist der 01.01.2022</div>
