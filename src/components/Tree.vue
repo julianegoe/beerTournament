@@ -1,7 +1,11 @@
 <template>
  <section id="bracket">
   <PermissionDeniedModal v-if="isInfoModalOpen" @close-modal="closeInfoModal" />
-  <ConfirmResetModal v-if="isResetModalOpen" @confirm-reset="resetDatabase($route.params.id)" @close-modal="closeResetInfoModal" />
+  <ConfirmResetModal
+   v-if="isResetModalOpen"
+   @confirm-reset="resetDatabase($route.params.id)"
+   @close-modal="closeResetInfoModal"
+  />
   <div class="container">
    <div class="split split-one">
     <div class="round round-one current">
@@ -11,11 +15,11 @@
        @click="declareWinnerRoundOneWest(selectionTopWest[index], index)"
        class="team team-top"
       >
-       <img
+       <!-- <img
         class="beer-logo"
-        :src="selectionTopWest[index].url"
+        :src="beerImages.selectionTopWest[index].name"
         alt="beer logo"
-       />
+       /> -->
        {{ selectionTopWest[index].name }}
       </li>
       <li
@@ -316,16 +320,17 @@
 import beers from "../assets/beers.json";
 import { updateDoc, doc, getDoc, setDoc, onSnapshot } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
-import { db, auth } from "@/firebase";
-import beer from '../assets/200px-Astra_Logo.png';
-import PermissionDeniedModal from '@/components/Modal/PermissionDeniedModal.vue';
-import ConfirmResetModal from '@/components/Modal/ConfirmResetModal.vue';
+import { ref, getDownloadURL } from "firebase/storage";
+import { db, auth, storage } from "@/firebase";
+import beer from "../assets/200px-Astra_Logo.png";
+import PermissionDeniedModal from "@/components/Modal/PermissionDeniedModal.vue";
+import ConfirmResetModal from "@/components/Modal/ConfirmResetModal.vue";
 
 export default {
  name: "Tree",
  components: {
-   PermissionDeniedModal,
-   ConfirmResetModal,
+  PermissionDeniedModal,
+  ConfirmResetModal,
  },
  data() {
   return {
@@ -352,6 +357,7 @@ export default {
    unsubscribe: null,
    userID: "",
    beer: beer,
+   beerImages: {},
   };
  },
  beforeMount() {
@@ -407,12 +413,8 @@ export default {
    );
   },
   isOwned() {
-    return (this.userID === this.$route.params.id)
+   return this.userID === this.$route.params.id;
   },
-    /* loadImage(imageUrl) {
-      const image = require(imageUrl);
-      return image
-  }, */
  },
  methods: {
   async setDocument(username, documentId, document) {
@@ -618,11 +620,30 @@ export default {
    }
   },
   closeInfoModal() {
-    this.isInfoModalOpen = false;
+   this.isInfoModalOpen = false;
   },
   closeResetInfoModal() {
-    this.isResetModalOpen = false;
-  }
+   this.isResetModalOpen = false;
+  },
+  async getImage(beers) {
+   for (beer of beers) {
+    let trimmmedName = beer.replace(/\s/g, "");
+    trimmmedName.replace(/ä/g, "ae");
+    trimmmedName.replace(/ö/g, "oe");
+    trimmmedName.replace(/ü/g, "ue");
+    const gsReference = ref(
+     storage,
+     `gs://beertasting-421a7.appspot.com/${trimmmedName}.svg`
+    );
+    try {
+     const url = await getDownloadURL(gsReference)
+     this.beerImages = {...this.beerImages, beer: url };
+    } catch (error) {
+     console.log(error);
+     return "#";
+    }
+   }
+  },
  },
 };
 </script>
