@@ -1,4 +1,5 @@
 <template>
+<div class="background-container">
     <div class="overview-container"> 
         <div class="user-container">
             <h2>Teilnehmerinnen und Teilnehmer</h2>
@@ -12,6 +13,7 @@
             <div class="user-box">Janna</div> -->
         </div>
     </div>
+</div>
 </template>
 
 <script>
@@ -49,6 +51,22 @@ import { collection, getDocs } from "firebase/firestore";
 </script>
 
 <style scoped>
+
+.background-container::after {
+    content: "";
+    background: rgb(247,247,247) url("../assets/bierturnier.jpeg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center bottom;
+    background-size: 35rem 35rem;
+    opacity: 0.1;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;   
+}
 
 .overview-container {
     width: 60%;
@@ -89,6 +107,9 @@ h2 {
 }
 
 @media screen and (max-width: 980px) {
+    .background-container::after {
+        background-size: 20rem 20rem;
+    }
     .overview-container {
         width: 100%;
         display: flex;
