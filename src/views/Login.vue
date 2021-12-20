@@ -9,7 +9,7 @@
             <div class="password">
                 <input v-model="password" type="password" placeholder="Password" />
             </div>
-            <button type="submit">Log In</button>
+            <button class="login-btn" type="submit">Log In</button>
         </form>
         <div class="register-link">
             <RouterLink :to="{name: 'Register'}">Hier registrieren</RouterLink>
@@ -99,15 +99,20 @@ input {
     padding: 0.5rem;
 }
 
-button{
- padding: 0.5rem 1rem;
- border-radius: 5px;
- border: none;
- background: #fbba00;
- color: white;
- font-size: 1.5rem;
- cursor: pointer;
- box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+.login-btn{
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: none;
+    background: #fbba00;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    transition: 0.2s ease-in-out;
+}
+
+.login-btn:hover {
+    transform: scale(1.05);
 }
 
 .register-link {

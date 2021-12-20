@@ -1,7 +1,7 @@
 <template>
     <BaseModal header="Turnierbaum wirklich zurücksetzen?" @close-modal="$emit('close-modal')">
     <div class="modal-text">
-         Alle Fortschritte werden unwiederbringlich gelöscht.
+            Alle Fortschritte werden unwiederbringlich gelöscht.
         <button @click="$emit('confirm-reset')" class="reset-btn">Ja, zurücksetzen</button>
     </div>
     </BaseModal>
@@ -41,6 +41,11 @@ import BaseModal from '@/components/Modal/BaseModal.vue';
     font-size: 1.5rem;
     cursor: pointer;
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    transition: 0.2s ease-in-out;
     }
+
+.reset-btn:hover {
+    transform: scale(1.05);
+}
 
 </style>

@@ -45,6 +45,11 @@ h2 {
 .close-btn {
     cursor: pointer;
     fill: white;
+    transition: 0.2s ease-in-out;
+}
+
+.close-btn:hover {
+    transform: scale(1.3);
 }
 
 .separator {

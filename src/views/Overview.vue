@@ -77,10 +77,15 @@ h2 {
     background: white;
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     cursor: pointer;
+    transition: 0.3s;
 }
 
 .user-box__owner {
     background: #fbba00;
+}
+
+.user-box:hover {
+    transform: scale(1.05);
 }
 
 @media screen and (max-width: 980px) {

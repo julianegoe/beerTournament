@@ -753,9 +753,10 @@ export default {
  font-size: 1.5rem;
  cursor: pointer;
  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+ transition: 0.2s ease-in-out;
 }
 .base-btn:hover {
- background: #daa000;
+ transform: scale(1.05);
 }
 
 .beer-logo {
