@@ -67,7 +67,9 @@ import { auth } from '@/firebase'
                     await signInWithEmailAndPassword(auth, this.email, this.password);
                     if (auth.currentUser.emailVerified) {
                         this.isLoggedIn = true;
-                        this.$router.replace({ name: 'Overview'});
+                        this.$router.replace({ name: 'Home', params: {
+                            id: auth.currentUser.displayName
+                        }});
                     } else {
                         console.log('sending email..');
                         this.sendEmailVerification();
