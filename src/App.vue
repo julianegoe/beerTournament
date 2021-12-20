@@ -56,12 +56,6 @@ body {
 
 .content {
   flex: 1 0 auto;
-  /* background: rgb(247,247,247) url("./assets/bierturnier.jpeg");
-  opacity: 0.5;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
-  background-size: 35rem 35rem; */
 }
 
 .content::after {
@@ -78,5 +72,11 @@ body {
   right: 0;
   position: absolute;
   z-index: -1;   
+}
+
+@media screen and (max-width: 980px) {
+    .content::after {
+      background-size: 20rem 20rem;
+    }
 }
 </style>
