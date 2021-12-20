@@ -164,6 +164,10 @@ ol > li {
     padding: 0;
     }
 
+    .bierturnier-form {
+    padding-left: 0;
+}
+
     .login-container {
     flex-direction: column;
     align-items: center;
