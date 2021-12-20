@@ -1,8 +1,8 @@
 <template>
 <div class="background-container">
     <div class="overview-container"> 
+        <h2>Teilnehmerinnen und Teilnehmer</h2>
         <div class="user-container">
-            <h2>Teilnehmerinnen und Teilnehmer</h2>
             <template v-for="user, index in users" :key="index">
                 <div @click="$router.push({ name: 'UserTree', params: { id: user || 'no_ID' } })" class="user-box" :class="[user === currentUser ? 'user-box__owner' : '']">
                     {{user}}
@@ -75,19 +75,19 @@ import { collection, getDocs } from "firebase/firestore";
 }
 
 .user-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-items: stretch;
-    justify-self: center;
-    grid-gap: 1rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-start;
+    flex-wrap: wrap;
 }
 
 h2 {
-    grid-column: 1 / span all;
     text-align: left;
+    padding: 0 1rem;
 }
 
 .user-box {
+    width: 100px;
     padding: 1rem;
     background: white;
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
@@ -109,18 +109,11 @@ h2 {
     }
     .overview-container {
         width: 100%;
-        display: flex;
-        flex-direction: column;
     }
     .user-container {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-gap: 0.5rem;
         padding: 1rem;
+        justify-content: center;
     }
-    h2 {
-    grid-column: 1 / span 2;
-}
 }
 
 </style>
