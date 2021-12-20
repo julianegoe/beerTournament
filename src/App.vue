@@ -26,6 +26,9 @@ export default {
             onAuthStateChanged(auth, (user) => {
                 if (user) {
                     this.isLoggedIn = true;
+                    this.$router.replace({name: 'Home', params: {
+                      id: user.displayName,
+                    }})
                 } else {
                     this.isLoggedIn = false;
                     this.$router.replace({name: 'Login'})
