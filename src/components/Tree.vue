@@ -631,13 +631,9 @@ export default {
   },
   async getImage(beers) {
    for (let beer of beers) {
-    let trimmmedName = beer.name.replace(/\s/g, "");
-    trimmmedName = trimmmedName.replace(/ä/g, "ae");
-    trimmmedName = trimmmedName.replace(/ö/g, "oe");
-    trimmmedName = trimmmedName.replace(/ü/g, "ue");
     const gsReference = ref(
      storage,
-     `gs://beertasting-421a7.appspot.com/${trimmmedName}.svg`
+     `gs://beertasting-421a7.appspot.com/${beer.iconFilename}`
     );
     try {
      const url = await getDownloadURL(gsReference)
