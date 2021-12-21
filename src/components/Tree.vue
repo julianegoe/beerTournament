@@ -13,7 +13,7 @@
      <ul class="matchup" v-for="(n, index) in 8" :key="index">
       <li
        @click="declareWinnerRoundOneWest(selectionTopWest[index], index)"
-       class="team team-top"
+       class="team-origin team team-top"
       >
        <img
         class="beer-logo"
@@ -24,7 +24,7 @@
       </li>
       <li
        @click="declareWinnerRoundOneWest(selectionBottomWest[index], index)"
-       class="team team-bottom"
+       class="team-origin team team-bottom"
       >
       <img
         class="beer-logo"
@@ -43,12 +43,14 @@
       <li
        @click="declareWinnerRoundTwoWest(roundOneWinnersTopWest[0], 0)"
        class="team team-top"
+       :title="roundOneWinnersTopWest[0]"
       >
        {{ roundOneWinnersTopWest[0] }}
       </li>
       <li
        @click="declareWinnerRoundTwoWest(roundOneWinnersBottomWest[1], 0)"
        class="team team-bottom"
+       :title="roundOneWinnersBottomWest[1]"
       >
        {{ roundOneWinnersBottomWest[1] }}
       </li>
@@ -57,12 +59,14 @@
       <li
        @click="declareWinnerRoundTwoWest(roundOneWinnersTopWest[2], 1)"
        class="team team-top"
+       :title="roundOneWinnersTopWest[2] "
       >
        {{ roundOneWinnersTopWest[2] }}
       </li>
       <li
        @click="declareWinnerRoundTwoWest(roundOneWinnersBottomWest[3], 1)"
        class="team team-bottom"
+       :title="roundOneWinnersBottomWest[3]"
       >
        {{ roundOneWinnersBottomWest[3] }}
       </li>
@@ -71,12 +75,14 @@
       <li
        @click="declareWinnerRoundTwoWest(roundOneWinnersTopWest[4], 2)"
        class="team team-top"
+       :title="roundOneWinnersTopWest[4]"
       >
        {{ roundOneWinnersTopWest[4] }}
       </li>
       <li
        @click="declareWinnerRoundTwoWest(roundOneWinnersBottomWest[5], 2)"
        class="team team-bottom"
+       :title="roundOneWinnersBottomWest[5]"
       >
        {{ roundOneWinnersBottomWest[5] }}
       </li>
@@ -85,12 +91,14 @@
       <li
        @click="declareWinnerRoundTwoWest(roundOneWinnersTopWest[6], 3)"
        class="team team-top"
+       :title="roundOneWinnersTopWest[6]"
       >
        {{ roundOneWinnersTopWest[6] }}
       </li>
       <li
        @click="declareWinnerRoundTwoWest(roundOneWinnersBottomWest[7], 3)"
        class="team team-bottom"
+       :title="roundOneWinnersBottomWest[7]"
       >
        {{ roundOneWinnersBottomWest[7] }}
       </li>
@@ -104,6 +112,7 @@
       <li
        @click="declareSemiFinalsWest(roundTwoWinnersTopWest[0], 0)"
        class="team team-top"
+       :title="roundTwoWinnersTopWest[0]"
       >
        {{ roundTwoWinnersTopWest[0] }}
       </li>
@@ -111,6 +120,7 @@
       <li
        @click="declareSemiFinalsWest(roundTwoWinnersBottomWest[1], 0)"
        class="team team-bottom"
+       :title="roundTwoWinnersBottomWest[1]"
       >
        {{ roundTwoWinnersBottomWest[1] }}
       </li>
@@ -127,6 +137,7 @@
       <li
        @click="declareSemiFinalsEast(roundTwoWinnersBottomWest[3], 2)"
        class="team team-bottom"
+       :title="roundTwoWinnersBottomWest[3]"
       >
        {{ roundTwoWinnersBottomWest[3] }}
       </li>
@@ -145,12 +156,14 @@
       <li
        @click="declareFinalists(semiFinalsWestTop[0], 0)"
        class="team team-top"
+       :title="semiFinalsWestTop[0]"
       >
        {{ semiFinalsWestTop[0] }}
       </li>
       <li
        @click="declareFinalists(semiFinalsWestBottom[1], 0)"
        class="team team-bottom"
+       :title="semiFinalsWestBottom[1] "
       >
        {{ semiFinalsWestBottom[1] }}
       </li>
@@ -160,12 +173,13 @@
      <i class="fa fa-trophy"></i>
      <div class="round-details">Finale <br /><span class="date"></span></div>
      <ul class="matchup championship">
-      <li @click="declareChampion(finalistTop[0], 0)" class="team team-top">
+      <li @click="declareChampion(finalistTop[0], 0)" class="team team-top" :title="finalistTop[0]">
        {{ finalistTop[0] }}
       </li>
       <li
        @click="declareChampion(finalistBottom[1], 1)"
        class="team team-bottom"
+       :title="finalistBottom[1]"
       >
        {{ finalistBottom[1] }}
       </li>
@@ -179,12 +193,14 @@
       <li
        @click="declareFinalists(semiFinalsEastTop[2], 1)"
        class="team team-top"
+       :title="semiFinalsEastTop[2]"
       >
        {{ semiFinalsEastTop[2] }}
       </li>
       <li
        @click="declareFinalists(semiFinalsEastBottom[3], 1)"
        class="team team-bottom"
+       :title="semiFinalsEastBottom[3]"
       >
        {{ semiFinalsEastBottom[3] }}
       </li>
@@ -199,6 +215,7 @@
       <li
        @click="declareSemiFinalsWest(roundTwoWinnersTopEast[0], 1)"
        class="team team-top"
+       :title="roundTwoWinnersTopEast[0] "
       >
        {{ roundTwoWinnersTopEast[0] }}
       </li>
@@ -206,6 +223,7 @@
       <li
        @click="declareSemiFinalsWest(roundTwoWinnersBottomEast[1], 1)"
        class="team team-bottom"
+       :title="roundTwoWinnersBottomEast[1]"
       >
        {{ roundTwoWinnersBottomEast[1] }}
       </li>
@@ -215,6 +233,7 @@
       <li
        @click="declareSemiFinalsEast(roundTwoWinnersTopEast[2], 3)"
        class="team team-top"
+       :title="roundTwoWinnersTopEast[2]"
       >
        {{ roundTwoWinnersTopEast[2] }}
       </li>
@@ -222,6 +241,7 @@
       <li
        @click="declareSemiFinalsEast(roundTwoWinnersBottomEast[3], 3)"
        class="team team-bottom"
+       :title="roundTwoWinnersBottomEast[3]"
       >
        {{ roundTwoWinnersBottomEast[3] }}
       </li>
@@ -236,12 +256,14 @@
       <li
        @click="declareWinnerRoundTwoEast(roundOneWinnersTopEast[0], 0)"
        class="team team-top"
+       :title="roundOneWinnersTopEast[0]"
       >
        {{ roundOneWinnersTopEast[0] }}
       </li>
       <li
        @click="declareWinnerRoundTwoEast(roundOneWinnersBottomEast[1], 0)"
        class="team team-bottom"
+       :title="roundOneWinnersBottomEast[1] "
       >
        {{ roundOneWinnersBottomEast[1] }}
       </li>
@@ -250,12 +272,14 @@
       <li
        @click="declareWinnerRoundTwoEast(roundOneWinnersTopEast[2], 1)"
        class="team team-top"
+       :title="roundOneWinnersTopEast[2]"
       >
        {{ roundOneWinnersTopEast[2] }}
       </li>
       <li
        @click="declareWinnerRoundTwoEast(roundOneWinnersBottomEast[3], 1)"
        class="team team-bottom"
+       :title="roundOneWinnersBottomEast[3] "
       >
        {{ roundOneWinnersBottomEast[3] }}
       </li>
@@ -264,12 +288,14 @@
       <li
        @click="declareWinnerRoundTwoEast(roundOneWinnersTopEast[4], 2)"
        class="team team-top"
+       :title="roundOneWinnersTopEast[4]"
       >
        {{ roundOneWinnersTopEast[4] }}
       </li>
       <li
        @click="declareWinnerRoundTwoEast(roundOneWinnersBottomEast[5], 2)"
        class="team team-bottom"
+       :title="roundOneWinnersBottomEast[5] "
       >
        {{ roundOneWinnersBottomEast[5] }}
       </li>
@@ -278,12 +304,14 @@
       <li
        @click="declareWinnerRoundTwoEast(roundOneWinnersTopEast[6], 3)"
        class="team team-top"
+       :title="roundOneWinnersTopEast[6]"
       >
        {{ roundOneWinnersTopEast[6] }}
       </li>
       <li
        @click="declareWinnerRoundTwoEast(roundOneWinnersBottomEast[7], 3)"
        class="team team-bottom"
+       :title="roundOneWinnersBottomEast[7]"
       >
        {{ roundOneWinnersBottomEast[7] }}
       </li>
@@ -295,7 +323,7 @@
      <ul class="matchup" v-for="(n, index) in 8" :key="index">
       <li
        @click="declareWinnerRoundOneEast(selectionBottomEast[index], index)"
-       class="team team-top"
+       class="team-origin team team-top"
       >
       <img
         class="beer-logo"
@@ -306,7 +334,7 @@
       </li>
       <li
        @click="declareWinnerRoundOneEast(selectionTopEast[index], index)"
-       class="team team-bottom"
+       class="team-origin team team-bottom"
       >
       <img
         class="beer-logo"
@@ -645,11 +673,11 @@ export default {
 <style scoped>
 #bracket {
  overflow: hidden;
- font-size: 12px;
+ font-size: 0.75rem;
  padding: 4rem 0;
 }
 .container {
- max-width: 1100px;
+ width: 95%;
  margin: 0 auto;
  display: flex;
  flex-direction: row;
@@ -669,11 +697,6 @@ export default {
  margin-top: -15px;
  text-align: center;
  padding: 230px 0\9;
-}
-.champion i {
- color: #a0a6a8;
- font-size: 45px;
- padding: 10px 0;
 }
 .round {
  float: left;
@@ -695,34 +718,33 @@ export default {
  height: 60px;
  transition: all 0.2s;
 }
-.score {
- font-size: 11px;
- text-transform: uppercase;
- float: right;
- color: #2c7399;
- font-weight: bold;
- font-family: "Roboto Condensed", sans-serif;
- position: absolute;
- right: 5px;
-}
-.team {
+.team-origin {
  display: flex;
  flex-direction: row;
  align-items: center;
+}
+.team {
  padding: 0 5px;
  margin: 3px 0;
  height: 25px;
  line-height: 25px;
- white-space: nowrap;
- overflow: hidden;
  position: relative;
  cursor: pointer;
+ white-space: nowrap;
+ overflow: hidden;
+ text-overflow: ellipsis;
 }
+
+.round-two, .round-three {
+ min-width: 0;
+}
+
 .round-two .matchup {
  margin: 0;
  height: 60px;
  padding: 50px 0;
 }
+
 .round-three .matchup {
  margin: 0;
  height: 60px;
@@ -730,34 +752,19 @@ export default {
 }
 .round-details {
  font-family: "Roboto Condensed", sans-serif;
- font-size: 13px;
+ font-size: 1rem;
  color: #2c7399;
  text-transform: uppercase;
  text-align: center;
  height: 40px;
 }
-.champion li,
-.round li {
+
+li.team {
  background-color: #fff;
  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
- opacity: 1;
-}
-.current li {
- opacity: 1;
-}
-.current li.team {
- background-color: #fff;
- box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
- opacity: 1;
 }
 .final {
  margin: 4.5em 0;
-}
-.date {
- font-size: 10px;
- letter-spacing: 2px;
- font-family: "Istok Web", sans-serif;
- color: #3f915f;
 }
 .base-btn {
  padding: 0.5rem 1rem;
@@ -780,6 +787,7 @@ export default {
  object-fit: contain;
  padding-right: 1rem;
 }
+
 @media screen and (min-width: 981px) and (max-width: 1099px) {
  .container {
   margin: 0 1%;
@@ -793,12 +801,11 @@ export default {
  .split-one .vote-box {
   margin-left: 138px;
  }
- .hero p.intro {
-  font-size: 28px;
+ .round {
+  width: 95%;
+  max-width: none;
  }
- .hero p.year {
-  margin: 5px 0 10px;
- }
+
 }
 
 @media screen and (max-width: 980px) {
@@ -817,16 +824,6 @@ export default {
   border-bottom: 1px solid #b6b6b6;
   padding-bottom: 20px;
  }
- .hero p.intro {
-  font-size: 24px;
- }
- .hero h1 {
-  font-size: 3em;
-  margin: 15px 0;
- }
- .hero p {
-  font-size: 1em;
- }
 }
 
 @media screen and (max-width: 400px) {
@@ -836,6 +833,7 @@ export default {
  }
  .round {
   width: 21%;
+  max-width: none;
  }
  .current {
   flex-grow: 1;
