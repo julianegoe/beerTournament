@@ -17,7 +17,7 @@
       >
        <img
         class="beer-logo"
-        :src="beerImages[selectionTopWest[index].name]"
+        :src="require(`../assets/beerImages/${selectionTopWest[index].iconFilename}`)"
         alt="beer logo"
        />
        {{ selectionTopWest[index].name }}
@@ -28,7 +28,7 @@
       >
       <img
         class="beer-logo"
-        :src="beerImages[selectionBottomWest[index].name]"
+        :src="require(`../assets/beerImages/${selectionBottomWest[index].iconFilename}`)"
         alt="beer logo"
        />
        {{ selectionBottomWest[index].name }}
@@ -299,7 +299,7 @@
       >
       <img
         class="beer-logo"
-        :src="beerImages[selectionBottomEast[index].name ]"
+        :src="require(`../assets/beerImages/${selectionBottomEast[index].iconFilename}`)"
         alt="beer logo"
        />
        {{ selectionBottomEast[index].name }}
@@ -310,7 +310,7 @@
       >
       <img
         class="beer-logo"
-        :src="beerImages[selectionTopEast[index].name]"
+        :src="require(`../assets/beerImages/${selectionTopEast[index].iconFilename}`)"
         alt="beer logo"
        />
        {{ selectionTopEast[index].name }}
@@ -335,8 +335,8 @@
 import beers from "../assets/beers.json";
 import { updateDoc, doc, getDoc, setDoc, onSnapshot } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
-import { ref, getDownloadURL } from "firebase/storage";
-import { db, auth, storage } from "@/firebase";
+/* import { ref, getDownloadURL } from "firebase/storage"; */
+import { db, auth } from "@/firebase";
 import PermissionDeniedModal from "@/components/Modal/PermissionDeniedModal.vue";
 import ConfirmResetModal from "@/components/Modal/ConfirmResetModal.vue";
 
@@ -377,7 +377,6 @@ export default {
   onAuthStateChanged(auth, (user) => {
    if (user) {
     this.userID = user.displayName;
-    this.getImage(this.competitors)
    } else {
     this.$router.replace({ name: "Login" });
    }
@@ -638,22 +637,6 @@ export default {
   },
   closeResetInfoModal() {
    this.isResetModalOpen = false;
-  },
-  async getImage(beers) {
-   for (let beer of beers) {
-    const gsReference = ref(
-     storage,
-     `gs://beertasting-421a7.appspot.com/${beer.iconFilename}`
-    );
-    try {
-     const url = await getDownloadURL(gsReference)
-     this.beerImages = {...this.beerImages, [beer.name]: url};
-     console.log(this.beerImages)
-    } catch (error) {
-     console.log(error);
-     return "#";
-    }
-   }
   },
  },
 };
