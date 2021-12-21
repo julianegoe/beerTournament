@@ -698,11 +698,6 @@ export default {
  text-align: center;
  padding: 230px 0\9;
 }
-.champion i {
- color: #a0a6a8;
- font-size: 45px;
- padding: 10px 0;
-}
 .round {
  float: left;
  display: flex;
@@ -757,7 +752,7 @@ export default {
 }
 .round-details {
  font-family: "Roboto Condensed", sans-serif;
- font-size: 13px;
+ font-size: 1rem;
  color: #2c7399;
  text-transform: uppercase;
  text-align: center;
@@ -828,9 +823,6 @@ li.team {
  .split {
   border-bottom: 1px solid #b6b6b6;
   padding-bottom: 20px;
- }
- .hero p.intro {
-  font-size: 24px;
  }
 }
 
