@@ -15,11 +15,11 @@
        @click="declareWinnerRoundOneWest(selectionTopWest[index], index)"
        class="team team-top"
       >
-       <!-- <img
+       <img
         class="beer-logo"
-        :src="beerImages.selectionTopWest[index].name"
+        :src="beerImages[selectionTopWest[index].name]"
         alt="beer logo"
-       /> -->
+       />
        {{ selectionTopWest[index].name }}
       </li>
       <li
@@ -298,6 +298,11 @@
        @click="declareWinnerRoundOneEast(selectionTopEast[index], index)"
        class="team team-bottom"
       >
+      <img
+        class="beer-logo"
+        :src="beerImages[selectionTopEast[index].name]"
+        alt="beer logo"
+       />
        {{ selectionTopEast[index].name }}
       </li>
      </ul>
@@ -322,7 +327,6 @@ import { updateDoc, doc, getDoc, setDoc, onSnapshot } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
 import { ref, getDownloadURL } from "firebase/storage";
 import { db, auth, storage } from "@/firebase";
-import beer from "../assets/200px-Astra_Logo.png";
 import PermissionDeniedModal from "@/components/Modal/PermissionDeniedModal.vue";
 import ConfirmResetModal from "@/components/Modal/ConfirmResetModal.vue";
 
@@ -356,7 +360,6 @@ export default {
    finalistBottom: {},
    unsubscribe: null,
    userID: "",
-   beer: beer,
    beerImages: {},
   };
  },
@@ -364,6 +367,7 @@ export default {
   onAuthStateChanged(auth, (user) => {
    if (user) {
     this.userID = user.displayName;
+    this.getImage(this.competitors)
    } else {
     this.$router.replace({ name: "Login" });
    }
@@ -626,18 +630,19 @@ export default {
    this.isResetModalOpen = false;
   },
   async getImage(beers) {
-   for (beer of beers) {
-    let trimmmedName = beer.replace(/\s/g, "");
-    trimmmedName.replace(/ä/g, "ae");
-    trimmmedName.replace(/ö/g, "oe");
-    trimmmedName.replace(/ü/g, "ue");
+   for (let beer of beers) {
+    let trimmmedName = beer.name.replace(/\s/g, "");
+    trimmmedName = trimmmedName.replace(/ä/g, "ae");
+    trimmmedName = trimmmedName.replace(/ö/g, "oe");
+    trimmmedName = trimmmedName.replace(/ü/g, "ue");
     const gsReference = ref(
      storage,
      `gs://beertasting-421a7.appspot.com/${trimmmedName}.svg`
     );
     try {
      const url = await getDownloadURL(gsReference)
-     this.beerImages = {...this.beerImages, beer: url };
+     this.beerImages = {...this.beerImages, [beer.name]: url};
+     console.log(this.beerImages)
     } catch (error) {
      console.log(error);
      return "#";
