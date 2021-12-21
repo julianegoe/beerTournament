@@ -26,6 +26,11 @@
        @click="declareWinnerRoundOneWest(selectionBottomWest[index], index)"
        class="team team-bottom"
       >
+      <img
+        class="beer-logo"
+        :src="beerImages[selectionBottomWest[index].name]"
+        alt="beer logo"
+       />
        {{ selectionBottomWest[index].name }}
       </li>
      </ul>
@@ -292,6 +297,11 @@
        @click="declareWinnerRoundOneEast(selectionBottomEast[index], index)"
        class="team team-top"
       >
+      <img
+        class="beer-logo"
+        :src="beerImages[selectionBottomEast[index].name ]"
+        alt="beer logo"
+       />
        {{ selectionBottomEast[index].name }}
       </li>
       <li
