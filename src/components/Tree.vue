@@ -43,12 +43,14 @@
       <li
        @click="declareWinnerRoundTwoWest(roundOneWinnersTopWest[0], 0)"
        class="team team-top"
+       :title="roundOneWinnersTopWest[0]"
       >
        {{ roundOneWinnersTopWest[0] }}
       </li>
       <li
        @click="declareWinnerRoundTwoWest(roundOneWinnersBottomWest[1], 0)"
        class="team team-bottom"
+       :title="roundOneWinnersBottomWest[1]"
       >
        {{ roundOneWinnersBottomWest[1] }}
       </li>
@@ -57,12 +59,14 @@
       <li
        @click="declareWinnerRoundTwoWest(roundOneWinnersTopWest[2], 1)"
        class="team team-top"
+       :title="roundOneWinnersTopWest[2] "
       >
        {{ roundOneWinnersTopWest[2] }}
       </li>
       <li
        @click="declareWinnerRoundTwoWest(roundOneWinnersBottomWest[3], 1)"
        class="team team-bottom"
+       :title="roundOneWinnersBottomWest[3]"
       >
        {{ roundOneWinnersBottomWest[3] }}
       </li>
@@ -71,12 +75,14 @@
       <li
        @click="declareWinnerRoundTwoWest(roundOneWinnersTopWest[4], 2)"
        class="team team-top"
+       :title="roundOneWinnersTopWest[4]"
       >
        {{ roundOneWinnersTopWest[4] }}
       </li>
       <li
        @click="declareWinnerRoundTwoWest(roundOneWinnersBottomWest[5], 2)"
        class="team team-bottom"
+       :title="roundOneWinnersBottomWest[5]"
       >
        {{ roundOneWinnersBottomWest[5] }}
       </li>
@@ -85,12 +91,14 @@
       <li
        @click="declareWinnerRoundTwoWest(roundOneWinnersTopWest[6], 3)"
        class="team team-top"
+       :title="roundOneWinnersTopWest[6]"
       >
        {{ roundOneWinnersTopWest[6] }}
       </li>
       <li
        @click="declareWinnerRoundTwoWest(roundOneWinnersBottomWest[7], 3)"
        class="team team-bottom"
+       :title="roundOneWinnersBottomWest[7]"
       >
        {{ roundOneWinnersBottomWest[7] }}
       </li>
@@ -104,6 +112,7 @@
       <li
        @click="declareSemiFinalsWest(roundTwoWinnersTopWest[0], 0)"
        class="team team-top"
+       :title="roundTwoWinnersTopWest[0]"
       >
        {{ roundTwoWinnersTopWest[0] }}
       </li>
@@ -111,6 +120,7 @@
       <li
        @click="declareSemiFinalsWest(roundTwoWinnersBottomWest[1], 0)"
        class="team team-bottom"
+       :title="roundTwoWinnersBottomWest[1]"
       >
        {{ roundTwoWinnersBottomWest[1] }}
       </li>
@@ -127,6 +137,7 @@
       <li
        @click="declareSemiFinalsEast(roundTwoWinnersBottomWest[3], 2)"
        class="team team-bottom"
+       :title="roundTwoWinnersBottomWest[3]"
       >
        {{ roundTwoWinnersBottomWest[3] }}
       </li>
@@ -145,12 +156,14 @@
       <li
        @click="declareFinalists(semiFinalsWestTop[0], 0)"
        class="team team-top"
+       :title="semiFinalsWestTop[0]"
       >
        {{ semiFinalsWestTop[0] }}
       </li>
       <li
        @click="declareFinalists(semiFinalsWestBottom[1], 0)"
        class="team team-bottom"
+       :title="semiFinalsWestBottom[1] "
       >
        {{ semiFinalsWestBottom[1] }}
       </li>
@@ -160,12 +173,13 @@
      <i class="fa fa-trophy"></i>
      <div class="round-details">Finale <br /><span class="date"></span></div>
      <ul class="matchup championship">
-      <li @click="declareChampion(finalistTop[0], 0)" class="team team-top">
+      <li @click="declareChampion(finalistTop[0], 0)" class="team team-top" :title="finalistTop[0]">
        {{ finalistTop[0] }}
       </li>
       <li
        @click="declareChampion(finalistBottom[1], 1)"
        class="team team-bottom"
+       :title="finalistBottom[1]"
       >
        {{ finalistBottom[1] }}
       </li>
@@ -179,12 +193,14 @@
       <li
        @click="declareFinalists(semiFinalsEastTop[2], 1)"
        class="team team-top"
+       :title="semiFinalsEastTop[2]"
       >
        {{ semiFinalsEastTop[2] }}
       </li>
       <li
        @click="declareFinalists(semiFinalsEastBottom[3], 1)"
        class="team team-bottom"
+       :title="semiFinalsEastBottom[3]"
       >
        {{ semiFinalsEastBottom[3] }}
       </li>
@@ -199,6 +215,7 @@
       <li
        @click="declareSemiFinalsWest(roundTwoWinnersTopEast[0], 1)"
        class="team team-top"
+       :title="roundTwoWinnersTopEast[0] "
       >
        {{ roundTwoWinnersTopEast[0] }}
       </li>
@@ -206,6 +223,7 @@
       <li
        @click="declareSemiFinalsWest(roundTwoWinnersBottomEast[1], 1)"
        class="team team-bottom"
+       :title="roundTwoWinnersBottomEast[1]"
       >
        {{ roundTwoWinnersBottomEast[1] }}
       </li>
@@ -215,6 +233,7 @@
       <li
        @click="declareSemiFinalsEast(roundTwoWinnersTopEast[2], 3)"
        class="team team-top"
+       :title="roundTwoWinnersTopEast[2]"
       >
        {{ roundTwoWinnersTopEast[2] }}
       </li>
@@ -222,6 +241,7 @@
       <li
        @click="declareSemiFinalsEast(roundTwoWinnersBottomEast[3], 3)"
        class="team team-bottom"
+       :title="roundTwoWinnersBottomEast[3]"
       >
        {{ roundTwoWinnersBottomEast[3] }}
       </li>
@@ -236,12 +256,14 @@
       <li
        @click="declareWinnerRoundTwoEast(roundOneWinnersTopEast[0], 0)"
        class="team team-top"
+       :title="roundOneWinnersTopEast[0]"
       >
        {{ roundOneWinnersTopEast[0] }}
       </li>
       <li
        @click="declareWinnerRoundTwoEast(roundOneWinnersBottomEast[1], 0)"
        class="team team-bottom"
+       :title="roundOneWinnersBottomEast[1] "
       >
        {{ roundOneWinnersBottomEast[1] }}
       </li>
@@ -250,12 +272,14 @@
       <li
        @click="declareWinnerRoundTwoEast(roundOneWinnersTopEast[2], 1)"
        class="team team-top"
+       :title="roundOneWinnersTopEast[2]"
       >
        {{ roundOneWinnersTopEast[2] }}
       </li>
       <li
        @click="declareWinnerRoundTwoEast(roundOneWinnersBottomEast[3], 1)"
        class="team team-bottom"
+       :title="roundOneWinnersBottomEast[3] "
       >
        {{ roundOneWinnersBottomEast[3] }}
       </li>
@@ -264,12 +288,14 @@
       <li
        @click="declareWinnerRoundTwoEast(roundOneWinnersTopEast[4], 2)"
        class="team team-top"
+       :title="roundOneWinnersTopEast[4]"
       >
        {{ roundOneWinnersTopEast[4] }}
       </li>
       <li
        @click="declareWinnerRoundTwoEast(roundOneWinnersBottomEast[5], 2)"
        class="team team-bottom"
+       :title="roundOneWinnersBottomEast[5] "
       >
        {{ roundOneWinnersBottomEast[5] }}
       </li>
@@ -278,12 +304,14 @@
       <li
        @click="declareWinnerRoundTwoEast(roundOneWinnersTopEast[6], 3)"
        class="team team-top"
+       :title="roundOneWinnersTopEast[6]"
       >
        {{ roundOneWinnersTopEast[6] }}
       </li>
       <li
        @click="declareWinnerRoundTwoEast(roundOneWinnersBottomEast[7], 3)"
        class="team team-bottom"
+       :title="roundOneWinnersBottomEast[7]"
       >
        {{ roundOneWinnersBottomEast[7] }}
       </li>
