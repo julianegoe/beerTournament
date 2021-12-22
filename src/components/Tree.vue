@@ -57,50 +57,54 @@
      </ul>
      <ul class="matchup">
       <li
-       @click="declareWinnerRoundTwoWest(roundOneWinnersTopWest[2], 1)"
        class="team team-top"
        :title="roundOneWinnersTopWest[2] "
       >
-       {{ roundOneWinnersTopWest[2] }}
+       <div @click="declareWinnerRoundTwoWest(roundOneWinnersTopWest[2], 1)" class="beername">{{ roundOneWinnersTopWest[2] }}</div>
+      <CloseButton v-if="roundOneWinnersTopWest[2]" @close="deleteSingleBeer(roundOneWinnersTopWest[2], 'roundOneWinnersTopWest')" />
+
       </li>
       <li
-       @click="declareWinnerRoundTwoWest(roundOneWinnersBottomWest[3], 1)"
        class="team team-bottom"
        :title="roundOneWinnersBottomWest[3]"
       >
-       {{ roundOneWinnersBottomWest[3] }}
+       <div @click="declareWinnerRoundTwoWest(roundOneWinnersBottomWest[3], 1)" class="beername">{{ roundOneWinnersBottomWest[3] }}</div>
+        <CloseButton v-if="roundOneWinnersBottomWest[3]" @close="deleteSingleBeer(roundOneWinnersBottomWest[3], 'roundOneWinnersBottomWest')" />
       </li>
      </ul>
      <ul class="matchup">
       <li
-       @click="declareWinnerRoundTwoWest(roundOneWinnersTopWest[4], 2)"
        class="team team-top"
        :title="roundOneWinnersTopWest[4]"
       >
-       {{ roundOneWinnersTopWest[4] }}
+       <div @click="declareWinnerRoundTwoWest(roundOneWinnersTopWest[4], 2)" class="beername">{{ roundOneWinnersTopWest[4] }}</div>
+       <CloseButton v-if="roundOneWinnersTopWest[4]" @close="deleteSingleBeer(roundOneWinnersTopWest[4], 'roundOneWinnersTopWest')" />
       </li>
       <li
-       @click="declareWinnerRoundTwoWest(roundOneWinnersBottomWest[5], 2)"
+       
        class="team team-bottom"
        :title="roundOneWinnersBottomWest[5]"
       >
-       {{ roundOneWinnersBottomWest[5] }}
+       <div @click="declareWinnerRoundTwoWest(roundOneWinnersBottomWest[5], 2)" class="beername">{{ roundOneWinnersBottomWest[5] }}</div>
+      <CloseButton v-if="roundOneWinnersBottomWest[5]" @close="deleteSingleBeer(roundOneWinnersBottomWest[5], 'roundOneWinnersBottomWest')" />
       </li>
      </ul>
      <ul class="matchup">
       <li
-       @click="declareWinnerRoundTwoWest(roundOneWinnersTopWest[6], 3)"
+       
        class="team team-top"
        :title="roundOneWinnersTopWest[6]"
       >
-       {{ roundOneWinnersTopWest[6] }}
+       <div @click="declareWinnerRoundTwoWest(roundOneWinnersTopWest[6], 3)" class="beername">{{ roundOneWinnersTopWest[6] }}</div>
+       <CloseButton v-if="roundOneWinnersTopWest[6]" @close="deleteSingleBeer(roundOneWinnersTopWest[6], 'roundOneWinnersTopWest')" />
       </li>
       <li
-       @click="declareWinnerRoundTwoWest(roundOneWinnersBottomWest[7], 3)"
+       
        class="team team-bottom"
        :title="roundOneWinnersBottomWest[7]"
       >
-       {{ roundOneWinnersBottomWest[7] }}
+       <div @click="declareWinnerRoundTwoWest(roundOneWinnersBottomWest[7], 3)" class="beername">{{ roundOneWinnersBottomWest[7] }}</div>
+       <CloseButton v-if="roundOneWinnersBottomWest[7] " @close="deleteSingleBeer(roundOneWinnersBottomWest[7] , 'roundOneWinnersBottomWest')" />
       </li>
      </ul>
     </div>
@@ -110,36 +114,40 @@
      <div class="round-details">Runde 3<br /><span class="date"></span></div>
      <ul class="matchup">
       <li
-       @click="declareSemiFinalsWest(roundTwoWinnersTopWest[0], 0)"
+       
        class="team team-top"
        :title="roundTwoWinnersTopWest[0]"
       >
-       {{ roundTwoWinnersTopWest[0] }}
+       <div @click="declareSemiFinalsWest(roundTwoWinnersTopWest[0], 0)" class="beername">{{ roundTwoWinnersTopWest[0] }}</div>
+       <CloseButton v-if="roundTwoWinnersTopWest[0]" @close="deleteSingleBeer(roundTwoWinnersTopWest[0], 'roundTwoWinnersTopWest')" />
       </li>
       <!-- west semifinals top -->
       <li
-       @click="declareSemiFinalsWest(roundTwoWinnersBottomWest[1], 0)"
+       
        class="team team-bottom"
        :title="roundTwoWinnersBottomWest[1]"
       >
-       {{ roundTwoWinnersBottomWest[1] }}
+       <div @click="declareSemiFinalsWest(roundTwoWinnersBottomWest[1], 0)" class="beername">{{ roundTwoWinnersBottomWest[1] }}</div>
+       <CloseButton v-if="roundTwoWinnersBottomWest[1]" @close="deleteSingleBeer(roundTwoWinnersBottomWest[1], 'roundTwoWinnersBottomWest')" />
       </li>
       <!-- west semifinals top -->
      </ul>
      <ul class="matchup">
       <li
-       @click="declareSemiFinalsEast(roundTwoWinnersTopWest[2], 2)"
+       
        class="team team-top"
       >
-       {{ roundTwoWinnersTopWest[2] }}
+       <div @click="declareSemiFinalsEast(roundTwoWinnersTopWest[2], 2)" class="beername">{{ roundTwoWinnersTopWest[2] }}</div>
+       <CloseButton v-if="roundTwoWinnersTopWest[2]" @close="deleteSingleBeer(roundTwoWinnersTopWest[2], 'roundTwoWinnersTopWest')" />
       </li>
       <!-- east semifinals top -->
       <li
-       @click="declareSemiFinalsEast(roundTwoWinnersBottomWest[3], 2)"
+       
        class="team team-bottom"
        :title="roundTwoWinnersBottomWest[3]"
       >
-       {{ roundTwoWinnersBottomWest[3] }}
+       <div @click="declareSemiFinalsEast(roundTwoWinnersBottomWest[3], 2)" class="beername">{{ roundTwoWinnersBottomWest[3] }}</div>
+       <CloseButton v-if="roundTwoWinnersBottomWest[3]" @close="deleteSingleBeer(roundTwoWinnersBottomWest[3], 'roundTwoWinnersBottomWest')" />
       </li>
       <!-- east semifinals top -->
      </ul>
@@ -154,18 +162,20 @@
      </div>
      <ul class="matchup championship">
       <li
-       @click="declareFinalists(semiFinalsWestTop[0], 0)"
+       
        class="team team-top"
        :title="semiFinalsWestTop[0]"
       >
-       {{ semiFinalsWestTop[0] }}
+       <div @click="declareFinalists(semiFinalsWestTop[0], 0)" class="beername">{{ semiFinalsWestTop[0] }}</div>
+       <CloseButton v-if="semiFinalsWestTop[0]" @close="deleteSingleBeer(semiFinalsWestTop[0], 'semiFinalsWestTop')" />
       </li>
       <li
-       @click="declareFinalists(semiFinalsWestBottom[1], 0)"
+       
        class="team team-bottom"
        :title="semiFinalsWestBottom[1] "
       >
-       {{ semiFinalsWestBottom[1] }}
+       <div @click="declareFinalists(semiFinalsWestBottom[1], 0)" class="beername">{{ semiFinalsWestBottom[1] }}</div>
+       <CloseButton v-if="semiFinalsWestBottom[1]" @close="deleteSingleBeer(semiFinalsWestBottom[1], 'semiFinalsWestBottom')" />
       </li>
      </ul>
     </div>
@@ -177,11 +187,12 @@
        {{ finalistTop[0] }}
       </li>
       <li
-       @click="declareChampion(finalistBottom[1], 1)"
+       
        class="team team-bottom"
        :title="finalistBottom[1]"
       >
-       {{ finalistBottom[1] }}
+       <div @click="declareChampion(finalistBottom[1], 1)" class="beername">{{ finalistBottom[1] }}</div>
+       <CloseButton v-if="finalistBottom[1]" @close="deleteSingleBeer(finalistBottom[1], 'finalistBottom')" />
       </li>
      </ul>
     </div>
@@ -191,18 +202,20 @@
      </div>
      <ul class="matchup championship">
       <li
-       @click="declareFinalists(semiFinalsEastTop[2], 1)"
+       
        class="team team-top"
        :title="semiFinalsEastTop[2]"
       >
-       {{ semiFinalsEastTop[2] }}
+       <div @click="declareFinalists(semiFinalsEastTop[2], 1)" class="beername">{{ semiFinalsEastTop[2] }}</div>
+       <CloseButton v-if="semiFinalsEastTop[2]" @close="deleteSingleBeer(semiFinalsEastTop[2], 'semiFinalsEastTop')" />
       </li>
       <li
-       @click="declareFinalists(semiFinalsEastBottom[3], 1)"
+       
        class="team team-bottom"
        :title="semiFinalsEastBottom[3]"
       >
-       {{ semiFinalsEastBottom[3] }}
+       <div @click="declareFinalists(semiFinalsEastBottom[3], 1)" class="beername">{{ semiFinalsEastBottom[3] }}</div>
+       <CloseButton v-if="semiFinalsEastBottom[3]" @close="deleteSingleBeer(semiFinalsEastBottom[3], 'semiFinalsEastBottom')" />
       </li>
      </ul>
     </div>
@@ -213,37 +226,41 @@
      <div class="round-details">Runde 3<br /><span class="date"></span></div>
      <ul class="matchup">
       <li
-       @click="declareSemiFinalsWest(roundTwoWinnersTopEast[0], 1)"
+       
        class="team team-top"
        :title="roundTwoWinnersTopEast[0] "
       >
-       {{ roundTwoWinnersTopEast[0] }}
+       <div @click="declareSemiFinalsWest(roundTwoWinnersTopEast[0], 1)" class="beername">{{ roundTwoWinnersTopEast[0] }}</div>
+       <CloseButton v-if="roundTwoWinnersTopEast[0]" @close="deleteSingleBeer(roundTwoWinnersTopEast[0] , 'roundTwoWinnersTopEast')" />
       </li>
       <!-- west semifinals bottom -->
       <li
-       @click="declareSemiFinalsWest(roundTwoWinnersBottomEast[1], 1)"
+       
        class="team team-bottom"
        :title="roundTwoWinnersBottomEast[1]"
       >
-       {{ roundTwoWinnersBottomEast[1] }}
+       <div @click="declareSemiFinalsWest(roundTwoWinnersBottomEast[1], 1)" class="beername">{{ roundTwoWinnersBottomEast[1] }}</div>
+       <CloseButton v-if="roundTwoWinnersBottomEast[1] " @close="deleteSingleBeer(roundTwoWinnersBottomEast[1] , 'roundTwoWinnersBottomEast')" />
       </li>
       <!-- west semifinals bottom -->
      </ul>
      <ul class="matchup">
       <li
-       @click="declareSemiFinalsEast(roundTwoWinnersTopEast[2], 3)"
+       
        class="team team-top"
        :title="roundTwoWinnersTopEast[2]"
       >
-       {{ roundTwoWinnersTopEast[2] }}
+       <div @click="declareSemiFinalsEast(roundTwoWinnersTopEast[2], 3)" class="beername">{{ roundTwoWinnersTopEast[2] }}</div>
+       <CloseButton v-if="roundTwoWinnersTopEast[2] " @close="deleteSingleBeer(roundTwoWinnersTopEast[2] , 'roundTwoWinnersTopEast')" />
       </li>
       <!-- east semifinals bottom -->
       <li
-       @click="declareSemiFinalsEast(roundTwoWinnersBottomEast[3], 3)"
+      
        class="team team-bottom"
        :title="roundTwoWinnersBottomEast[3]"
       >
-       {{ roundTwoWinnersBottomEast[3] }}
+       <div  @click="declareSemiFinalsEast(roundTwoWinnersBottomEast[3], 3)" class="beername">{{ roundTwoWinnersBottomEast[3] }}</div>
+       <CloseButton v-if="roundTwoWinnersBottomEast[3]" @close="deleteSingleBeer(roundTwoWinnersBottomEast[3], 'roundTwoWinnersBottomEast')" />
       </li>
       <!-- east semifinals bottom -->
      </ul>
@@ -254,66 +271,73 @@
      <div class="round-details">Runde 2<br /><span class="date"></span></div>
      <ul class="matchup">
       <li
-       @click="declareWinnerRoundTwoEast(roundOneWinnersTopEast[0], 0)"
+      
        class="team team-top"
        :title="roundOneWinnersTopEast[0]"
       >
-       {{ roundOneWinnersTopEast[0] }}
+       <div  @click="declareWinnerRoundTwoEast(roundOneWinnersTopEast[0], 0)" class="beername">{{ roundOneWinnersTopEast[0] }}</div>
+       <CloseButton v-if="roundOneWinnersTopEast[0] " @close="deleteSingleBeer(roundOneWinnersTopEast[0] , 'roundOneWinnersTopEast')" />
       </li>
       <li
-       @click="declareWinnerRoundTwoEast(roundOneWinnersBottomEast[1], 0)"
+       
        class="team team-bottom"
        :title="roundOneWinnersBottomEast[1] "
       >
-       {{ roundOneWinnersBottomEast[1] }}
+       <div @click="declareWinnerRoundTwoEast(roundOneWinnersBottomEast[1], 0)" class="beername">{{ roundOneWinnersBottomEast[1] }}</div>
+       <CloseButton v-if="roundOneWinnersBottomEast[1]" @close="deleteSingleBeer(roundOneWinnersBottomEast[1], 'roundOneWinnersBottomEast')" />
       </li>
      </ul>
      <ul class="matchup">
       <li
-       @click="declareWinnerRoundTwoEast(roundOneWinnersTopEast[2], 1)"
+       
        class="team team-top"
        :title="roundOneWinnersTopEast[2]"
       >
-       {{ roundOneWinnersTopEast[2] }}
+       <div @click="declareWinnerRoundTwoEast(roundOneWinnersTopEast[2], 1)" class="beername">{{ roundOneWinnersTopEast[2] }}</div>
+       <CloseButton v-if="roundOneWinnersTopEast[2] " @close="deleteSingleBeer(roundOneWinnersTopEast[2], 'roundOneWinnersTopEast')" />
       </li>
       <li
-       @click="declareWinnerRoundTwoEast(roundOneWinnersBottomEast[3], 1)"
+       
        class="team team-bottom"
        :title="roundOneWinnersBottomEast[3] "
       >
-       {{ roundOneWinnersBottomEast[3] }}
+       <div @click="declareWinnerRoundTwoEast(roundOneWinnersBottomEast[3], 1)" class="beername">{{ roundOneWinnersBottomEast[3] }}</div>
+       <CloseButton v-if="roundOneWinnersBottomEast[3] " @close="deleteSingleBeer(roundOneWinnersBottomEast[3],  'roundOneWinnersBottomEast')" />
       </li>
      </ul>
      <ul class="matchup">
       <li
-       @click="declareWinnerRoundTwoEast(roundOneWinnersTopEast[4], 2)"
        class="team team-top"
        :title="roundOneWinnersTopEast[4]"
       >
-       {{ roundOneWinnersTopEast[4] }}
+       <div @click="declareWinnerRoundTwoEast(roundOneWinnersTopEast[4], 2)" class="beername">{{ roundOneWinnersTopEast[4] }}</div>
+       <CloseButton v-if="roundOneWinnersTopEast[4] " @close="deleteSingleBeer(roundOneWinnersTopEast[4] , 'roundOneWinnersTopEast')" />
       </li>
       <li
-       @click="declareWinnerRoundTwoEast(roundOneWinnersBottomEast[5], 2)"
+       
        class="team team-bottom"
        :title="roundOneWinnersBottomEast[5] "
       >
-       {{ roundOneWinnersBottomEast[5] }}
+       <div @click="declareWinnerRoundTwoEast(roundOneWinnersBottomEast[5], 2)" class="beername">{{ roundOneWinnersBottomEast[5] }}</div>
+       <CloseButton v-if="roundOneWinnersBottomEast[5] " @close="deleteSingleBeer(roundOneWinnersBottomEast[5] , 'roundOneWinnersBottomEast')" />
       </li>
      </ul>
      <ul class="matchup">
       <li
-       @click="declareWinnerRoundTwoEast(roundOneWinnersTopEast[6], 3)"
+       
        class="team team-top"
        :title="roundOneWinnersTopEast[6]"
       >
-       {{ roundOneWinnersTopEast[6] }}
+       <div @click="declareWinnerRoundTwoEast(roundOneWinnersTopEast[6], 3)" class="beername">{{ roundOneWinnersTopEast[6] }}</div>
+       <CloseButton v-if="roundOneWinnersTopEast[6]" @close="deleteSingleBeer(roundOneWinnersTopEast[6], 'roundOneWinnersTopEast')" />
       </li>
       <li
-       @click="declareWinnerRoundTwoEast(roundOneWinnersBottomEast[7], 3)"
+       
        class="team team-bottom"
        :title="roundOneWinnersBottomEast[7]"
       >
-       {{ roundOneWinnersBottomEast[7] }}
+       <div @click="declareWinnerRoundTwoEast(roundOneWinnersBottomEast[7], 3)" class="beername">{{ roundOneWinnersBottomEast[7] }}</div>
+       <CloseButton v-if="roundOneWinnersBottomEast[7]" @close="deleteSingleBeer(roundOneWinnersBottomEast[7], 'roundOneWinnersBottomEast')" />
       </li>
      </ul>
     </div>
@@ -671,7 +695,9 @@ export default {
   },
   async deleteSingleBeer(beer, documentId) {
     if (this.isOwned && beer) {
-      await updateDoc(doc(db, "Users", this.$route.params.id), { [documentId]: {} });
+      console.log("beer ", beer)
+      console.log("documentId ", documentId)
+      /* await updateDoc(doc(db, "Users", this.$route.params.id), { [documentId]: {} }); */
     }
   },
  },
