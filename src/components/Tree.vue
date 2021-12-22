@@ -368,6 +368,7 @@ import { db, auth } from "@/firebase";
 import PermissionDeniedModal from "@/components/Modal/PermissionDeniedModal.vue";
 import ConfirmResetModal from "@/components/Modal/ConfirmResetModal.vue";
 
+
 export default {
  name: "Tree",
  components: {
@@ -481,7 +482,7 @@ export default {
    }
   },
   async declareWinnerRoundOneWest(beer, index) {
-   if (this.isOwned) {
+   if (this.isOwned && beer) {
     if (index % 2 === 0) {
      this.roundOneWinnersTopWest = {
       ...this.roundOneWinnersTopWest,
@@ -508,7 +509,7 @@ export default {
    }
   },
   async declareWinnerRoundOneEast(beer, index) {
-   if (this.isOwned) {
+   if (this.isOwned && beer) {
     if (index % 2 === 0) {
      this.roundOneWinnersTopEast = {
       ...this.roundOneWinnersTopEast,
@@ -535,7 +536,7 @@ export default {
    }
   },
   async declareWinnerRoundTwoEast(beer, index) {
-   if (this.isOwned) {
+   if (this.isOwned && beer) {
     if (index % 2 === 0) {
      this.roundTwoWinnersTopEast = {
       ...this.roundTwoWinnersTopEast,
@@ -562,7 +563,7 @@ export default {
    }
   },
   async declareWinnerRoundTwoWest(beer, index) {
-   if (this.isOwned) {
+   if (this.isOwned && beer) {
     if (index % 2 === 0) {
      this.roundTwoWinnersTopWest = {
       ...this.roundTwoWinnersTopWest,
@@ -589,7 +590,7 @@ export default {
    }
   },
   async declareSemiFinalsWest(beer, index) {
-   if (this.isOwned) {
+   if (this.isOwned && beer) {
     if (index % 2 === 0) {
      this.semiFinalsWestTop = { ...this.semiFinalsWestTop, [index]: beer };
      this.setDocument(
@@ -613,7 +614,7 @@ export default {
    }
   },
   async declareSemiFinalsEast(beer, index) {
-   if (this.isOwned) {
+   if (this.isOwned && beer) {
     if (index % 2 === 0) {
      this.semiFinalsEastTop = { ...this.semiFinalsEastTop, [index]: beer };
      this.setDocument(
@@ -637,7 +638,7 @@ export default {
    }
   },
   async declareFinalists(beer, index) {
-   if (this.isOwned) {
+   if (this.isOwned && beer) {
     if (index % 2 === 0) {
      this.finalistTop = { ...this.finalistTop, [index]: beer };
      this.setDocument(this.$route.params.id, "finalistTop", this.finalistTop);
@@ -654,7 +655,7 @@ export default {
    }
   },
   declareChampion(beer) {
-   if (this.isOwned) {
+   if (this.isOwned && beer) {
     window.alert(beer + " hat gewonnen!");
    } else {
     this.isInfoModalOpen = true;
@@ -677,7 +678,7 @@ export default {
  padding: 4rem 0;
 }
 .container {
- width: 95%;
+ max-width: 95%;
  margin: 0 auto;
  display: flex;
  flex-direction: row;

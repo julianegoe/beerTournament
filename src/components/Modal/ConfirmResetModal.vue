@@ -27,6 +27,7 @@ import BaseModal from '@/components/Modal/BaseModal.vue';
     flex-direction: column;
     justify-content: center;
     padding: 1rem;
+    font-size: 1.5rem
 }
 
 .reset-btn{
