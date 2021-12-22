@@ -41,19 +41,18 @@
      <div class="round-details">Runde 2<br /><span class="date"></span></div>
      <ul class="matchup">
       <li
-       @click="declareWinnerRoundTwoWest(roundOneWinnersTopWest[0], 0)"
        class="team team-top"
        :title="roundOneWinnersTopWest[0]"
       >
-       <div class="beername">{{ roundOneWinnersTopWest[0] }}</div>
+       <div @click="declareWinnerRoundTwoWest(roundOneWinnersTopWest[0], 0)" class="beername">{{ roundOneWinnersTopWest[0] }}</div>
        <CloseButton v-if="roundOneWinnersTopWest[0]" @close="deleteSingleBeer(roundOneWinnersTopWest[0], 'roundOneWinnersTopWest')" />
       </li>
       <li
-       @click="declareWinnerRoundTwoWest(roundOneWinnersBottomWest[1], 0)"
        class="team team-bottom"
        :title="roundOneWinnersBottomWest[1]"
       >
-       {{ roundOneWinnersBottomWest[1] }}
+       <div @click="declareWinnerRoundTwoWest(roundOneWinnersBottomWest[1], 0)" class="beername">{{ roundOneWinnersBottomWest[1] }}</div>
+      <CloseButton v-if="roundOneWinnersBottomWest[1] " @close="deleteSingleBeer(roundOneWinnersBottomWest[1] , 'roundOneWinnersBottomWest')" />
       </li>
      </ul>
      <ul class="matchup">
@@ -735,6 +734,7 @@ export default {
 .team {
  display: flex;
  align-content: center;
+ justify-content: space-between;
  padding: 0 5px;
  margin: 3px 0;
  height: 25px;
@@ -747,7 +747,7 @@ export default {
 }
 
 .beername {
-  white-space: nowrap;
+ white-space: nowrap;
  overflow: hidden;
  text-overflow: ellipsis;
 }
