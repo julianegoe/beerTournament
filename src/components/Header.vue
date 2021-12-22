@@ -11,7 +11,7 @@
         </div>
         <div class="header__right">
             <a v-if="isLoggedIn" @click.prevent="signOut">
-                Log Out
+                Ausloggen
             </a>
         </div>
     </div>

@@ -23,16 +23,15 @@
                     <ol>
                         <li>Beim Bier-Turnier 2022 sollen alle Teilnehmer*innen die Möglichkeit haben, ihr Lieblingsbier zu finden.
                             Der Zeitraum dafür ist das komplette Jahr 2022.
-                        </li>
-                        <li>Die Website wird von einem Login Bereich aus datenschutzrechtlichen Gründen geschützt. </li>
-                        <li>Jede/r Teilnehmer*in hat einen eigenen Turnierbaum und kann Turnierbäume aller Mitspieler*innen einsehen. </li>
-                        <li>In jeder Runde wird die Hälfte aller Biermarken eliminiert. Dazu treten jeweils zwei Marken gegeneinander an.</li>
-                        <li>Zugelasene Biersorten sind: Pils, Helles, Kölsch, Schwarzbier, Kellerbier, Bockbier, Export, Hefeweizen, Stout</li>
-                        <li>Nicht zugelassene Biersorten sind: Craftbiere aller Art, Biermischgetränke wie Radler, Diesel etc., ALKOHOLFREIE Biere, Malzbiere, Belgische Biersorten, Cider</li>
+                        </li><br>
+                        <li>Die Website wird von einem Login Bereich aus datenschutzrechtlichen Gründen geschützt. </li><br>
+                        <li>Jede/r Teilnehmer*in hat einen eigenen Turnierbaum und kann Turnierbäume aller Mitspieler*innen einsehen. </li><br>
+                        <li>In jeder Runde wird die Hälfte aller Biermarken eliminiert. Dazu treten jeweils zwei Marken gegeneinander an.</li><br>
+                        <li>Zugelasene Biersorten sind: Pils, Helles, Kölsch, Schwarzbier, Kellerbier, Bockbier, Export, Hefeweizen, Stout</li><br>
+                        <li>Nicht zugelassene Biersorten sind: Craftbiere aller Art, Biermischgetränke wie Radler, Diesel etc., ALKOHOLFREIE Biere, Malzbiere, Belgische Biersorten, Cider</li><br>
                         <li>Die Verkostung sollte nach Möglichkeit "blind" erfolgen. Das heißt, der oder die Teilnehmer*in nutzt zur Verkostung zwei Gläser und lässt diese von einer zweiten Person austauschen.</li>
                     </ol>
                 </p>
-                <div>Startschuss ist der 01.01.2022</div>
             </div>
 </template>
 

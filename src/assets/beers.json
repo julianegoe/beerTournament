@@ -1,130 +1,130 @@
 [
     {
-        "name": "Astra Urtyp",
-        "iconFilename": "AstraUrtyp.svg"
-    },
-    {
-        "name": "Augustiner Lagerbier Hell",
-        "iconFilename": "AugustinerLagerbierHell.png"
+        "name": "Grevensteiner Original",
+        "iconFilename": "GrevensteinerOriginal.svg"
     },
     {
         "name": "Bayreuther Hell",
         "iconFilename": "BayreutherHell.png"
     },
     {
-        "name": "Berliner Kindl Jubiläums Pilsener",
-        "iconFilename": "BerlinerKindlJubilaeumsPilsener.png"
-    },
-    {
-        "name": "Berliner Pilsner",
-        "iconFilename": "BerlinerPilsner.gif"
-    },
-    {
-        "name": "Büble Bayrisch Hell",
-        "iconFilename": "BuebleBayrischHell.svg"
-    },
-    {
-        "name": "Büble Edelbräu",
-        "iconFilename": "BuebleEdelbraeu.svg"
-    },
-    {
-        "name": "Budweiser Budvar Original",
-        "iconFilename": "BudweiserBudvarOriginal.svg"
-    },
-    {
-        "name": "Carlsberg Pilsner",
-        "iconFilename": "Carlsberg Pilsner.svg"
-    },
-    {
-        "name": "Corona",
-        "iconFilename": "Corona.svg"
-    },
-    {
-        "name": "Duckstein Rotblond",
-        "iconFilename": "DucksteinRotblond.svg"
-    },
-    {
-        "name": "Feldschlösschen Pilsner",
-        "iconFilename": "FeldschloesschenPilsner.png"
-    },
-    {
-        "name": "Flensburger Pilsener",
-        "iconFilename": "FlensburgerPilsener.svg"
-    },
-    {
-        "name": "Freiberger Pils",
-        "iconFilename": "FreibergerPils.png"
-    },
-    {
-        "name": "Grevensteiner Original",
-        "iconFilename": "GrevensteinerOriginal.svg"
-    },
-    {
-        "name": "Guiness Draught",
-        "iconFilename": "GuinessDraught.svg"
-    },
-    {
-        "name": "Heineken",
-        "iconFilename": "Heineken.svg"
-    },
-    {
-        "name": "Jever Pilsener",
-        "iconFilename": "JeverPilsener.svg"
-    },
-    {
-        "name": "Kilkenny Irish Beer",
-        "iconFilename": "KilkennyIrishBeer.svg"
-    },
-    {
-        "name": "Lübzer Pilsener",
-        "iconFilename": "LuebzerPilsener.png"
-    },
-    {
-        "name": "Mauritius Urtyp Export",
-        "iconFilename": "MauritiusUrtypExport.svg"
+        "name": "Staropramen",
+        "iconFilename": "Staropramen.svg"
     },
     {
         "name": "Mönchshof Kellerbier",
         "iconFilename": "MoenchshofKellerbier.svg"
     },
     {
-        "name": "Pilsner Urquell",
-        "iconFilename": "PilsnerUrquell.svg"
+        "name": "Feldschlösschen Pilsner",
+        "iconFilename": "FeldschloesschenPilsner.png"
     },
     {
-        "name": "Rostocker Pilsener",
-        "iconFilename": "RostockerPilsener.png"
+        "name": "Wicküler Pilsener",
+        "iconFilename": "WickuelerPilsener.svg"
     },
     {
-        "name": "Rothaus Pils Tannenzäpfle",
-        "iconFilename": "RothausPilsTannenzaepfle.svg"
+        "name": "Büble Bayrisch Hell",
+        "iconFilename": "BuebleBayrischHell.svg"
     },
     {
-        "name": "Staropramen",
-        "iconFilename": "Staropramen.svg"
+        "name": "Guiness Draught",
+        "iconFilename": "GuinessDraught.svg"
+    },
+    {
+        "name": "Duckstein Rotblond",
+        "iconFilename": "DucksteinRotblond.svg"
+    },
+    {
+        "name": "Astra Urtyp",
+        "iconFilename": "AstraUrtyp.svg"
     },
     {
         "name": "Sternburg Export",
         "iconFilename": "SternburgExport.png"
     },
     {
-        "name": "Tegernseer Hell",
-        "iconFilename": "TegernseerHell.png"
+        "name": "Rostocker Pilsener",
+        "iconFilename": "RostockerPilsener.png"
     },
     {
-        "name": "Tyskie Gronie",
-        "iconFilename": "TyskieGronie.png"
-    },
-    {
-        "name": "Ur-Krostitzer Pils",
-        "iconFilename": "UrKrostitzerPils.png"
+        "name": "Lübzer Pilsener",
+        "iconFilename": "LuebzerPilsener.png"
     },
     {
         "name": "Wernesgrüner Pils",
         "iconFilename": "WernesgruenerPils.png"
     },
     {
-        "name": "Wicküler Pilsener",
-        "iconFilename": "WickuelerPilsener.svg"
+        "name": "Mauritius Urtyp Export",
+        "iconFilename": "MauritiusUrtypExport.svg"
+    },
+    {
+        "name": "Ur-Krostitzer Pils",
+        "iconFilename": "UrKrostitzerPils.png"
+    },
+    {
+        "name": "Budweiser Budvar Original",
+        "iconFilename": "BudweiserBudvarOriginal.svg"
+    },
+    {
+        "name": "Augustiner Lagerbier Hell",
+        "iconFilename": "AugustinerLagerbierHell.png"
+    },
+    {
+        "name": "Flensburger Pilsener",
+        "iconFilename": "FlensburgerPilsener.svg"
+    },
+    {
+        "name": "Carlsberg Pilsner",
+        "iconFilename": "Carlsberg Pilsner.svg"
+    },
+    {
+        "name": "Berliner Kindl Jubiläums Pilsener",
+        "iconFilename": "BerlinerKindlJubilaeumsPilsener.png"
+    },
+    {
+        "name": "Tyskie Gronie",
+        "iconFilename": "TyskieGronie.png"
+    },
+    {
+        "name": "Pilsner Urquell",
+        "iconFilename": "PilsnerUrquell.svg"
+    },
+    {
+        "name": "Jever Pilsener",
+        "iconFilename": "JeverPilsener.svg"
+    },
+    {
+        "name": "Büble Edelbräu",
+        "iconFilename": "BuebleEdelbraeu.svg"
+    },
+    {
+        "name": "Kilkenny Irish Beer",
+        "iconFilename": "KilkennyIrishBeer.svg"
+    },
+    {
+        "name": "Heineken",
+        "iconFilename": "Heineken.svg"
+    },
+    {
+        "name": "Rothaus Pils Tannenzäpfle",
+        "iconFilename": "RothausPilsTannenzaepfle.svg"
+    },
+    {
+        "name": "Corona",
+        "iconFilename": "Corona.svg"
+    },
+    {
+        "name": "Berliner Pilsner",
+        "iconFilename": "BerlinerPilsner.gif"
+    },
+    {
+        "name": "Freiberger Pils",
+        "iconFilename": "FreibergerPils.png"
+    },
+    {
+        "name": "Tegernseer Hell",
+        "iconFilename": "TegernseerHell.png"
     }
 ]
