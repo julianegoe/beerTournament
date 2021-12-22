@@ -45,7 +45,8 @@
        class="team team-top"
        :title="roundOneWinnersTopWest[0]"
       >
-       {{ roundOneWinnersTopWest[0] }}
+       <div class="beername">{{ roundOneWinnersTopWest[0] }}</div>
+       <CloseButton v-if="roundOneWinnersTopWest[0]" @close="deleteSingleBeer(roundOneWinnersTopWest[0], 'roundOneWinnersTopWest')" />
       </li>
       <li
        @click="declareWinnerRoundTwoWest(roundOneWinnersBottomWest[1], 0)"
@@ -367,6 +368,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { db, auth } from "@/firebase";
 import PermissionDeniedModal from "@/components/Modal/PermissionDeniedModal.vue";
 import ConfirmResetModal from "@/components/Modal/ConfirmResetModal.vue";
+import CloseButton from '@/components/globals/CloseButton.vue';
 
 
 export default {
@@ -374,6 +376,7 @@ export default {
  components: {
   PermissionDeniedModal,
   ConfirmResetModal,
+  CloseButton,
  },
  data() {
   return {
@@ -667,6 +670,11 @@ export default {
   closeResetInfoModal() {
    this.isResetModalOpen = false;
   },
+  async deleteSingleBeer(beer, documentId) {
+    if (this.isOwned && beer) {
+      await updateDoc(doc(db, "Users", this.$route.params.id), { [documentId]: {} });
+    }
+  },
  },
 };
 </script>
@@ -725,6 +733,8 @@ export default {
  align-items: center;
 }
 .team {
+ display: flex;
+ align-content: center;
  padding: 0 5px;
  margin: 3px 0;
  height: 25px;
@@ -732,6 +742,12 @@ export default {
  position: relative;
  cursor: pointer;
  white-space: nowrap;
+ overflow: hidden;
+ text-overflow: ellipsis;
+}
+
+.beername {
+  white-space: nowrap;
  overflow: hidden;
  text-overflow: ellipsis;
 }
