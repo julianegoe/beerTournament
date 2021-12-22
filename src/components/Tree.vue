@@ -12,7 +12,7 @@
      <div class="round-details">Runde 1<br /><span class="date"></span></div>
      <ul class="matchup" v-for="(n, index) in 8" :key="index">
       <li
-       @click="declareWinnerRoundOneWest(selectionTopWest[index], index)"
+       @click="declareWinnerRoundOne(selectionTopWest[index].name, 'top', 'West', index)"
        class="team-origin team team-top"
       >
        <img
@@ -23,7 +23,7 @@
        {{ selectionTopWest[index].name }}
       </li>
       <li
-       @click="declareWinnerRoundOneWest(selectionBottomWest[index], index)"
+       @click="declareWinnerRoundOne(selectionBottomWest[index].name, 'bottom', 'West', index)"
        class="team-origin team team-bottom"
       >
       <img
@@ -36,74 +36,7 @@
      </ul>
     </div>
     <!-- END ROUND ONE -->
-
-    <div class="round round-two">
-     <div class="round-details">Runde 2<br /><span class="date"></span></div>
-     <ul class="matchup">
-      <li
-       class="team team-top"
-       :title="roundOneWinnersTopWest[0]"
-      >
-       <div @click="declareWinnerRoundTwoWest(roundOneWinnersTopWest[0], 0)" class="beername">{{ roundOneWinnersTopWest[0] }}</div>
-       <CloseButton v-if="roundOneWinnersTopWest[0]" @close="deleteSingleBeer(roundOneWinnersTopWest[0], 'roundOneWinnersTopWest')" />
-      </li>
-      <li
-       class="team team-bottom"
-       :title="roundOneWinnersBottomWest[1]"
-      >
-       <div @click="declareWinnerRoundTwoWest(roundOneWinnersBottomWest[1], 0)" class="beername">{{ roundOneWinnersBottomWest[1] }}</div>
-      <CloseButton v-if="roundOneWinnersBottomWest[1] " @close="deleteSingleBeer(roundOneWinnersBottomWest[1] , 'roundOneWinnersBottomWest')" />
-      </li>
-     </ul>
-     <ul class="matchup">
-      <li
-       @click="declareWinnerRoundTwoWest(roundOneWinnersTopWest[2], 1)"
-       class="team team-top"
-       :title="roundOneWinnersTopWest[2] "
-      >
-       {{ roundOneWinnersTopWest[2] }}
-      </li>
-      <li
-       @click="declareWinnerRoundTwoWest(roundOneWinnersBottomWest[3], 1)"
-       class="team team-bottom"
-       :title="roundOneWinnersBottomWest[3]"
-      >
-       {{ roundOneWinnersBottomWest[3] }}
-      </li>
-     </ul>
-     <ul class="matchup">
-      <li
-       @click="declareWinnerRoundTwoWest(roundOneWinnersTopWest[4], 2)"
-       class="team team-top"
-       :title="roundOneWinnersTopWest[4]"
-      >
-       {{ roundOneWinnersTopWest[4] }}
-      </li>
-      <li
-       @click="declareWinnerRoundTwoWest(roundOneWinnersBottomWest[5], 2)"
-       class="team team-bottom"
-       :title="roundOneWinnersBottomWest[5]"
-      >
-       {{ roundOneWinnersBottomWest[5] }}
-      </li>
-     </ul>
-     <ul class="matchup">
-      <li
-       @click="declareWinnerRoundTwoWest(roundOneWinnersTopWest[6], 3)"
-       class="team team-top"
-       :title="roundOneWinnersTopWest[6]"
-      >
-       {{ roundOneWinnersTopWest[6] }}
-      </li>
-      <li
-       @click="declareWinnerRoundTwoWest(roundOneWinnersBottomWest[7], 3)"
-       class="team team-bottom"
-       :title="roundOneWinnersBottomWest[7]"
-      >
-       {{ roundOneWinnersBottomWest[7] }}
-      </li>
-     </ul>
-    </div>
+    <SecondRound :isOwned="isOwned" hemisphere="West"/>
     <!-- END ROUND TWO -->
 
     <div class="round round-three">
@@ -249,74 +182,7 @@
      </ul>
     </div>
     <!-- END ROUND THREE -->
-
-    <div class="round round-two">
-     <div class="round-details">Runde 2<br /><span class="date"></span></div>
-     <ul class="matchup">
-      <li
-       @click="declareWinnerRoundTwoEast(roundOneWinnersTopEast[0], 0)"
-       class="team team-top"
-       :title="roundOneWinnersTopEast[0]"
-      >
-       {{ roundOneWinnersTopEast[0] }}
-      </li>
-      <li
-       @click="declareWinnerRoundTwoEast(roundOneWinnersBottomEast[1], 0)"
-       class="team team-bottom"
-       :title="roundOneWinnersBottomEast[1] "
-      >
-       {{ roundOneWinnersBottomEast[1] }}
-      </li>
-     </ul>
-     <ul class="matchup">
-      <li
-       @click="declareWinnerRoundTwoEast(roundOneWinnersTopEast[2], 1)"
-       class="team team-top"
-       :title="roundOneWinnersTopEast[2]"
-      >
-       {{ roundOneWinnersTopEast[2] }}
-      </li>
-      <li
-       @click="declareWinnerRoundTwoEast(roundOneWinnersBottomEast[3], 1)"
-       class="team team-bottom"
-       :title="roundOneWinnersBottomEast[3] "
-      >
-       {{ roundOneWinnersBottomEast[3] }}
-      </li>
-     </ul>
-     <ul class="matchup">
-      <li
-       @click="declareWinnerRoundTwoEast(roundOneWinnersTopEast[4], 2)"
-       class="team team-top"
-       :title="roundOneWinnersTopEast[4]"
-      >
-       {{ roundOneWinnersTopEast[4] }}
-      </li>
-      <li
-       @click="declareWinnerRoundTwoEast(roundOneWinnersBottomEast[5], 2)"
-       class="team team-bottom"
-       :title="roundOneWinnersBottomEast[5] "
-      >
-       {{ roundOneWinnersBottomEast[5] }}
-      </li>
-     </ul>
-     <ul class="matchup">
-      <li
-       @click="declareWinnerRoundTwoEast(roundOneWinnersTopEast[6], 3)"
-       class="team team-top"
-       :title="roundOneWinnersTopEast[6]"
-      >
-       {{ roundOneWinnersTopEast[6] }}
-      </li>
-      <li
-       @click="declareWinnerRoundTwoEast(roundOneWinnersBottomEast[7], 3)"
-       class="team team-bottom"
-       :title="roundOneWinnersBottomEast[7]"
-      >
-       {{ roundOneWinnersBottomEast[7] }}
-      </li>
-     </ul>
-    </div>
+     <SecondRound :isOwned="isOwned" hemisphere="East"/>
     <!-- END ROUND TWO -->
     <div class="round round-one current">
      <div class="round-details">Runde 1<br /><span class="date"></span></div>
@@ -363,11 +229,10 @@
 import beers from "../assets/beers.json";
 import { updateDoc, doc, getDoc, setDoc, onSnapshot } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
-/* import { ref, getDownloadURL } from "firebase/storage"; */
 import { db, auth } from "@/firebase";
 import PermissionDeniedModal from "@/components/Modal/PermissionDeniedModal.vue";
 import ConfirmResetModal from "@/components/Modal/ConfirmResetModal.vue";
-import CloseButton from '@/components/globals/CloseButton.vue';
+import SecondRound from '@/components/Rounds/SecondRound.vue';
 
 
 export default {
@@ -375,7 +240,7 @@ export default {
  components: {
   PermissionDeniedModal,
   ConfirmResetModal,
-  CloseButton,
+  SecondRound,
  },
  data() {
   return {
@@ -385,11 +250,14 @@ export default {
    roundOneWinnersBottomWest: {},
    roundOneWinnersTopEast: {},
    roundOneWinnersBottomEast: {},
+   roundOneWinnersWest: [],
+   roundOneWinnersEast: [],
 
    roundTwoWinnersTopWest: {},
    roundTwoWinnersBottomWest: {},
    roundTwoWinnersTopEast: {},
    roundTwoWinnersBottomEast: {},
+   roundTwoWinners: [],
 
    semiFinalsWestTop: {},
    semiFinalsWestBottom: {},
@@ -483,6 +351,18 @@ export default {
     await updateDoc(doc(db, "Users", username), { [key]: {} });
    }
   },
+  declareWinnerRoundOne(beer, position, hemisphere, index) {
+    if (this.isOwned && beer) {
+      const entry = 
+        {...this[`roundOneWinners${hemisphere}`][index], [position]: beer}
+        this[`roundOneWinners${hemisphere}`].splice(index, 1, entry)
+        this.setDocument(
+        this.$route.params.id,
+        `roundOneWinners${hemisphere}`,
+        this[`roundOneWinners${hemisphere}`]
+      );
+    }                    
+  },
   async declareWinnerRoundOneWest(beer, index) {
    if (this.isOwned && beer) {
     if (index % 2 === 0) {
@@ -531,60 +411,6 @@ export default {
       this.$route.params.id,
       "roundOneWinnersBottomEast",
       this.roundOneWinnersBottomEast
-     );
-    }
-   } else {
-    this.isInfoModalOpen = true;
-   }
-  },
-  async declareWinnerRoundTwoEast(beer, index) {
-   if (this.isOwned && beer) {
-    if (index % 2 === 0) {
-     this.roundTwoWinnersTopEast = {
-      ...this.roundTwoWinnersTopEast,
-      [index]: beer,
-     };
-     this.setDocument(
-      this.$route.params.id,
-      "roundTwoWinnersTopEast",
-      this.roundTwoWinnersTopEast
-     );
-    } else {
-     this.roundTwoWinnersBottomEast = {
-      ...this.roundTwoWinnersBottomEast,
-      [index]: beer,
-     };
-     this.setDocument(
-      this.$route.params.id,
-      "roundTwoWinnersBottomEast",
-      this.roundTwoWinnersBottomEast
-     );
-    }
-   } else {
-    this.isInfoModalOpen = true;
-   }
-  },
-  async declareWinnerRoundTwoWest(beer, index) {
-   if (this.isOwned && beer) {
-    if (index % 2 === 0) {
-     this.roundTwoWinnersTopWest = {
-      ...this.roundTwoWinnersTopWest,
-      [index]: beer,
-     };
-     this.setDocument(
-      this.$route.params.id,
-      "roundTwoWinnersTopWest",
-      this.roundTwoWinnersTopWest
-     );
-    } else {
-     this.roundTwoWinnersBottomWest = {
-      ...this.roundTwoWinnersBottomWest,
-      [index]: beer,
-     };
-     this.setDocument(
-      this.$route.params.id,
-      "roundTwoWinnersBottomWest",
-      this.roundTwoWinnersBottomWest
      );
     }
    } else {
