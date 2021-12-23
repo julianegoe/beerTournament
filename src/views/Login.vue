@@ -52,7 +52,7 @@ import { auth } from '@/firebase'
         methods: {
             async sendEmailVerification() {
                 let actionCodeSettings = {
-                url: 'https://www.bierturnier.de/login',
+                url: 'http://localhost:8080/login',
                 handleCodeInApp: true
                 };
                 try {
