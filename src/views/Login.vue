@@ -38,6 +38,7 @@
 <script>
 import { signInWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
 import { auth } from '@/firebase'
+
     export default {
         name: 'Login',
         data() {
@@ -51,8 +52,9 @@ import { auth } from '@/firebase'
         },
         methods: {
             async sendEmailVerification() {
+                console.log(process.env.VUE_APP_BASE_URL);
                 let actionCodeSettings = {
-                url: 'https://www.bierturnier.de/login',
+                url: process.env.VUE_APP_BASE_URL,
                 handleCodeInApp: true
                 };
                 try {
@@ -64,6 +66,7 @@ import { auth } from '@/firebase'
             async loginUser() {
                 try {
                     await signInWithEmailAndPassword(auth, this.email, this.password);
+                    console.log(auth.currentUser.emailVerified)
                     if (auth.currentUser.emailVerified) {
                         this.isLoggedIn = true;
                         this.$router.replace({ name: 'Home', params: {
