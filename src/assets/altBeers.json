@@ -1,0 +1,74 @@
+[
+    {   "id": "1",
+        "top": {
+            "id": "1",
+            "name": "Grevensteiner Original",
+            "iconFilename": "GrevensteinerOriginal.svg"
+        },
+        "bottom": {
+            "id": "1",
+            "name": "Bayreuther Hell",
+            "iconFilename": "BayreutherHell.png"
+        }
+    },
+    {   "id": "2",
+        "top": {
+            "id": "2",
+            "name": "Staropramen",
+            "iconFilename": "Staropramen.svg"
+        },
+        "bottom": {
+            "id": "2",
+            "name": "Mönchshof Kellerbier",
+            "iconFilename": "MoenchshofKellerbier.svg"
+        }
+    },
+    {   "id": "3",
+        "top": {
+            "id": "3",
+            "name": "Feldschlösschen Pilsner",
+            "iconFilename": "FeldschloesschenPilsner.png"
+        },
+        "bottom": {
+            "id": "3",
+            "name": "Wicküler Pilsener",
+            "iconFilename": "WickuelerPilsener.svg"
+        }
+    },
+    {   "id": "4",
+        "top": {
+            "id": "4",
+            "name": "Büble Bayrisch Hell",
+            "iconFilename": "BuebleBayrischHell.svg"
+        },
+        "bottom": {
+            "id": "4",
+            "name": "Guiness Draught",
+            "iconFilename": "GuinessDraught.svg"
+        }
+    },
+    {   "id": "5",
+        "top": {
+            "id": "5",
+            "name": "Duckstein Rotblond",
+            "iconFilename": "DucksteinRotblond.svg"
+        },
+        "bottom": {
+            "id": "5",
+            "name": "Astra Urtyp",
+            "iconFilename": "AstraUrtyp.svg"
+        }
+    },
+    {   "id": "6",
+        "top": {
+            "id": "6",
+            "name": "Rostocker Pilsner",
+            "iconFilename": "RostockerPilsner.svg"
+        },
+        "bottom": {
+            "id": "6",
+            "name": "Sternburg Export",
+            "iconFilename": "SternburgExport.svg"
+        }
+    }
+]

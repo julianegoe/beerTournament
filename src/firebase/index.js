@@ -2,6 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from 'firebase/firestore';
 import { getStorage } from "firebase/storage";
+import { getDatabase } from "firebase/database";
 
 const prodConfig = {
   apiKey: "AIzaSyBx2Bu0diuutnoD2r9ykjCIDt0gx5WlDiQ",
@@ -15,6 +16,7 @@ const prodConfig = {
 const devConfig = {
   apiKey: "AIzaSyAiNEWNiw-ymnPfYjqO-nqdC7lixBT5ZT4",
   authDomain: "bierturnier-dev.firebaseapp.com",
+  databaseURL: "https://bierturnier-dev-default-rtdb.europe-west1.firebasedatabase.app",
   projectId: "bierturnier-dev",
   storageBucket: "bierturnier-dev.appspot.com",
   messagingSenderId: "476121616853",
@@ -32,6 +34,7 @@ const db = getFirestore();
 const auth = getAuth();
 auth.languageCode = 'de';
 const storage = getStorage();
+const database = getDatabase();
 
 // export utils/refs
 export {
@@ -39,4 +42,5 @@ export {
     auth,
     storage,
     firebase,
+    database,
 }

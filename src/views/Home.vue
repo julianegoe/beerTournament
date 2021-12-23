@@ -1,15 +1,15 @@
 <template>
   <div class="home">
-    <Tree />
+    <AltTree />
   </div>
 </template>
 
 <script>
-import Tree from '@/components/Tree.vue';
+import AltTree from '@/components/AltTree.vue';
 
 export default {
   name: 'Home',
-  components: { Tree }
+  components: { AltTree }
 }
 </script>
 <style scoped>
