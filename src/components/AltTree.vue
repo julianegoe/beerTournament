@@ -100,6 +100,7 @@ import CloseButton from '@/components/globals/CloseButton.vue';
     align-items: center;
     padding: 0.5rem;
     min-width: 0;
+    max-width: 200px;
     background-color: #fff;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 }
