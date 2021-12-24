@@ -2,7 +2,7 @@
         <!-- Round one -->
         <template  v-for="(n, index) in numberOfMatches" :key="index">
             <div :class="`div${index + modifier} wrapper`">
-                <div :class="nextRound.includes('East') || nextRound.includes('Two') ? 'east' : ''" class="beer-box" @click="sendToNextRound(roundData[index].top, index, nextRound)">
+                <div :class="nextRound.includes('East') &&  nextRound.includes('Two') ? 'east' : ''" class="beer-box" @click="sendToNextRound(roundData[index].top, index, nextRound)">
                     <img v-if="nextRound.includes('roundTwo')"
                         class="beer-logo"
                         :src="require(`../assets/beerImages/${roundData[index].top.iconFilename}`)"
@@ -11,7 +11,7 @@
                     <div class="beername">{{roundData[index].top.name || ''}}</div>
                     <CloseButton v-if="!nextRound.includes('roundTwo')"/>
                 </div>
-                <div :class="nextRound.includes('East') ? 'east' : ''" class="beer-box" @click="sendToNextRound(roundData[index].bottom, index, nextRound)">
+                <div :class="nextRound.includes('East') &&  nextRound.includes('Two') ? 'east' : ''"  class="beer-box" @click="sendToNextRound(roundData[index].bottom, index, nextRound)">
                     <img v-if="nextRound.includes('roundTwo')"
                         class="beer-logo"
                         :src="require(`../assets/beerImages/${roundData[index].bottom.iconFilename}`)"
