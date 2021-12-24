@@ -84,7 +84,7 @@ import { auth } from '@/firebase'
                         window.alert(error)
                     }
                 }
-            }
+            },
         }
     }
 </script>

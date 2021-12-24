@@ -22,7 +22,10 @@
 
 <script>
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { auth } from '@/firebase'
+import {ref, set} from "firebase/database";
+import { auth, database } from '@/firebase';
+import emptyTree from '@/model/model.js';
+
     export default {
         name: 'Register',
         data() {
@@ -30,7 +33,7 @@ import { auth } from '@/firebase'
                 email: '',
                 password: '',
                 displayName: '',
-                auth: {},
+                user: null,
             }
         },
         methods: {
@@ -41,6 +44,7 @@ import { auth } from '@/firebase'
                     displayName: this.displayName,
                     })
                     console.log(this.user);
+                    this.createTree();
                     this.$router.replace({name: 'Login'});
                 } catch (error) {
                     if (error.code === 'auth/email-already-in-use') {
@@ -49,7 +53,10 @@ import { auth } from '@/firebase'
                         window.alert('Es ist ein Fehler aufgetreten: ', error.code)
                     }
                 }
-            }
+            },
+            createTree() {
+                set(ref(database, 'Users/' + this.displayName), emptyTree);
+            },
         },
     }
 </script>
